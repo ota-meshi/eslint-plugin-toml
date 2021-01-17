@@ -10,6 +10,7 @@ export = {
         "toml/no-space-dots": "error",
         "toml/quoted-keys": "error",
         "toml/spaced-comment": "error",
+        "toml/table-bracket-spacing": "error",
         "toml/vue-custom-block/no-parsing-error": "error",
     },
 }

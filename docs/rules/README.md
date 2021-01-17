@@ -24,3 +24,4 @@ The rules with the following star :star: are included in the `plugin:toml/recomm
 | [toml/array-bracket-spacing](./array-bracket-spacing.md) | enforce consistent spacing inside array brackets | :wrench: |  | :star: |
 | [toml/inline-table-curly-spacing](./inline-table-curly-spacing.md) | enforce consistent spacing inside braces | :wrench: |  | :star: |
 | [toml/spaced-comment](./spaced-comment.md) | enforce consistent spacing after the `#` in a comment | :wrench: |  | :star: |
+| [toml/table-bracket-spacing](./table-bracket-spacing.md) | enforce consistent spacing inside table brackets | :wrench: |  | :star: |

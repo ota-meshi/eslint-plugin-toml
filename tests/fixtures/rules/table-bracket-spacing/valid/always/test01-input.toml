@@ -1,0 +1,6 @@
+# {}
+[ foo ]
+[[ foo.array ]]
+
+[ bar ]
+[[ bar.array ]]

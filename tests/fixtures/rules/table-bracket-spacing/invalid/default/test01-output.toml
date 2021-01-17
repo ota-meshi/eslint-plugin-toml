@@ -1,0 +1,6 @@
+# table-bracket-spacing/invalid/default/test01-input.toml
+[foo]
+[[foo.array]]
+
+[bar]
+[[bar.array]]
