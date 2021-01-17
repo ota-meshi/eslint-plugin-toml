@@ -13,8 +13,10 @@ The rules with the following star :star: are included in the `plugin:toml/recomm
 
 | Rule ID | Description | Fixable | RECOMMENDED | STANDARD |
 |:--------|:------------|:-------:|:-----------:|:--------:|
+| [toml/keys-order](./keys-order.md) | disallow defining pair keys out-of-order | :wrench: |  | :star: |
 | [toml/no-space-dots](./no-space-dots.md) | disallow spacing around infix operators | :wrench: |  | :star: |
 | [toml/quoted-keys](./quoted-keys.md) | require or disallow quotes around keys | :wrench: |  | :star: |
+| [toml/tables-order](./tables-order.md) | disallow defining tables out-of-order | :wrench: |  | :star: |
 | [toml/vue-custom-block/no-parsing-error](./vue-custom-block/no-parsing-error.md) | disallow parsing errors in Vue custom blocks |  | :star: | :star: |
 
 ## Extension Rules

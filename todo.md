@@ -1,11 +1,9 @@
 # Rules in consideration
 
 - underscored-number
-- keys-order ... grouping only
-- tables-order ... grouping only
 - space-eq-sign ... `key='value'` / `key = 'value'`
-- table-bracket-spacing
 - array-bracket-newline
+- array-element-newline
 - no-hexadecimal
 - no-octal
 - no-binary
@@ -14,3 +12,4 @@
 - ~~comma-spacing~~
 - indent (array only)
 - padding-line-between-tables
+- padding-line-between-pairs

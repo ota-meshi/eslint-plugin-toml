@@ -1,0 +1,42 @@
+[
+    {
+        "message": "'apple.skin' must be next to 'apple.type'.",
+        "line": 7,
+        "column": 1
+    },
+    {
+        "message": "'orange.skin' must be next to 'orange.type'.",
+        "line": 8,
+        "column": 1
+    },
+    {
+        "message": "'apple.color' must be next to 'apple.skin'.",
+        "line": 10,
+        "column": 1
+    },
+    {
+        "message": "'orange.color' must be next to 'orange.skin'.",
+        "line": 11,
+        "column": 1
+    },
+    {
+        "message": "'apple.skin' must be next to 'apple.type'.",
+        "line": 19,
+        "column": 1
+    },
+    {
+        "message": "'orange.skin' must be next to 'orange.type'.",
+        "line": 20,
+        "column": 1
+    },
+    {
+        "message": "'apple.color' must be next to 'apple.skin'.",
+        "line": 22,
+        "column": 1
+    },
+    {
+        "message": "'orange.color' must be next to 'orange.skin'.",
+        "line": 23,
+        "column": 1
+    }
+]

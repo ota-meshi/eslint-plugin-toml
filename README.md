@@ -124,8 +124,10 @@ The rules with the following star :star: are included in the config.
 
 | Rule ID | Description | Fixable | RECOMMENDED | STANDARD |
 |:--------|:------------|:-------:|:-----------:|:--------:|
+| [toml/keys-order](https://ota-meshi.github.io/eslint-plugin-toml/rules/keys-order.html) | disallow defining pair keys out-of-order | :wrench: |  | :star: |
 | [toml/no-space-dots](https://ota-meshi.github.io/eslint-plugin-toml/rules/no-space-dots.html) | disallow spacing around infix operators | :wrench: |  | :star: |
 | [toml/quoted-keys](https://ota-meshi.github.io/eslint-plugin-toml/rules/quoted-keys.html) | require or disallow quotes around keys | :wrench: |  | :star: |
+| [toml/tables-order](https://ota-meshi.github.io/eslint-plugin-toml/rules/tables-order.html) | disallow defining tables out-of-order | :wrench: |  | :star: |
 | [toml/vue-custom-block/no-parsing-error](https://ota-meshi.github.io/eslint-plugin-toml/rules/vue-custom-block/no-parsing-error.html) | disallow parsing errors in Vue custom blocks |  | :star: | :star: |
 
 ### Extension Rules

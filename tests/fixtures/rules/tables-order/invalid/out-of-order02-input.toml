@@ -1,0 +1,8 @@
+# {}
+# VALID BUT DISCOURAGED
+[fruit.apple]
+key1 = 42
+[animal]
+key2 = 42
+[fruit.orange]
+key3 = 42

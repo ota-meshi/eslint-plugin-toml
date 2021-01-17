@@ -1,0 +1,21 @@
+# keys-order/invalid/out-of-order01-input.toml
+# VALID BUT DISCOURAGED
+
+apple.type = "fruit"
+apple.skin = "thin"
+orange.type = "fruit"
+orange.skin = "thick"
+orange.color = "orange"
+
+apple.color = "red"
+
+[table]
+# VALID BUT DISCOURAGED
+
+apple.type = "fruit"
+apple.skin = "thin"
+orange.type = "fruit"
+orange.skin = "thick"
+orange.color = "orange"
+
+apple.color = "red"

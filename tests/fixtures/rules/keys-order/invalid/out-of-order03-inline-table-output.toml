@@ -1,0 +1,5 @@
+# keys-order/invalid/out-of-order03-inline-table-input.toml
+key = { apple.type = "fruit", apple.skin = "thin", orange.type = "fruit", orange.skin = "thick", orange.color = "orange", apple.color = "red" }
+
+[table]
+key = { apple.type = "fruit", apple.skin = "thin", orange.type = "fruit", orange.skin = "thick", orange.color = "orange", apple.color = "red" }

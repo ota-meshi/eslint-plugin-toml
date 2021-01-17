@@ -1,0 +1,7 @@
+# tables-order/invalid/with-array01-input.toml
+[[fruit.apple]]
+key1 = 42
+[[fruit.apple]]
+key3 = 42
+[animal]
+key2 = 42

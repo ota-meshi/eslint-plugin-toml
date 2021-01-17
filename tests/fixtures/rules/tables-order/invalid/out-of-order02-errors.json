@@ -1,0 +1,7 @@
+[
+    {
+        "message": "'fruit.orange' must be next to 'fruit.apple'.",
+        "line": 7,
+        "column": 2
+    }
+]
