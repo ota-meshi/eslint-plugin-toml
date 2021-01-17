@@ -1,0 +1,4 @@
+# quoted-keys/invalid/default/key01-input.toml
+key1 = 'value'
+key2 = "value"
+foo.bar.baz = 42

@@ -1,0 +1,12 @@
+[
+    {
+        "message": "Unquoted number '123' used as key.",
+        "line": 2,
+        "column": 2
+    },
+    {
+        "message": "Unquoted number '123' used as key.",
+        "line": 3,
+        "column": 1
+    }
+]

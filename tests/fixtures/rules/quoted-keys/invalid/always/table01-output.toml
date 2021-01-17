@@ -1,0 +1,5 @@
+# quoted-keys/invalid/always/table01-input.toml
+# {}
+["key1"]
+['key2']
+["foo"."bar".'baz']
