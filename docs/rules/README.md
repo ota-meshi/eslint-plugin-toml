@@ -16,6 +16,7 @@ The rules with the following star :star: are included in the `plugin:toml/recomm
 | [toml/keys-order](./keys-order.md) | disallow defining pair keys out-of-order | :wrench: |  | :star: |
 | [toml/no-space-dots](./no-space-dots.md) | disallow spacing around infix operators | :wrench: |  | :star: |
 | [toml/quoted-keys](./quoted-keys.md) | require or disallow quotes around keys | :wrench: |  | :star: |
+| [toml/space-eq-sign](./space-eq-sign.md) | require spacing around equals sign | :wrench: |  | :star: |
 | [toml/tables-order](./tables-order.md) | disallow defining tables out-of-order | :wrench: |  | :star: |
 | [toml/vue-custom-block/no-parsing-error](./vue-custom-block/no-parsing-error.md) | disallow parsing errors in Vue custom blocks |  | :star: | :star: |
 
@@ -23,7 +24,9 @@ The rules with the following star :star: are included in the `plugin:toml/recomm
 
 | Rule ID | Description | Fixable | RECOMMENDED | STANDARD |
 |:--------|:------------|:-------:|:-----------:|:--------:|
+| [toml/array-bracket-newline](./array-bracket-newline.md) | enforce linebreaks after opening and before closing array brackets | :wrench: |  | :star: |
 | [toml/array-bracket-spacing](./array-bracket-spacing.md) | enforce consistent spacing inside array brackets | :wrench: |  | :star: |
+| [toml/array-element-newline](./array-element-newline.md) | enforce line breaks between array elements | :wrench: |  | :star: |
 | [toml/inline-table-curly-spacing](./inline-table-curly-spacing.md) | enforce consistent spacing inside braces | :wrench: |  | :star: |
 | [toml/spaced-comment](./spaced-comment.md) | enforce consistent spacing after the `#` in a comment | :wrench: |  | :star: |
 | [toml/table-bracket-spacing](./table-bracket-spacing.md) | enforce consistent spacing inside table brackets | :wrench: |  | :star: |

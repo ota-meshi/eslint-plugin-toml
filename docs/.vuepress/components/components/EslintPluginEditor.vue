@@ -161,8 +161,7 @@ export default {
             monaco.languages.register({ id: "toml" })
             monaco.languages.setMonarchTokensProvider(
                 "toml",
-                require("monaco-editor/esm/vs/basic-languages/toml/toml")
-                    .language,
+                require("./languages/toml/toml").language,
             )
         })
         editor.$watch("codeEditor", () => {

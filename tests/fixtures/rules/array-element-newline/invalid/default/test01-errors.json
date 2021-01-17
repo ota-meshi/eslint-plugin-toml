@@ -1,0 +1,12 @@
+[
+    {
+        "message": "There should be a linebreak after this element.",
+        "line": 2,
+        "column": 12
+    },
+    {
+        "message": "There should be a linebreak after this element.",
+        "line": 2,
+        "column": 15
+    }
+]

@@ -1,9 +1,6 @@
 # Rules in consideration
 
 - underscored-number
-- space-eq-sign ... `key='value'` / `key = 'value'`
-- array-bracket-newline
-- array-element-newline
 - no-hexadecimal
 - no-octal
 - no-binary
