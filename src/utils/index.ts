@@ -67,15 +67,30 @@ export function defineWrapperListener(
     proxyOptions: {
         options: any[]
         createListenerProxy?: (listener: CoreRuleListener) => RuleListener
+        getNodeProxy?: (node: AST.TOMLNode) => any
     },
 ): RuleListener {
     if (!context.parserServices.isTOML) {
         return {}
     }
+    const sourceCode = context.getSourceCode()
+    const proxySourceCode = {
+        __proto__: sourceCode,
+        ...(["getNodeByRangeIndex"] as const).reduce((obj, key) => {
+            obj[key] = (...args: any[]) => {
+                const node = (sourceCode[key] as any)(...args)
+                return proxyOptions.getNodeProxy?.(node) || node
+            }
+            return obj
+        }, {} as any),
+    }
     const listener = coreRule.create({
         // @ts-expect-error -- proto
         __proto__: context,
         options: proxyOptions.options,
+        getSourceCode() {
+            return proxySourceCode
+        },
     }) as RuleListener
 
     const tomlListener =

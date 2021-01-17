@@ -6,8 +6,6 @@
 - space-eq-sign ... `key='value'` / `key = 'value'`
 - table-bracket-spacing
 - array-bracket-newline
-- array-bracket-spacing
-- inline-table-curly-spacing
 - no-hexadecimal
 - no-octal
 - no-binary
@@ -15,3 +13,4 @@
 - precision-of-fractional-seconds max or fixed
 - ~~comma-spacing~~
 - indent (array only)
+- padding-line-between-tables

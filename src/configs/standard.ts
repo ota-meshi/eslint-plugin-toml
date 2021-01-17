@@ -5,6 +5,8 @@ export = {
     extends: [baseExtend],
     rules: {
         // eslint-plugin-toml rules
+        "toml/array-bracket-spacing": "error",
+        "toml/inline-table-curly-spacing": "error",
         "toml/no-space-dots": "error",
         "toml/quoted-keys": "error",
         "toml/spaced-comment": "error",

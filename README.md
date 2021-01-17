@@ -132,6 +132,8 @@ The rules with the following star :star: are included in the config.
 
 | Rule ID | Description | Fixable | RECOMMENDED | STANDARD |
 |:--------|:------------|:-------:|:-----------:|:--------:|
+| [toml/array-bracket-spacing](https://ota-meshi.github.io/eslint-plugin-toml/rules/array-bracket-spacing.html) | enforce consistent spacing inside array brackets | :wrench: |  | :star: |
+| [toml/inline-table-curly-spacing](https://ota-meshi.github.io/eslint-plugin-toml/rules/inline-table-curly-spacing.html) | enforce consistent spacing inside braces | :wrench: |  | :star: |
 | [toml/spaced-comment](https://ota-meshi.github.io/eslint-plugin-toml/rules/spaced-comment.html) | enforce consistent spacing after the `#` in a comment | :wrench: |  | :star: |
 
 <!--RULES_TABLE_END-->

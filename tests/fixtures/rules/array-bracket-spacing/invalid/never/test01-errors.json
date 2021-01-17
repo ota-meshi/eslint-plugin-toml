@@ -1,0 +1,22 @@
+[
+    {
+        "message": "There should be no space after '['.",
+        "line": 3,
+        "column": 8
+    },
+    {
+        "message": "There should be no space before ']'.",
+        "line": 3,
+        "column": 10
+    },
+    {
+        "message": "There should be no space after '['.",
+        "line": 4,
+        "column": 8
+    },
+    {
+        "message": "There should be no space before ']'.",
+        "line": 4,
+        "column": 14
+    }
+]
