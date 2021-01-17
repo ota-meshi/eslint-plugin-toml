@@ -38,7 +38,7 @@ npm install --save-dev eslint eslint-plugin-toml
 ```
 
 > **Requirements**
-> 
+>
 > - ESLint v6.0.0 and above
 > - Node.js v8.10.0 and above
 
@@ -116,7 +116,7 @@ Example **.vscode/settings.json**:
 <!--RULES_SECTION_START-->
 
 The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) automatically fixes problems reported by rules which have a wrench :wrench: below.  
-The rules with the following star :star: are included in the config.
+The rules with the following star :star: are included in the configs.
 
 <!--RULES_TABLE_START-->
 
