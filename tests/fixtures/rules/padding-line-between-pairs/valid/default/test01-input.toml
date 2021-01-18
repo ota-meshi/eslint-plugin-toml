@@ -1,0 +1,31 @@
+# {}
+a.a.a = "value"
+a.a.b = "value"
+a.a.c = "value"
+
+a.b.a = "value"
+a.b.b = "value"
+a.b.c = "value"
+
+a.c.a = "value"
+a.c.b = "value"
+
+a.d.a = "value"
+
+a.e = "value"
+
+[good]
+a.a.a = "value"
+a.a.b = "value"
+a.a.c = "value"
+
+a.b.a = "value"
+a.b.b = "value"
+a.b.c = "value"
+
+a.c.a = "value"
+a.c.b = "value"
+
+a.d.a = "value"
+
+a.e = "value"

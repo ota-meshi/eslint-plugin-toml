@@ -126,6 +126,7 @@ The rules with the following star :star: are included in the configs.
 |:--------|:------------|:-------:|:-----------:|:--------:|
 | [toml/keys-order](https://ota-meshi.github.io/eslint-plugin-toml/rules/keys-order.html) | disallow defining pair keys out-of-order | :wrench: |  | :star: |
 | [toml/no-space-dots](https://ota-meshi.github.io/eslint-plugin-toml/rules/no-space-dots.html) | disallow spacing around infix operators | :wrench: |  | :star: |
+| [toml/padding-line-between-pairs](https://ota-meshi.github.io/eslint-plugin-toml/rules/padding-line-between-pairs.html) | require or disallow padding lines between pairs | :wrench: |  | :star: |
 | [toml/quoted-keys](https://ota-meshi.github.io/eslint-plugin-toml/rules/quoted-keys.html) | require or disallow quotes around keys | :wrench: |  | :star: |
 | [toml/space-eq-sign](https://ota-meshi.github.io/eslint-plugin-toml/rules/space-eq-sign.html) | require spacing around equals sign | :wrench: |  | :star: |
 | [toml/tables-order](https://ota-meshi.github.io/eslint-plugin-toml/rules/tables-order.html) | disallow defining tables out-of-order | :wrench: |  | :star: |
@@ -163,6 +164,15 @@ Please use GitHub's Issues/PRs.
 This plugin uses [toml-eslint-parser](https://github.com/ota-meshi/toml-eslint-parser) for the parser. Check [here](https://ota-meshi.github.io/toml-eslint-parser/) to find out about AST.
 
 <!--DOCS_IGNORE_END-->
+
+## :couple: Related Packages
+
+- [eslint-plugin-jsonc](https://github.com/ota-meshi/eslint-plugin-jsonc) ... ESLint plugin for JSON, JSON with comments (JSONC) and JSON5.
+- [eslint-plugin-yml](https://github.com/ota-meshi/eslint-plugin-yml) ... ESLint plugin for YAML.
+<!-- - [eslint-plugin-toml](https://github.com/ota-meshi/eslint-plugin-toml) ... ESLint plugin for TOML. -->
+- [jsonc-eslint-parser](https://github.com/ota-meshi/jsonc-eslint-parser) ... JSON, JSONC and JSON5 parser for use with ESLint plugins.
+- [yaml-eslint-parser](https://github.com/ota-meshi/yaml-eslint-parser) ... YAML parser for use with ESLint plugins.
+- [toml-eslint-parser](https://github.com/ota-meshi/toml-eslint-parser) ... TOML parser for use with ESLint plugins.
 
 ## License
 

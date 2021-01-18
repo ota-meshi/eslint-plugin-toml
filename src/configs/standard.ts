@@ -11,6 +11,7 @@ export = {
         "toml/inline-table-curly-spacing": "error",
         "toml/keys-order": "error",
         "toml/no-space-dots": "error",
+        "toml/padding-line-between-pairs": "error",
         "toml/quoted-keys": "error",
         "toml/space-eq-sign": "error",
         "toml/spaced-comment": "error",

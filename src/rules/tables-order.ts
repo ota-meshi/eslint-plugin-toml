@@ -122,7 +122,7 @@ export default createRule("tables-order", {
         function verify(node: AST.TOMLTopLevelTable) {
             const keys: KeyData[] = []
 
-            let pre: AST.TOMLTable | null = null
+            let prev: AST.TOMLTable | null = null
             for (const body of node.body) {
                 if (body.type !== "TOMLTable") {
                     continue
@@ -156,7 +156,7 @@ export default createRule("tables-order", {
                             ]
                         },
                     })
-                } else if (before && before !== pre) {
+                } else if (before && before !== prev) {
                     context.report({
                         node: body.key,
                         messageId: "outOfOrder",
@@ -183,7 +183,7 @@ export default createRule("tables-order", {
                         },
                     })
                 }
-                pre = body
+                prev = body
             }
         }
 

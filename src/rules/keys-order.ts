@@ -5,7 +5,7 @@ import { createRule } from "../utils"
 
 type KeyData = {
     key: string
-    lastNode: AST.TOMLKey
+    lastNode: AST.TOMLKeyValue
     keys: KeyData[]
 }
 
@@ -35,11 +35,11 @@ export default createRule("keys-order", {
          */
         function applyKey(
             tableKeys: KeyData[],
-            node: AST.TOMLKey,
-        ): AST.TOMLKey | null {
-            const keyNames = getStaticTOMLValue(node)
+            node: AST.TOMLKeyValue,
+        ): AST.TOMLKeyValue | null {
+            const keyNames = getStaticTOMLValue(node.key)
 
-            let before: AST.TOMLKey | null = null
+            let before: AST.TOMLKeyValue | null = null
             let keys = tableKeys
             while (keyNames.length) {
                 const key = keyNames.shift()!
@@ -68,24 +68,21 @@ export default createRule("keys-order", {
             node: AST.TOMLTopLevelTable | AST.TOMLTable | AST.TOMLInlineTable,
         ) {
             const keys: KeyData[] = []
-            const map = new Map<AST.TOMLKey, AST.TOMLKeyValue>()
-
-            let pre: AST.TOMLKey | null = null
+            let prev: AST.TOMLKeyValue | null = null
             for (const body of node.body) {
                 if (body.type !== "TOMLKeyValue") {
                     continue
                 }
-                map.set(body.key, body)
 
-                const before = applyKey(keys, body.key)
+                const before = applyKey(keys, body)
 
-                if (before && before !== pre) {
+                if (before && before !== prev) {
                     context.report({
                         node: body.key,
                         messageId: "outOfOrder",
                         data: {
                             target: getStaticTOMLValue(body.key).join("."),
-                            before: getStaticTOMLValue(before).join("."),
+                            before: getStaticTOMLValue(before.key).join("."),
                         },
                         fix(fixer) {
                             const startToken = sourceCode.getTokenBefore(body)!
@@ -99,7 +96,7 @@ export default createRule("keys-order", {
                             )
                             return [
                                 fixer.insertTextAfter(
-                                    map.get(before)!,
+                                    before,
                                     node.type === "TOMLInlineTable"
                                         ? code
                                         : `\n${code.trim()}`,
@@ -109,7 +106,7 @@ export default createRule("keys-order", {
                         },
                     })
                 }
-                pre = body.key
+                prev = body
             }
         }
 
