@@ -12,6 +12,7 @@ export = {
         "toml/keys-order": "error",
         "toml/no-space-dots": "error",
         "toml/padding-line-between-pairs": "error",
+        "toml/padding-line-between-tables": "error",
         "toml/quoted-keys": "error",
         "toml/space-eq-sign": "error",
         "toml/spaced-comment": "error",
