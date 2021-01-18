@@ -14,6 +14,7 @@ export = {
         "toml/no-unreadable-number-separator": "error",
         "toml/padding-line-between-pairs": "error",
         "toml/padding-line-between-tables": "error",
+        "toml/precision-of-fractional-seconds": "error",
         "toml/quoted-keys": "error",
         "toml/space-eq-sign": "error",
         "toml/spaced-comment": "error",

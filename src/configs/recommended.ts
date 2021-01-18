@@ -6,6 +6,7 @@ export = {
     rules: {
         // eslint-plugin-toml rules
         "toml/no-unreadable-number-separator": "error",
+        "toml/precision-of-fractional-seconds": "error",
         "toml/vue-custom-block/no-parsing-error": "error",
     },
 }

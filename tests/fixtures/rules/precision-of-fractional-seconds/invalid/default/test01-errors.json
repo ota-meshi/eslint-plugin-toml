@@ -1,0 +1,17 @@
+[
+    {
+        "message": "precision of fractional seconds greater than 3 are forbidden.",
+        "line": 2,
+        "column": 13
+    },
+    {
+        "message": "precision of fractional seconds greater than 3 are forbidden.",
+        "line": 3,
+        "column": 13
+    },
+    {
+        "message": "precision of fractional seconds greater than 3 are forbidden.",
+        "line": 4,
+        "column": 12
+    }
+]
