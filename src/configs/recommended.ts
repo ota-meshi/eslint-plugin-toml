@@ -5,6 +5,7 @@ export = {
     extends: [baseExtend],
     rules: {
         // eslint-plugin-toml rules
+        "toml/no-unreadable-number-separator": "error",
         "toml/vue-custom-block/no-parsing-error": "error",
     },
 }

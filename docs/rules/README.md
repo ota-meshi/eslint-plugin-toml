@@ -15,6 +15,7 @@ The rules with the following star :star: are included in the `plugin:toml/recomm
 |:--------|:------------|:-------:|:-----------:|:--------:|
 | [toml/keys-order](./keys-order.md) | disallow defining pair keys out-of-order | :wrench: |  | :star: |
 | [toml/no-space-dots](./no-space-dots.md) | disallow spacing around infix operators | :wrench: |  | :star: |
+| [toml/no-unreadable-number-separator](./no-unreadable-number-separator.md) | disallow number separators that to not enhance readability. |  | :star: | :star: |
 | [toml/padding-line-between-pairs](./padding-line-between-pairs.md) | require or disallow padding lines between pairs | :wrench: |  | :star: |
 | [toml/padding-line-between-tables](./padding-line-between-tables.md) | require or disallow padding lines between tables | :wrench: |  | :star: |
 | [toml/quoted-keys](./quoted-keys.md) | require or disallow quotes around keys | :wrench: |  | :star: |

@@ -5,6 +5,7 @@ import arrayElementNewline from "../rules/array-element-newline"
 import inlineTableCurlySpacing from "../rules/inline-table-curly-spacing"
 import keysOrder from "../rules/keys-order"
 import noSpaceDots from "../rules/no-space-dots"
+import noUnreadableNumberSeparator from "../rules/no-unreadable-number-separator"
 import paddingLineBetweenPairs from "../rules/padding-line-between-pairs"
 import paddingLineBetweenTables from "../rules/padding-line-between-tables"
 import quotedKeys from "../rules/quoted-keys"
@@ -21,6 +22,7 @@ export const rules = [
     inlineTableCurlySpacing,
     keysOrder,
     noSpaceDots,
+    noUnreadableNumberSeparator,
     paddingLineBetweenPairs,
     paddingLineBetweenTables,
     quotedKeys,

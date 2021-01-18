@@ -1,6 +1,5 @@
 # Rules in consideration
 
-- number-separator
 - no-hexadecimal
 - no-octal
 - no-binary
