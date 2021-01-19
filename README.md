@@ -124,6 +124,7 @@ The rules with the following star :star: are included in the configs.
 
 | Rule ID | Description | Fixable | RECOMMENDED | STANDARD |
 |:--------|:------------|:-------:|:-----------:|:--------:|
+| [toml/indent](https://ota-meshi.github.io/eslint-plugin-toml/rules/indent.html) | enforce consistent indentation | :wrench: |  | :star: |
 | [toml/keys-order](https://ota-meshi.github.io/eslint-plugin-toml/rules/keys-order.html) | disallow defining pair keys out-of-order | :wrench: |  | :star: |
 | [toml/no-space-dots](https://ota-meshi.github.io/eslint-plugin-toml/rules/no-space-dots.html) | disallow spacing around infix operators | :wrench: |  | :star: |
 | [toml/no-unreadable-number-separator](https://ota-meshi.github.io/eslint-plugin-toml/rules/no-unreadable-number-separator.html) | disallow number separators that to not enhance readability. |  | :star: | :star: |

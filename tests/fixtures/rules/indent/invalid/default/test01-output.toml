@@ -1,0 +1,5 @@
+# indent/invalid/default/test01-input.toml
+"bad" = [
+  1,
+  2
+]

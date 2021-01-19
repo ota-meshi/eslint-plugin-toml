@@ -2,6 +2,7 @@ import type { RuleModule } from "../types"
 import arrayBracketNewline from "../rules/array-bracket-newline"
 import arrayBracketSpacing from "../rules/array-bracket-spacing"
 import arrayElementNewline from "../rules/array-element-newline"
+import indent from "../rules/indent"
 import inlineTableCurlySpacing from "../rules/inline-table-curly-spacing"
 import keysOrder from "../rules/keys-order"
 import noSpaceDots from "../rules/no-space-dots"
@@ -20,6 +21,7 @@ export const rules = [
     arrayBracketNewline,
     arrayBracketSpacing,
     arrayElementNewline,
+    indent,
     inlineTableCurlySpacing,
     keysOrder,
     noSpaceDots,

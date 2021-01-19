@@ -13,6 +13,7 @@ The rules with the following star :star: are included in the `plugin:toml/recomm
 
 | Rule ID | Description | Fixable | RECOMMENDED | STANDARD |
 |:--------|:------------|:-------:|:-----------:|:--------:|
+| [toml/indent](./indent.md) | enforce consistent indentation | :wrench: |  | :star: |
 | [toml/keys-order](./keys-order.md) | disallow defining pair keys out-of-order | :wrench: |  | :star: |
 | [toml/no-space-dots](./no-space-dots.md) | disallow spacing around infix operators | :wrench: |  | :star: |
 | [toml/no-unreadable-number-separator](./no-unreadable-number-separator.md) | disallow number separators that to not enhance readability. |  | :star: | :star: |

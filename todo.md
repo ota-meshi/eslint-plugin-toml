@@ -5,4 +5,3 @@
 - no-binary
 - no-exponent
 - ~~comma-spacing~~
-- indent (array only)
