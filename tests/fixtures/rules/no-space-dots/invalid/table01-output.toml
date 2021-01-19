@@ -1,0 +1,3 @@
+# no-space-dots/invalid/table01-input.toml
+[foo.bar.baz.a]
+[[foo.bar.baz.b]]

@@ -1,0 +1,4 @@
+# array-bracket-newline/invalid/default/test01-input.toml
+bad1 = [1, 2, 3]
+bad2 = [ 1, 2, 3]
+bad3 = [1, 2, 3]

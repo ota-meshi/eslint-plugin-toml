@@ -1,0 +1,32 @@
+[
+    {
+        "message": "Hexadecimal integers are forbidden.",
+        "line": 3,
+        "column": 8
+    },
+    {
+        "message": "Hexadecimal integers are forbidden.",
+        "line": 4,
+        "column": 8
+    },
+    {
+        "message": "Hexadecimal integers are forbidden.",
+        "line": 5,
+        "column": 8
+    },
+    {
+        "message": "Octal integers are forbidden.",
+        "line": 8,
+        "column": 8
+    },
+    {
+        "message": "Octal integers are forbidden.",
+        "line": 9,
+        "column": 8
+    },
+    {
+        "message": "Binary integers are forbidden.",
+        "line": 12,
+        "column": 8
+    }
+]

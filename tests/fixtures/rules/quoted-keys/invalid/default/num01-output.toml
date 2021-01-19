@@ -1,0 +1,3 @@
+# quoted-keys/invalid/default/num01-input.toml
+["123"]
+"123" = 123

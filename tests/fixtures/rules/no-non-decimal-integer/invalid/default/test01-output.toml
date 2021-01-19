@@ -1,0 +1,12 @@
+# no-non-decimal-integer/invalid/default/test01-input.toml
+# hexadecimal with prefix `0x`
+hex1 = 3735928559
+hex2 = 3735928559
+hex3 = 3735928559
+
+# octal with prefix `0o`
+oct1 = 342391
+oct2 = 493 # useful for Unix file permissions
+
+# binary with prefix `0b`
+bin1 = 214

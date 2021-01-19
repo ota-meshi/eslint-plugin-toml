@@ -1,0 +1,12 @@
+[
+    {
+        "message": "Expected blank line before this table.",
+        "line": 4,
+        "column": 2
+    },
+    {
+        "message": "Expected blank line before this table.",
+        "line": 6,
+        "column": 3
+    }
+]

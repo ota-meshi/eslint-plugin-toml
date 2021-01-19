@@ -1,0 +1,3 @@
+# inline-table-curly-spacing/invalid/default/test01-input.toml
+foo = { a=42 }
+bar = { a=42,b=42 }

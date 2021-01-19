@@ -1,0 +1,7 @@
+# keys-order/invalid/out-of-order05-input.toml
+apple.skin.a = "thin"
+apple.skin.b = "thin"
+apple.color.a = "red"
+apple.color.b = "red"
+
+apple.type = "fruit"

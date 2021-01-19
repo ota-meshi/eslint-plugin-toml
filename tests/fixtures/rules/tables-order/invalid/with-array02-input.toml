@@ -1,0 +1,9 @@
+# {}
+[[fruit.apple]]
+key1 = 42
+[animal]
+key2 = 42
+[[fruit.apple]]
+key3 = 42
+[fruit]
+key4 = 42

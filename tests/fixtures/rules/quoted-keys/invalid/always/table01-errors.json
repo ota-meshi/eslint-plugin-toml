@@ -1,0 +1,17 @@
+[
+    {
+        "message": "Unquoted key 'key1' found.",
+        "line": 3,
+        "column": 2
+    },
+    {
+        "message": "Unquoted key 'foo' found.",
+        "line": 5,
+        "column": 2
+    },
+    {
+        "message": "Unquoted key 'bar' found.",
+        "line": 5,
+        "column": 6
+    }
+]

@@ -1,0 +1,15 @@
+# {}
+[fruit]
+key1 = 42
+[[fruit.apple]]
+key2 = 42
+[[fruit.apple.a]]
+key3 = 42
+[[fruit.apple.a]]
+key4 = 42
+[[fruit.apple]]
+key5 = 42
+[[fruit.apple.a]]
+key6 = 42
+[[fruit.apple.a]]
+key7 = 42

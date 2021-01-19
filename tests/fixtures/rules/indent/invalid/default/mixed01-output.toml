@@ -1,0 +1,8 @@
+# indent/invalid/default/mixed01-input.toml
+foo = [
+  [
+    -1,
+    0],
+  1,
+  2
+]

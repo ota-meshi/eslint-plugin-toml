@@ -1,0 +1,22 @@
+[
+    {
+        "message": "Unnecessarily quoted key 'key1' found.",
+        "line": 2,
+        "column": 2
+    },
+    {
+        "message": "Unnecessarily quoted key 'key2' found.",
+        "line": 3,
+        "column": 2
+    },
+    {
+        "message": "Unnecessarily quoted key 'bar' found.",
+        "line": 4,
+        "column": 6
+    },
+    {
+        "message": "Unnecessarily quoted key 'baz' found.",
+        "line": 4,
+        "column": 12
+    }
+]

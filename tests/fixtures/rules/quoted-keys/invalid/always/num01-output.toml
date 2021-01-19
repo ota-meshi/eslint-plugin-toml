@@ -1,0 +1,4 @@
+# quoted-keys/invalid/always/num01-input.toml
+# {}
+["123"]
+"123" = 123

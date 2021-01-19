@@ -1,0 +1,5 @@
+# {}
+[key1]
+[key2]
+[foo.bar.baz]
+[foo."bar.baz"]

@@ -1,0 +1,7 @@
+[
+    {
+        "message": "'fruit' must be previous to 'fruit.apple'.",
+        "line": 8,
+        "column": 2
+    }
+]

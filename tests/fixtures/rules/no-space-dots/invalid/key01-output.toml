@@ -1,0 +1,2 @@
+# no-space-dots/invalid/key01-input.toml
+foo.bar.baz.qux = 42

@@ -1,0 +1,5 @@
+# tables-order/invalid/out-of-order01-input.toml
+# VALID BUT DISCOURAGED
+[fruit.apple]
+[fruit.orange]
+[animal]

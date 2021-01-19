@@ -1,0 +1,8 @@
+# {}
+apple.skin.a = "thin"
+apple.color.a = "red"
+
+apple.skin.b = "thin"
+apple.color.b = "red"
+
+apple.type = "fruit"
