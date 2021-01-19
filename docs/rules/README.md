@@ -15,6 +15,7 @@ The rules with the following star :star: are included in the `plugin:toml/recomm
 |:--------|:------------|:-------:|:-----------:|:--------:|
 | [toml/indent](./indent.md) | enforce consistent indentation | :wrench: |  | :star: |
 | [toml/keys-order](./keys-order.md) | disallow defining pair keys out-of-order | :wrench: |  | :star: |
+| [toml/no-non-decimal-integer](./no-non-decimal-integer.md) | disallow hexadecimal, octal and binary integer | :wrench: |  |  |
 | [toml/no-space-dots](./no-space-dots.md) | disallow spacing around infix operators | :wrench: |  | :star: |
 | [toml/no-unreadable-number-separator](./no-unreadable-number-separator.md) | disallow number separators that to not enhance readability. |  | :star: | :star: |
 | [toml/padding-line-between-pairs](./padding-line-between-pairs.md) | require or disallow padding lines between pairs | :wrench: |  | :star: |

@@ -126,6 +126,7 @@ The rules with the following star :star: are included in the configs.
 |:--------|:------------|:-------:|:-----------:|:--------:|
 | [toml/indent](https://ota-meshi.github.io/eslint-plugin-toml/rules/indent.html) | enforce consistent indentation | :wrench: |  | :star: |
 | [toml/keys-order](https://ota-meshi.github.io/eslint-plugin-toml/rules/keys-order.html) | disallow defining pair keys out-of-order | :wrench: |  | :star: |
+| [toml/no-non-decimal-integer](https://ota-meshi.github.io/eslint-plugin-toml/rules/no-non-decimal-integer.html) | disallow hexadecimal, octal and binary integer | :wrench: |  |  |
 | [toml/no-space-dots](https://ota-meshi.github.io/eslint-plugin-toml/rules/no-space-dots.html) | disallow spacing around infix operators | :wrench: |  | :star: |
 | [toml/no-unreadable-number-separator](https://ota-meshi.github.io/eslint-plugin-toml/rules/no-unreadable-number-separator.html) | disallow number separators that to not enhance readability. |  | :star: | :star: |
 | [toml/padding-line-between-pairs](https://ota-meshi.github.io/eslint-plugin-toml/rules/padding-line-between-pairs.html) | require or disallow padding lines between pairs | :wrench: |  | :star: |
