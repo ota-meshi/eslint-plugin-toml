@@ -48,7 +48,7 @@
     "dependencies": {
         "debug": "^4.1.1",
         "lodash": "^4.17.19",
-        "toml-eslint-parser": "^0.0.2"
+        "toml-eslint-parser": "^0.1.0"
     },
     "devDependencies": {
         "@ota-meshi/eslint-plugin": "^0.0.10",

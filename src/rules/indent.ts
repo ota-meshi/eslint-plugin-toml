@@ -244,6 +244,9 @@ export default createRule("indent", {
             TOMLBare() {
                 // noop
             },
+            TOMLQuoted() {
+                // noop
+            },
             TOMLArray(node) {
                 const openBracket = sourceCode.getFirstToken(node)!
                 const closeBracket = sourceCode.getLastToken(node)!

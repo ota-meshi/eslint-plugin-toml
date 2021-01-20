@@ -13,6 +13,8 @@ export interface RuleListener {
     "TOMLKey:exit"?: (node: AST.TOMLKey) => void
     TOMLBare?: (node: AST.TOMLBare) => void
     "TOMLBare:exit"?: (node: AST.TOMLBare) => void
+    TOMLQuoted?: (node: AST.TOMLQuoted) => void
+    "TOMLQuoted:exit"?: (node: AST.TOMLQuoted) => void
     TOMLValue?: (node: AST.TOMLValue) => void
     "TOMLValue:exit"?: (node: AST.TOMLValue) => void
     TOMLArray?: (node: AST.TOMLArray) => void

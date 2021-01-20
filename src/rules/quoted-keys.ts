@@ -1,5 +1,4 @@
 import { createRule } from "../utils"
-import { isKeyNode } from "../utils/toml"
 
 export default createRule("quoted-keys", {
     meta: {
@@ -63,11 +62,8 @@ export default createRule("quoted-keys", {
                     })
                 }
             },
-            TOMLValue(node) {
+            TOMLQuoted(node) {
                 if (prefer === "always") {
-                    return
-                }
-                if (!isKeyNode(node)) {
                     return
                 }
                 if (
