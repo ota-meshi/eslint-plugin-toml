@@ -1,0 +1,4 @@
+# inline-table-curly-spacing/invalid/arrays-in-objects/test01-input.toml
+# {}
+foo = {a=[42] }
+bar = {a=42,b=[42] }

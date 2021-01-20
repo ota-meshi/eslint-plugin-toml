@@ -105,8 +105,7 @@ export default createRule("no-unreadable-number-separator", {
         /**
          * Verify number value node text
          */
-        function verifyText(node: AST.TOMLNumberValue) {
-            const text = sourceCode.getText(node)
+        function verifyText(node: AST.TOMLNumberValue, text: string) {
             let index = 0
 
             if (text[index] === "+" || text[index] === "-") {
@@ -165,9 +164,11 @@ export default createRule("no-unreadable-number-separator", {
         return {
             TOMLValue(node) {
                 if (node.kind === "integer" || node.kind === "float") {
-                    if (Number.isFinite(node.value)) {
-                        verifyText(node)
+                    const text = sourceCode.getText(node)
+                    if (text.endsWith("nan") || text.endsWith("inf")) {
+                        return
                     }
+                    verifyText(node, text)
                 }
             },
         }

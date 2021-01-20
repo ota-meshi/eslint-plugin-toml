@@ -1,0 +1,4 @@
+# array-bracket-spacing/invalid/objects-in-arrays/test01-input.toml
+# {}
+foo = [ { foo = 42 } ]
+bar = [ { foo = 42, bar = 42 } ]

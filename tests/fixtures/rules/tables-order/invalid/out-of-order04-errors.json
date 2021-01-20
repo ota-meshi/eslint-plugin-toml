@@ -1,0 +1,7 @@
+[
+    {
+        "message": "'a' must be previous to 'a.b.c'.",
+        "line": 6,
+        "column": 2
+    }
+]

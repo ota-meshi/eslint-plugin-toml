@@ -1,8 +1,8 @@
 import {
+    convertESNode,
     createRule,
     defineWrapperListener,
     getCoreRule,
-    getProxyNode,
 } from "../utils"
 const coreRule = getCoreRule("array-element-newline")
 
@@ -24,14 +24,7 @@ export default createRule("array-element-newline", {
             createListenerProxy(listener) {
                 return {
                     TOMLArray(node) {
-                        listener.ArrayExpression(
-                            getProxyNode(node, {
-                                type: "ArrayExpression",
-                                get elements() {
-                                    return node.elements
-                                },
-                            }),
-                        )
+                        listener.ArrayExpression(convertESNode(node))
                     },
                 }
             },

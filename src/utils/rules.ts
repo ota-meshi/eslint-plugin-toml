@@ -11,6 +11,7 @@ import noUnreadableNumberSeparator from "../rules/no-unreadable-number-separator
 import paddingLineBetweenPairs from "../rules/padding-line-between-pairs"
 import paddingLineBetweenTables from "../rules/padding-line-between-tables"
 import precisionOfFractionalSeconds from "../rules/precision-of-fractional-seconds"
+import precisionOfInteger from "../rules/precision-of-integer"
 import quotedKeys from "../rules/quoted-keys"
 import spaceEqSign from "../rules/space-eq-sign"
 import spacedComment from "../rules/spaced-comment"
@@ -31,6 +32,7 @@ export const rules = [
     paddingLineBetweenPairs,
     paddingLineBetweenTables,
     precisionOfFractionalSeconds,
+    precisionOfInteger,
     quotedKeys,
     spaceEqSign,
     spacedComment,

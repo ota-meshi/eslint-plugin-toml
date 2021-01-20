@@ -1,0 +1,4 @@
+# array-bracket-spacing/invalid/arrays-in-arrays/test01-input.toml
+# {}
+foo = [ [1] ]
+bar = [ [1,2] ]

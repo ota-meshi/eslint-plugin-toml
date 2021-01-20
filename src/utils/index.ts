@@ -5,6 +5,7 @@ import type {
     PartialRuleModule,
     RuleContext,
 } from "../types"
+import type * as ESTree from "estree"
 import type { Rule } from "eslint"
 import type { AST } from "toml-eslint-parser"
 import * as tomlESLintParser from "toml-eslint-parser"
@@ -127,18 +128,37 @@ export function getProxyNode(node: AST.TOMLNode, properties: any): any {
     })
 }
 
+const convertedESNodeCache = new WeakMap<AST.TOMLNode, ESTree.Node>()
 /**
- *  Check whether a given value is a node.
+ * Converts the given TOML node to the ES node and returns it.
  */
-export function isNode(data: any): boolean {
-    return (
-        data &&
-        typeof data.type === "string" &&
-        Array.isArray(data.range) &&
-        data.range.length === 2 &&
-        typeof data.range[0] === "number" &&
-        typeof data.range[1] === "number"
-    )
+export function convertESNode(node: AST.TOMLNode): ESTree.Node {
+    const converted = convertedESNodeCache.get(node)
+    if (converted) {
+        return converted
+    }
+    let esNode: ESTree.Node
+    if (node.type === "TOMLInlineTable") {
+        const properties = node.body
+        esNode = getProxyNode(node, {
+            type: "ObjectExpression",
+            get properties() {
+                return properties.map(convertESNode)
+            },
+        })
+    } else if (node.type === "TOMLArray") {
+        const elements = node.elements
+        esNode = getProxyNode(node, {
+            type: "ArrayExpression",
+            get elements() {
+                return elements.map(convertESNode)
+            },
+        })
+    } else {
+        esNode = node as any
+    }
+    convertedESNodeCache.set(node, esNode)
+    return esNode
 }
 
 let ruleMap: Map<string, Rule.RuleModule> | null = null

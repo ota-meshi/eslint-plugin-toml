@@ -1,0 +1,17 @@
+[
+    {
+        "message": "Unexpected number separator that does not enhance readability.",
+        "line": 3,
+        "column": 9
+    },
+    {
+        "message": "Unexpected number separator that does not enhance readability.",
+        "line": 3,
+        "column": 11
+    },
+    {
+        "message": "Unexpected number separator that does not enhance readability.",
+        "line": 3,
+        "column": 13
+    }
+]

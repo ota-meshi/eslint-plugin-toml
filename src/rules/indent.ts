@@ -1,7 +1,7 @@
 import type { AST } from "toml-eslint-parser"
 import type { TOMLToken } from "../types"
 import { createRule } from "../utils"
-import { isEqualSign } from "../utils/ast-utils"
+import { isCommentToken, isEqualSign } from "../utils/ast-utils"
 const ITERATION_OPTS = Object.freeze({
     includeComments: true,
 } as const)
@@ -370,7 +370,7 @@ export default createRule("indent", {
                     continue
                 }
                 const line = lineIndent.line
-                if (lineIndent.firstToken.type === "Block") {
+                if (isCommentToken(lineIndent.firstToken)) {
                     const last = commentLines[commentLines.length - 1]
                     if (last && last.range[1] === line - 1) {
                         last.range[1] = line
@@ -434,9 +434,13 @@ export default createRule("indent", {
                         expectedIndents.unshift(either.expectedIndent)
                         if (!next) {
                             let indent = outdent(either.expectedIndent)
-                            while (indent.length >= 0) {
+                            while (indent.length > 0) {
                                 expectedIndents.push(indent)
                                 indent = outdent(indent)
+                                if (indent.length <= 0) {
+                                    expectedIndents.push(indent)
+                                    break
+                                }
                             }
                         }
                     }

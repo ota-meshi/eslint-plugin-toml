@@ -1,0 +1,32 @@
+[
+    {
+        "message": "Integers with precision greater than 64-bit are forbidden.",
+        "line": 2,
+        "column": 16
+    },
+    {
+        "message": "Integers with precision greater than 64-bit are forbidden.",
+        "line": 3,
+        "column": 17
+    },
+    {
+        "message": "Integers with precision greater than 64-bit are forbidden.",
+        "line": 4,
+        "column": 17
+    },
+    {
+        "message": "Integers with precision greater than 64-bit are forbidden.",
+        "line": 5,
+        "column": 15
+    },
+    {
+        "message": "Integers with precision greater than 64-bit are forbidden.",
+        "line": 6,
+        "column": 17
+    },
+    {
+        "message": "Integers with precision greater than 64-bit are forbidden.",
+        "line": 7,
+        "column": 18
+    }
+]

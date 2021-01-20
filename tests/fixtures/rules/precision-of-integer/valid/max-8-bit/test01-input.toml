@@ -1,0 +1,7 @@
+# {}
+"plus" = 127
+"plus2" = +127
+"minus" = -128
+"hex" = 0x80
+"octal" = 0o200
+"binary" = 0b10000000

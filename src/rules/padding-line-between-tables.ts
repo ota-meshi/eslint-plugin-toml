@@ -27,7 +27,7 @@ export default createRule("padding-line-between-tables", {
          * Verify tables
          */
         function verifyTables(
-            prevNode: AST.TOMLTable,
+            prevNode: AST.TOMLTable | AST.TOMLKeyValue,
             nextNode: AST.TOMLTable,
         ) {
             const tokens = sourceCode.getTokensBetween(prevNode, nextNode, {
@@ -53,13 +53,9 @@ export default createRule("padding-line-between-tables", {
          * Verify top level table
          */
         function verify(node: AST.TOMLTopLevelTable) {
-            let prev: AST.TOMLTable | null = null
+            let prev: AST.TOMLTable | AST.TOMLKeyValue | null = null
             for (const body of node.body) {
-                if (body.type !== "TOMLTable") {
-                    continue
-                }
-
-                if (prev) {
+                if (prev && body.type === "TOMLTable") {
                     verifyTables(prev, body)
                 }
                 prev = body

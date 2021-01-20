@@ -1,0 +1,7 @@
+# tables-order/invalid/out-of-order04-input.toml
+[a.b]
+key2 = 42
+[a]
+key3 = 42
+[a.b.c]
+key1 = 42

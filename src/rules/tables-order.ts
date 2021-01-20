@@ -104,6 +104,8 @@ export default createRule("tables-order", {
                                 after,
                             }
                         }
+                        // Probably unreachable.
+                        /* istanbul ignore next */
                         before = getLast(keys)
                     }
                     keys = next.keys
