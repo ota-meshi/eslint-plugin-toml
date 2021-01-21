@@ -11,7 +11,7 @@
 [![NPM downloads](https://img.shields.io/npm/dt/eslint-plugin-toml.svg)](http://www.npmtrends.com/eslint-plugin-toml)
 [![Build Status](https://github.com/ota-meshi/eslint-plugin-toml/workflows/CI/badge.svg?branch=main)](https://github.com/ota-meshi/eslint-plugin-toml/actions?query=workflow%3ACI)
 
-## Features
+## :name_badge: Features
 
 This ESLint plugin provides linting rules for [TOML].
 
@@ -27,11 +27,11 @@ You can check on the [Online DEMO](https://ota-meshi.github.io/eslint-plugin-tom
 
 <!--DOCS_IGNORE_START-->
 
-## Documentation
+## :book: Documentation
 
 See [documents](https://ota-meshi.github.io/eslint-plugin-toml/).
 
-## Installation
+## :cd: Installation
 
 ```bash
 npm install --save-dev eslint eslint-plugin-toml
@@ -44,7 +44,7 @@ npm install --save-dev eslint eslint-plugin-toml
 
 <!--DOCS_IGNORE_END-->
 
-## Usage
+## :book: Usage
 
 <!--USAGE_SECTION_START-->
 <!--USAGE_GUIDE_START-->
@@ -88,7 +88,7 @@ eslint --ext .js,.toml src
 eslint "src/**/*.{js,toml}"
 ```
 
-## Editor Integrations
+## :computer: Editor Integrations
 
 ### Visual Studio Code
 
@@ -111,7 +111,7 @@ Example **.vscode/settings.json**:
 <!--USAGE_GUIDE_END-->
 <!--USAGE_SECTION_END-->
 
-## Rules
+## :white_check_mark: Rules
 
 <!--RULES_SECTION_START-->
 
@@ -155,7 +155,7 @@ The rules with the following star :star: are included in the configs.
 
 <!--DOCS_IGNORE_START-->
 
-## Contributing
+## :beers: Contributing
 
 Welcome contributing!
 
@@ -180,7 +180,7 @@ This plugin uses [toml-eslint-parser](https://github.com/ota-meshi/toml-eslint-p
 - [yaml-eslint-parser](https://github.com/ota-meshi/yaml-eslint-parser) ... YAML parser for use with ESLint plugins.
 - [toml-eslint-parser](https://github.com/ota-meshi/toml-eslint-parser) ... TOML parser for use with ESLint plugins.
 
-## License
+## :lock: License
 
 See the [LICENSE](LICENSE) file for license rights and limitations (MIT).
 

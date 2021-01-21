@@ -1,6 +1,6 @@
 # User Guide
 
-## Installation
+## :cd: Installation
 
 ```bash
 npm install --save-dev eslint eslint-plugin-toml
@@ -11,7 +11,7 @@ npm install --save-dev eslint eslint-plugin-toml
 - Node.js v8.10.0 and above
 :::
 
-## Usage
+## :book: Usage
 
 <!--USAGE_GUIDE_START-->
 
@@ -54,7 +54,7 @@ eslint --ext .js,.toml src
 eslint "src/**/*.{js,toml}"
 ```
 
-## Editor Integrations
+## :computer: Editor Integrations
 
 ### Visual Studio Code
 
