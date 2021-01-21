@@ -1,0 +1,7 @@
+[
+    {
+        "message": "Data types may not be mixed in an array.",
+        "line": 2,
+        "column": 10
+    }
+]

@@ -1,0 +1,6 @@
+# {}
+good.arr1 = [ 1, 2, 3 ]
+good.arr2 = [ "red", "yellow", "green" ]
+good.arr3 = [ [ 1, 2 ], [3, 4, 5] ]
+good.arr4 = [ "all", 'strings', """are the same""", '''type''']
+good.arr5 = [ [ 1, 2 ], ["a", "b", "c"] ]
