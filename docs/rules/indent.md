@@ -43,10 +43,13 @@ This rule reports enforces a consistent indentation style. The default style is 
 toml/indent:
   - error
   - 2 # number of spaces or "tab"
+  - subTables: 0
 ```
 
 - Number option ... The number of spaces used for indentation.
 - `"tab"` ... Use tabs for indentation.
+
+- `subTables` ... The multiplier of indentation for sub-tables. Default is `0`.
 
 ## :couple: Related rules
 
