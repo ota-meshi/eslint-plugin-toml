@@ -5,7 +5,7 @@ export const language = {
         { token: "delimiter.bracket", open: "{", close: "}" },
         { token: "delimiter.square", open: "[", close: "]" },
     ],
-    keywords: ["true", "false", "nan", "inf"],
+    keywords: ["true", "false", "nan", "+nan", "-nan", "inf", "+inf", "-inf"],
     numberInteger: /(?:0|[+-]?\d+[\d_]*)/,
     numberFloat: /(?:0|[+-]?\d+[\d_]*)(?:\.\d+)?(?:e[-+][1-9]\d*)?/,
     numberOctal: /0o[0-7]+[0-7_]*/,
@@ -27,7 +27,7 @@ export const language = {
             { include: "@scalars" },
             // String nodes
             [
-                /.+$/,
+                /\S+$/,
                 {
                     cases: {
                         "@keywords": "keyword",
@@ -54,7 +54,7 @@ export const language = {
             { include: "@numbers" },
             // Other value (keyword or string)
             [
-                /[^},]+/u,
+                /[^},\s]+/u,
                 {
                     cases: {
                         "@keywords": "keyword",
@@ -79,7 +79,7 @@ export const language = {
             { include: "@numbers" },
             // Other value (keyword or string)
             [
-                /[^\],.]+/,
+                /[^\],.\s]+/,
                 {
                     cases: {
                         "@keywords": "keyword",
