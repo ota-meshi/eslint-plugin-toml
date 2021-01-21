@@ -1,8 +1,8 @@
 import {
+    convertESNode,
     createRule,
     defineWrapperListener,
     getCoreRule,
-    getProxyNode,
 } from "../utils"
 const coreRule = getCoreRule("object-curly-spacing")
 
@@ -27,32 +27,11 @@ export default createRule("inline-table-curly-spacing", {
             createListenerProxy(listener) {
                 return {
                     TOMLInlineTable(node) {
-                        listener.ObjectExpression(
-                            getProxyNode(node, {
-                                type: "ObjectExpression",
-                                get properties() {
-                                    return node.body
-                                },
-                            }),
-                        )
+                        listener.ObjectExpression(convertESNode(node))
                     },
                 }
             },
-            getNodeProxy(node) {
-                if (node.type === "TOMLInlineTable") {
-                    return getProxyNode(node, {
-                        type: "ObjectExpression",
-                        properties: node.body,
-                    })
-                }
-                if (node.type === "TOMLArray") {
-                    return getProxyNode(node, {
-                        type: "ArrayExpression",
-                        elements: node.elements,
-                    })
-                }
-                return node
-            },
+            getNodeProxy: convertESNode,
         })
     },
 })

@@ -27,21 +27,19 @@ Prevent unintended rounding errors by specifying the maximum precision of the TO
 # eslint toml/precision-of-fractional-seconds: 'error'
 
 # ✓ GOOD
-"good.odt" = 1979-05-27T00:32:00.999-07:00
-"good.ldt" = 1979-05-27T00:32:00.999
-"good.ld" = 00:32:00.999
+"good"."odt" = 1979-05-27T00:32:00.999-07:00
+"good"."ldt" = 1979-05-27T00:32:00.999
+"good"."ld" = 00:32:00.999
 
 # ✗ BAD
-"bad.odt" = 1979-05-27T00:32:00.999999-07:00
-"bad.ldt" = 1979-05-27T00:32:00.999999
-"bad.ld" = 00:32:00.999999
+"bad"."odt" = 1979-05-27T00:32:00.999999-07:00
+"bad"."ldt" = 1979-05-27T00:32:00.999999
+"bad"."ld" = 00:32:00.999999
 ```
 
 </eslint-code-block>
 
 ## :wrench: Options
-
-Nothing.
 
 ```yaml
 "toml/precision-of-fractional-seconds":
@@ -56,6 +54,12 @@ Nothing.
 - [TOML v1.0.0 - Offset Date-Time](https://toml.io/en/v1.0.0#offset-date-time)
 - [TOML v1.0.0 - Local Date-Time](https://toml.io/en/v1.0.0#local-date-time)
 - [TOML v1.0.0 - Local Time](https://toml.io/en/v1.0.0#local-time)
+
+## :couple: Related rules
+
+- [toml/precision-of-integer]
+
+[toml/precision-of-integer]: ./precision-of-integer.md
 
 ## Implementation
 

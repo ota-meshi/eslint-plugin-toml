@@ -115,7 +115,7 @@ Nothing.
   - "opt"
 \`\`\`
 
-Same as [${ruleId}] rule option. See [here](https://eslint.org/docs/rules/${ruleId}#options) for details. 
+Same as [${ruleId}] rule option. See [here](https://eslint.org/docs/rules/${ruleId}#options) for details.
 
 - 
 

@@ -52,7 +52,7 @@ bad3 = [
     minItems: null
 ```
 
-Same as [array-bracket-newline] rule option. See [here](https://eslint.org/docs/rules/array-bracket-newline#options) for details. 
+Same as [array-bracket-newline] rule option. See [here](https://eslint.org/docs/rules/array-bracket-newline#options) for details.
 
 ## :couple: Related rules
 

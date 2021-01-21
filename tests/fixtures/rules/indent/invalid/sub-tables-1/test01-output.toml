@@ -1,0 +1,15 @@
+# indent/invalid/sub-tables-1/test01-input.toml
+a = 42
+b = 42
+[foo]
+a = 42
+b = 42
+  [[foo.bar]]
+  a = 42
+  b = 42
+  [[foo.bar]]
+  a = 42
+  b = 42
+    [foo.bar.baz]
+    a = 42
+    b = 42

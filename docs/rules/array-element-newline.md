@@ -45,7 +45,7 @@ This rule enforces line breaks between array elements.
     minItems: null
 ```
 
-Same as [array-element-newline] rule option. See [here](https://eslint.org/docs/rules/array-element-newline#options) for details. 
+Same as [array-element-newline] rule option. See [here](https://eslint.org/docs/rules/array-element-newline#options) for details.
 
 ## :couple: Related rules
 

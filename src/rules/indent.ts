@@ -1,11 +1,12 @@
 import type { AST } from "toml-eslint-parser"
+import { getStaticTOMLValue } from "toml-eslint-parser"
 import type { TOMLToken } from "../types"
 import { createRule } from "../utils"
-import { isEqualSign } from "../utils/ast-utils"
+import { isCommentToken, isEqualSign } from "../utils/ast-utils"
 const ITERATION_OPTS = Object.freeze({
     includeComments: true,
 } as const)
-type Offset = 0 | 1 | -1
+type Offset = number
 type OffsetInfo = {
     baseToken: TOMLToken | null
     offset: Offset
@@ -65,6 +66,14 @@ export default createRule("indent", {
                     },
                 ],
             },
+            {
+                type: "object",
+                properties: {
+                    subTables: { type: "integer", minimum: 0 },
+                    keyValuePairs: { type: "integer", minimum: 0 },
+                },
+                additionalProperties: false,
+            },
         ],
         messages: {
             wrongIndentation:
@@ -79,6 +88,9 @@ export default createRule("indent", {
         const { getIndentText, outdent } = buildIndentUtility(
             context.options[0],
         )
+        const subTablesOffset: Offset = context.options[1]?.subTables ?? 0
+        const keyValuePairsOffset: Offset =
+            context.options[1]?.keyValuePairs ?? 0
 
         const sourceCode = context.getSourceCode()
 
@@ -198,7 +210,51 @@ export default createRule("indent", {
                     })
                 }
 
-                processNodeList(node.body, first, null, 0)
+                let tableKeyStack: { keys: string[]; offset: Offset }[] = []
+
+                /** Get offset from given table keys */
+                function getTableOffset(keys: string[]): Offset {
+                    let last = tableKeyStack.pop()
+                    while (last) {
+                        if (
+                            last.keys.length &&
+                            last.keys.length <= keys.length &&
+                            last.keys.every((k, i) => k === keys[i])
+                        ) {
+                            if (last.keys.length < keys.length) {
+                                // It's sub-table
+                                // re-store
+                                tableKeyStack.push(last)
+                                return last.offset + subTablesOffset
+                            }
+                            // It's same
+                            return last.offset
+                        }
+                        last = tableKeyStack.pop()
+                    }
+                    return 0
+                }
+
+                for (const body of node.body) {
+                    const bodyFirstToken = sourceCode.getFirstToken(body)
+
+                    if (body.type === "TOMLKeyValue") {
+                        if (bodyFirstToken !== first) {
+                            setOffset(bodyFirstToken, 0, first)
+                        }
+                    }
+
+                    if (body.type === "TOMLTable") {
+                        const keys = getStaticTOMLValue(body.key)
+                        const offset = getTableOffset(keys)
+                        tableKeyStack.push({ keys, offset })
+                        if (bodyFirstToken !== first) {
+                            setOffset(bodyFirstToken, offset, first)
+                        }
+                    } else {
+                        tableKeyStack = []
+                    }
+                }
             },
             TOMLTable(node) {
                 const openBracket = sourceCode.getFirstToken(node)!
@@ -222,7 +278,12 @@ export default createRule("indent", {
                 }
 
                 // Register the offset of the body.
-                processNodeList(node.body, openBracket, null, 0)
+                processNodeList(
+                    node.body,
+                    openBracket,
+                    null,
+                    keyValuePairsOffset,
+                )
             },
             TOMLKeyValue(node) {
                 const keyToken = sourceCode.getFirstToken(node.key)
@@ -370,7 +431,7 @@ export default createRule("indent", {
                     continue
                 }
                 const line = lineIndent.line
-                if (lineIndent.firstToken.type === "Block") {
+                if (isCommentToken(lineIndent.firstToken)) {
                     const last = commentLines[commentLines.length - 1]
                     if (last && last.range[1] === line - 1) {
                         last.range[1] = line
@@ -434,9 +495,13 @@ export default createRule("indent", {
                         expectedIndents.unshift(either.expectedIndent)
                         if (!next) {
                             let indent = outdent(either.expectedIndent)
-                            while (indent.length >= 0) {
+                            while (indent.length > 0) {
                                 expectedIndents.push(indent)
                                 indent = outdent(indent)
+                                if (indent.length <= 0) {
+                                    expectedIndents.push(indent)
+                                    break
+                                }
                             }
                         }
                     }

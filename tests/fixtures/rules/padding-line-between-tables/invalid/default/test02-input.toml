@@ -1,0 +1,8 @@
+# {}
+key = 'value'
+[bad.a]
+key = 'value'
+[bad.b]
+key = 'value'
+[[bad.c]]
+key = 'value'

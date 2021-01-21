@@ -1,0 +1,8 @@
+# indent/invalid/default/comment02-input.toml
+foo = [
+  [
+    [
+    ]]]
+    # comment
+# comment
+# comment

@@ -1,0 +1,11 @@
+# padding-line-between-tables/invalid/default/test02-input.toml
+key = 'value'
+
+[bad.a]
+key = 'value'
+
+[bad.b]
+key = 'value'
+
+[[bad.c]]
+key = 'value'

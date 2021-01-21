@@ -126,12 +126,14 @@ The rules with the following star :star: are included in the configs.
 |:--------|:------------|:-------:|:-----------:|:--------:|
 | [toml/indent](https://ota-meshi.github.io/eslint-plugin-toml/rules/indent.html) | enforce consistent indentation | :wrench: |  | :star: |
 | [toml/keys-order](https://ota-meshi.github.io/eslint-plugin-toml/rules/keys-order.html) | disallow defining pair keys out-of-order | :wrench: |  | :star: |
+| [toml/no-mixed-type-in-array](https://ota-meshi.github.io/eslint-plugin-toml/rules/no-mixed-type-in-array.html) | disallow mixed data types in array |  |  |  |
 | [toml/no-non-decimal-integer](https://ota-meshi.github.io/eslint-plugin-toml/rules/no-non-decimal-integer.html) | disallow hexadecimal, octal and binary integer | :wrench: |  |  |
 | [toml/no-space-dots](https://ota-meshi.github.io/eslint-plugin-toml/rules/no-space-dots.html) | disallow spacing around infix operators | :wrench: |  | :star: |
 | [toml/no-unreadable-number-separator](https://ota-meshi.github.io/eslint-plugin-toml/rules/no-unreadable-number-separator.html) | disallow number separators that to not enhance readability. |  | :star: | :star: |
 | [toml/padding-line-between-pairs](https://ota-meshi.github.io/eslint-plugin-toml/rules/padding-line-between-pairs.html) | require or disallow padding lines between pairs | :wrench: |  | :star: |
 | [toml/padding-line-between-tables](https://ota-meshi.github.io/eslint-plugin-toml/rules/padding-line-between-tables.html) | require or disallow padding lines between tables | :wrench: |  | :star: |
 | [toml/precision-of-fractional-seconds](https://ota-meshi.github.io/eslint-plugin-toml/rules/precision-of-fractional-seconds.html) | disallow precision of fractional seconds greater than the specified value. |  | :star: | :star: |
+| [toml/precision-of-integer](https://ota-meshi.github.io/eslint-plugin-toml/rules/precision-of-integer.html) | disallow precision of integer greater than the specified value. |  | :star: | :star: |
 | [toml/quoted-keys](https://ota-meshi.github.io/eslint-plugin-toml/rules/quoted-keys.html) | require or disallow quotes around keys | :wrench: |  | :star: |
 | [toml/space-eq-sign](https://ota-meshi.github.io/eslint-plugin-toml/rules/space-eq-sign.html) | require spacing around equals sign | :wrench: |  | :star: |
 | [toml/tables-order](https://ota-meshi.github.io/eslint-plugin-toml/rules/tables-order.html) | disallow defining tables out-of-order | :wrench: |  | :star: |

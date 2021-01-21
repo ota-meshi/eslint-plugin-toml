@@ -1,0 +1,6 @@
+# indent/invalid/tab/test01-input.toml
+# {}
+"good" = [
+	1,
+	2
+]

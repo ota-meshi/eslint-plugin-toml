@@ -43,10 +43,90 @@ This rule reports enforces a consistent indentation style. The default style is 
 toml/indent:
   - error
   - 2 # number of spaces or "tab"
+  - subTables: 0
+    keyValuePairs: 0
 ```
 
-- Number option ... The number of spaces used for indentation.
-- `"tab"` ... Use tabs for indentation.
+- First Option
+  - Number option ... The number of spaces used for indentation.
+  - `"tab"` ... Use tabs for indentation.
+- Second Option
+  - `subTables` ... The multiplier of indentation for sub-tables. Default is `0`.
+  - `keyValuePairs` ... The multiplier of indentation for key/value pairs. Default is `0`.
+
+<eslint-code-block fix>
+
+<!-- eslint-skip -->
+
+```toml
+# ✓ GOOD
+# eslint toml/indent: [error, 2, { subTables: 1, keyValuePairs: 1 }]
+
+# Taken from https://toml.io/
+
+# This is a TOML document
+
+title = "TOML Example"
+
+[owner]
+  name = "Tom Preston-Werner"
+  dob = 1979-05-27T07:32:00-08:00
+
+[database]
+  enabled = true
+  ports = [ 8001, 8001, 8002 ]
+  data = [ ["delta", "phi"], [3.14] ]
+  temp_targets = { cpu = 79.5, case = 72.0 }
+
+[servers]
+
+  [servers.alpha]
+    ip = "10.0.0.1"
+    role = "frontend"
+
+  [servers.beta]
+    ip = "10.0.0.2"
+    role = "backend"
+```
+
+</eslint-code-block>
+
+<eslint-code-block fix>
+
+<!-- eslint-skip -->
+
+```toml
+# ✗ BAD
+# eslint toml/indent: [error, 2, { subTables: 1, keyValuePairs: 1 }]
+
+# Taken from https://toml.io/
+
+# This is a TOML document
+
+title = "TOML Example"
+
+[owner]
+name = "Tom Preston-Werner"
+dob = 1979-05-27T07:32:00-08:00
+
+[database]
+enabled = true
+ports = [ 8001, 8001, 8002 ]
+data = [ ["delta", "phi"], [3.14] ]
+temp_targets = { cpu = 79.5, case = 72.0 }
+
+[servers]
+
+[servers.alpha]
+ip = "10.0.0.1"
+role = "frontend"
+
+[servers.beta]
+ip = "10.0.0.2"
+role = "backend"
+```
+
+</eslint-code-block>
 
 ## :couple: Related rules
 

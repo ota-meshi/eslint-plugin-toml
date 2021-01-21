@@ -2,7 +2,7 @@ import {
     createRule,
     defineWrapperListener,
     getCoreRule,
-    getProxyNode,
+    convertESNode,
 } from "../utils"
 const coreRule = getCoreRule("array-bracket-spacing")
 
@@ -27,31 +27,9 @@ export default createRule("array-bracket-spacing", {
             createListenerProxy(listener) {
                 return {
                     TOMLArray(node) {
-                        listener.ArrayExpression(
-                            getProxyNode(node, {
-                                type: "ArrayExpression",
-                                get elements() {
-                                    return node.elements
-                                },
-                            }),
-                        )
+                        listener.ArrayExpression(convertESNode(node))
                     },
                 }
-            },
-            getNodeProxy(node) {
-                if (node.type === "TOMLInlineTable") {
-                    return getProxyNode(node, {
-                        type: "ObjectExpression",
-                        properties: node.body,
-                    })
-                }
-                if (node.type === "TOMLArray") {
-                    return getProxyNode(node, {
-                        type: "ArrayExpression",
-                        elements: node.elements,
-                    })
-                }
-                return node
             },
         })
     },

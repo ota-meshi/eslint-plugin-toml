@@ -2,6 +2,26 @@ import type { AST } from "toml-eslint-parser"
 import type { Fix, RuleFixer } from "../types"
 import { createRule } from "../utils"
 
+/**
+ * Convert the given string to decimal string
+ */
+function toDecimalText(str: string, radix: 16 | 8 | 2) {
+    const digits: number[] = [0]
+    for (const c of str) {
+        let num = parseInt(c, radix)
+        for (let place = 0; place < digits.length; place++) {
+            num = digits[place] * radix + num
+            digits[place] = num % 10
+            num = Math.floor(num / 10)
+        }
+        while (num > 0) {
+            digits.push(num % 10)
+            num = Math.floor(num / 10)
+        }
+    }
+    return digits.reverse().join("")
+}
+
 export default createRule("no-non-decimal-integer", {
     meta: {
         docs: {
@@ -55,26 +75,12 @@ export default createRule("no-non-decimal-integer", {
             if (allowHexadecimal || allowOctal || allowBinary) {
                 return undefined
             }
-            const d = mark === "x" ? 16 : mark === "o" ? 8 : 2
-
-            const code = text
-                .slice(2)
-                .toLowerCase()
-                .replace(/_/gu, "")
-                .replace(/^0+/gu, "")
-            const value = parseInt(code, d)
-            const decimalText = value.toString(d)
-            if (decimalText !== code) {
-                // Since it is irreversible, auto-fix will be stopped.
-                return undefined
-            }
-            const str = String(value)
-            if (!/^-?\d+$/u.test(str)) {
-                // Avoid exponential notation.
-                return undefined
-            }
             return (fixer) => {
-                return fixer.replaceText(node, String(value))
+                const d = mark === "x" ? 16 : mark === "o" ? 8 : 2
+
+                const code = text.slice(2).replace(/_/gu, "")
+                const decimalText = toDecimalText(code, d)
+                return fixer.replaceText(node, decimalText)
             }
         }
 
