@@ -6,10 +6,11 @@ export const language = {
         { token: "delimiter.square", open: "[", close: "]" },
     ],
     keywords: ["true", "false", "nan", "inf"],
-    numberInteger: /(?:0|[+-]?\d+)/,
-    numberFloat: /(?:0|[+-]?\d+)(?:\.\d+)?(?:e[-+][1-9]\d*)?/,
-    numberOctal: /0o[0-7]+/,
-    numberHex: /0x[\da-fA-F]+/,
+    numberInteger: /(?:0|[+-]?\d+[\d_]*)/,
+    numberFloat: /(?:0|[+-]?\d+[\d_]*)(?:\.\d+)?(?:e[-+][1-9]\d*)?/,
+    numberOctal: /0o[0-7]+[0-7_]*/,
+    numberHex: /0x[\da-fA-F]+[\da-fA-F_]*/,
+    numberBinary: /0b[01]+[01_]*/,
     numberDate: /\d{4}-\d\d-\d\d([Tt ]\d\d:\d\d:\d\d(\.\d+)?(( ?[+-]\d\d?(:\d\d)?)|Z)?)?/,
     escapes: /\\(?:[btnfr\\"])/,
     tokenizer: {
@@ -17,17 +18,12 @@ export const language = {
             { include: "@whitespace" },
             { include: "@comment" },
             { include: "@inlineCollections" },
-            // Numbers
-            [/@numberInteger(?![ \t]*\S+)/, "number"],
-            [/@numberFloat(?![ \t]*\S+)/, "number.float"],
-            [/@numberOctal(?![ \t]*\S+)/, "number.octal"],
-            [/@numberHex(?![ \t]*\S+)/, "number.hex"],
-            [/@numberDate(?![ \t]*\S+)/, "number.date"],
             // Key=Value pair
             [
                 /(".*?"|'.*?'|.*?)([ \t]*)(=)(\s*|$)/,
                 ["type", "white", "operators", "white"],
             ],
+            { include: "@numbers" },
             { include: "@scalars" },
             // String nodes
             [
@@ -55,7 +51,7 @@ export const language = {
             // Values
             { include: "@inlineCollections" },
             { include: "@scalars" },
-            { include: "@numbersInCollection" },
+            { include: "@numbers" },
             // Other value (keyword or string)
             [
                 /[^},]+/u,
@@ -80,7 +76,7 @@ export const language = {
             // Values
             { include: "@inlineCollections" },
             { include: "@scalars" },
-            { include: "@numbersInCollection" },
+            { include: "@numbers" },
             // Other value (keyword or string)
             [
                 /[^\],.]+/,
@@ -121,13 +117,20 @@ export const language = {
             [/\\./, "string.escape.invalid"],
             [/"/, "string", "@pop"],
         ],
-        // Numbers in collections (terminate with ,]})
-        numbersInCollection: [
-            [/@numberInteger(?=[ \t]*[,\]}])/u, "number"],
-            [/@numberFloat(?=[ \t]*[,\]}])/u, "number.float"],
-            [/@numberOctal(?=[ \t]*[,\]}])/u, "number.octal"],
-            [/@numberHex(?=[ \t]*[,\]}])/u, "number.hex"],
-            [/@numberDate(?=[ \t]*[,\]}])/u, "number.date"],
+        // Numbers
+        numbers: [
+            [/@numberInteger(?=[ \t]*[#,\]}])/u, "number"],
+            [/@numberFloat(?=[ \t]*[#,\]}])/u, "number.float"],
+            [/@numberOctal(?=[ \t]*[#,\]}])/u, "number.octal"],
+            [/@numberBinary(?=[ \t]*[#,\]}])/u, "number.binary"],
+            [/@numberHex(?=[ \t]*[#,\]}])/u, "number.hex"],
+            [/@numberDate(?=[ \t]*[#,\]}])/u, "number.date"],
+            [/@numberInteger(?![ \t]*\S+)/, "number"],
+            [/@numberFloat(?![ \t]*\S+)/, "number.float"],
+            [/@numberBinary(?![ \t]*\S+)/u, "number.binary"],
+            [/@numberOctal(?![ \t]*\S+)/, "number.octal"],
+            [/@numberHex(?![ \t]*\S+)/, "number.hex"],
+            [/@numberDate(?![ \t]*\S+)/, "number.date"],
         ],
     },
 }
