@@ -1,0 +1,15 @@
+{
+  "name": "eslint-plugin-toml-playground",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "pretest": "npx npm-check-updates -u && npm install",
+    "test": "eslint \"src\" --ext .js,.json,.toml"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^7.18.0",
+    "eslint-plugin-toml": "0.0.3"
+  }
+}

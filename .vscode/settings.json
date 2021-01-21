@@ -6,7 +6,8 @@
     "typescript",
     "json",
     "jsonc",
-    "markdown"
+    "markdown",
+    "toml"
   ],
   "typescript.validate.enable": true,
   "javascript.validate.enable": false,
