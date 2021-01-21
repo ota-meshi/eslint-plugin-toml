@@ -70,6 +70,7 @@ export default createRule("indent", {
                 type: "object",
                 properties: {
                     subTables: { type: "integer", minimum: 0 },
+                    keyValuePairs: { type: "integer", minimum: 0 },
                 },
                 additionalProperties: false,
             },
@@ -88,6 +89,8 @@ export default createRule("indent", {
             context.options[0],
         )
         const subTablesOffset: Offset = context.options[1]?.subTables ?? 0
+        const keyValuePairsOffset: Offset =
+            context.options[1]?.keyValuePairs ?? 0
 
         const sourceCode = context.getSourceCode()
 
@@ -275,7 +278,12 @@ export default createRule("indent", {
                 }
 
                 // Register the offset of the body.
-                processNodeList(node.body, openBracket, null, 0)
+                processNodeList(
+                    node.body,
+                    openBracket,
+                    null,
+                    keyValuePairsOffset,
+                )
             },
             TOMLKeyValue(node) {
                 const keyToken = sourceCode.getFirstToken(node.key)

@@ -44,12 +44,14 @@ toml/indent:
   - error
   - 2 # number of spaces or "tab"
   - subTables: 0
+    keyValuePairs: 0
 ```
 
 - Number option ... The number of spaces used for indentation.
 - `"tab"` ... Use tabs for indentation.
 
 - `subTables` ... The multiplier of indentation for sub-tables. Default is `0`.
+- `keyValuePairs` ... The multiplier of indentation for key/value pairs. Default is `0`.
 
 ## :couple: Related rules
 

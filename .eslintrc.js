@@ -28,6 +28,7 @@ module.exports = {
         "no-shadow": "off",
         "jsonc/object-curly-spacing": "off",
         "jsonc/array-element-newline": "off",
+        "jsonc/object-property-newline": "off",
     },
     overrides: [
         {
