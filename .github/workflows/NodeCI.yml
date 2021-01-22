@@ -33,7 +33,7 @@ jobs:
       run: npm install
     - name: Test
       run: npm test
-  test-with-eslint6:
+  test-with-eslint6-and-node8:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -42,7 +42,7 @@ jobs:
         node-version: 8.10.x
     - name: Install Target Packages
       run: |+
-        npm i -D eslint@6.0.0
+        npm i -D eslint@6.0.0 mocha@7
         npx rimraf node_modules
         npm install
     - name: Test
