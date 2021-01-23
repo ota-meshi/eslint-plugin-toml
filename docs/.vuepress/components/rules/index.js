@@ -88,7 +88,14 @@ categories.sort((a, b) =>
 )
 
 export const DEFAULT_RULES_CONFIG = allRules.reduce((c, r) => {
-    if (["no-trailing-spaces", "no-multiple-empty-lines"].includes(r.ruleId)) {
+    if (
+        [
+            "no-trailing-spaces",
+            "no-multiple-empty-lines",
+            "comma-spacing",
+            "no-multi-spaces",
+        ].includes(r.ruleId)
+    ) {
         c[r.ruleId] = "error"
     } else {
         c[r.ruleId] = r.initChecked ? "error" : "off"

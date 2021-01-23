@@ -41,6 +41,20 @@ This plugin provides configs:
 - `plugin:toml/recommended` ... Above, plus rules to prevent errors or unintended behavior.
 - `plugin:toml/standard` ... Above, plus rules to enforce the common stylistic conventions.
 
+Note that these configurations do not enable ESLint's core rules.
+For example, the following style rules can also be used in TOML.
+
+```json5
+{
+    "rules": {
+        "comma-spacing": "error",
+        "no-multi-spaces": "error",
+        "no-multiple-empty-lines": "error",
+        "no-trailing-spaces": "error"
+    }
+}
+```
+
 See [the rule list](../rules/README.md) to get the `rules` that this plugin provides.
 
 ### Running ESLint from the command line

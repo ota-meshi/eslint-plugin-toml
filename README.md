@@ -75,6 +75,20 @@ This plugin provides configs:
 - `plugin:toml/recommended` ... Above, plus rules to prevent errors or unintended behavior.
 - `plugin:toml/standard` ... Above, plus rules to enforce the common stylistic conventions.
 
+Note that these configurations do not enable ESLint's core rules.
+For example, the following style rules can also be used in TOML.
+
+```json5
+{
+    "rules": {
+        "comma-spacing": "error",
+        "no-multi-spaces": "error",
+        "no-multiple-empty-lines": "error",
+        "no-trailing-spaces": "error"
+    }
+}
+```
+
 See [the rule list](https://ota-meshi.github.io/eslint-plugin-toml/rules/) to get the `rules` that this plugin provides.
 
 ### Running ESLint from the command line
@@ -146,6 +160,7 @@ The rules with the following star :star: are included in the configs.
 | [toml/array-bracket-newline](https://ota-meshi.github.io/eslint-plugin-toml/rules/array-bracket-newline.html) | enforce linebreaks after opening and before closing array brackets | :wrench: |  | :star: |
 | [toml/array-bracket-spacing](https://ota-meshi.github.io/eslint-plugin-toml/rules/array-bracket-spacing.html) | enforce consistent spacing inside array brackets | :wrench: |  | :star: |
 | [toml/array-element-newline](https://ota-meshi.github.io/eslint-plugin-toml/rules/array-element-newline.html) | enforce line breaks between array elements | :wrench: |  | :star: |
+| [toml/comma-style](https://ota-meshi.github.io/eslint-plugin-toml/rules/comma-style.html) | enforce consistent comma style in array | :wrench: |  | :star: |
 | [toml/inline-table-curly-spacing](https://ota-meshi.github.io/eslint-plugin-toml/rules/inline-table-curly-spacing.html) | enforce consistent spacing inside braces | :wrench: |  | :star: |
 | [toml/spaced-comment](https://ota-meshi.github.io/eslint-plugin-toml/rules/spaced-comment.html) | enforce consistent spacing after the `#` in a comment | :wrench: |  | :star: |
 | [toml/table-bracket-spacing](https://ota-meshi.github.io/eslint-plugin-toml/rules/table-bracket-spacing.html) | enforce consistent spacing inside table brackets | :wrench: |  | :star: |

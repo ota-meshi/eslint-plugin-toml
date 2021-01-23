@@ -1,0 +1,12 @@
+[
+    {
+        "message": "',' should be placed last.",
+        "line": 4,
+        "column": 3
+    },
+    {
+        "message": "',' should be placed last.",
+        "line": 5,
+        "column": 3
+    }
+]

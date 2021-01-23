@@ -53,7 +53,24 @@ import SnsBar from "./components/SnsBar.vue"
 import { deserializeState, serializeState } from "./state"
 import { DEFAULT_RULES_CONFIG } from "./rules"
 
-const DEFAULT_CODE = `# This is a TOML document
+const DEFAULT_CODE = `
+TOML .X=                    "ESLINT"
+KEY=                            1234
+[TBL    .A."B".'C'.D.E.F.G.H    .I ]
+D.O.            TTE.            D=42
+"QUO            TED"            =123
+STR=            "VAL            UES"
+ARR=            [123            ,45,
+67e8            ,90,            0.1]
+[[AR            .RA.            Y ]]
+[[T.            ABL.            E ]]
+B.O.            O.L=            true
+IT={            A=1,            B=2}
+Try . It                    =  "Now"
+
+# -------------------------
+
+# This is a TOML document
 
 title = "TOML Example"
 
