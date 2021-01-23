@@ -34,7 +34,9 @@
         "eslint",
         "eslintplugin",
         "eslint-plugin",
-        "toml"
+        "toml",
+        "lint",
+        "formatter"
     ],
     "author": "Yosuke Ota",
     "license": "MIT",
