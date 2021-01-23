@@ -8,6 +8,7 @@ export = {
         "toml/array-bracket-newline": "error",
         "toml/array-bracket-spacing": "error",
         "toml/array-element-newline": "error",
+        "toml/comma-style": "error",
         "toml/indent": "error",
         "toml/inline-table-curly-spacing": "error",
         "toml/keys-order": "error",

@@ -7,7 +7,7 @@ export const language = {
     ],
     keywords: ["true", "false", "nan", "+nan", "-nan", "inf", "+inf", "-inf"],
     numberInteger: /(?:0|[+-]?\d+[\d_]*)/,
-    numberFloat: /(?:0|[+-]?\d+[\d_]*)(?:\.\d+)?(?:e[-+][1-9]\d*)?/,
+    numberFloat: /(?:0|[+-]?\d+[\d_]*)(?:\.\d+)?(?:e[-+]?[1-9]\d*)?/,
     numberOctal: /0o[0-7]+[0-7_]*/,
     numberHex: /0x[\da-fA-F]+[\da-fA-F_]*/,
     numberBinary: /0b[01]+[01_]*/,
@@ -45,9 +45,9 @@ export const language = {
             // delimiter
             [/,/, "delimiter.comma"],
             // Key=Value delimiter
-            [/[=](?= )/, "operators"],
+            [/[=]/, "operators"],
             // Key=Value key
-            [/(?:".*?"|'.*?'|[^,{[]+?)(?=[=] )/u, "type"],
+            [/(?:".*?"|'.*?'|[^,{[]+?)(?=[=])/u, "type"],
             // Values
             { include: "@inlineCollections" },
             { include: "@scalars" },

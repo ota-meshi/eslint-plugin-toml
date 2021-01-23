@@ -1,0 +1,6 @@
+# comma-style/invalid/default/test01-input.toml
+bad = [
+  1,
+  2,
+  3
+]
