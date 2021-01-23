@@ -56,16 +56,16 @@ import { DEFAULT_RULES_CONFIG } from "./rules"
 const DEFAULT_CODE = `
 TOML .X=                    "ESLINT"
 KEY=                            1234
-[TBL    .A."B".'C'.D.E.F.G.H    .I ]
+"QUO    TED".'K E Y S' ="STR    VAL"
+[TBL            .A.B            .C ]
 D.O.            TTE.            D=42
-"QUO            TED"            =123
-STR=            "VAL            UES"
 ARR=            [123            ,45,
-67e8            ,90,            0.1]
+67e8            ,90,            0.12
+,0xF            ,0o7            ,42]
 [[AR            .RA.            Y ]]
 [[T.            ABL.            E ]]
 B.O.            O.L=            true
-IT={            A=1,            B=2}
+H ={            A=1,            B=2}
 Try . It                    =  "Now"
 
 # -------------------------
