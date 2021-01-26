@@ -5,7 +5,7 @@ import { createRule } from "../utils"
 
 type KeyData = {
     key: string
-    lastNode: AST.TOMLKeyValue
+    node: AST.TOMLKeyValue
     keys: KeyData[]
 }
 
@@ -47,13 +47,13 @@ export default createRule("keys-order", {
                 if (!next) {
                     next = {
                         key,
-                        lastNode: node,
+                        node,
                         keys: [],
                     }
-                    before = lodash.last(keys)?.lastNode || null
+                    before = lodash.last(keys)?.node || null
                     keys.push(next)
                 } else {
-                    next.lastNode = node
+                    next.node = node
                 }
                 keys = next.keys
             }

@@ -5,9 +5,7 @@ import { createRule } from "../utils"
 
 type KeyData = {
     key: string | number
-    array: boolean
-    firstNode: AST.TOMLTable | null
-    lastNode: AST.TOMLTable | null
+    node: AST.TOMLTable
     keys: KeyData[]
 }
 
@@ -17,7 +15,7 @@ type KeyData = {
 function getFirst(keys: KeyData[]): AST.TOMLTable | null {
     const first = keys[0]
     if (first) {
-        return getFirst(first.keys) || first.firstNode
+        return getFirst(first.keys) || first.node
     }
     return null
 }
@@ -28,7 +26,7 @@ function getFirst(keys: KeyData[]): AST.TOMLTable | null {
 function getLast(keys: KeyData[]): AST.TOMLTable | null {
     const last = lodash.last(keys)
     if (last) {
-        return getLast(last.keys) || last.lastNode
+        return getLast(last.keys) || last.node
     }
     return null
 }
@@ -64,40 +62,27 @@ export default createRule("tables-order", {
             | { before: AST.TOMLTable; after: null }
             | { before: null; after: AST.TOMLTable }
             | { before: null; after: null } {
-            const keyNames = getStaticTOMLValue(node.key)
+            const keyNames = [...node.resolvedKey]
 
             let before: AST.TOMLTable | null = null
             let keys = rootKeys
             while (keyNames.length) {
                 const key = keyNames.shift()!
                 const isLast = !keyNames.length
-                const nextIndex = keys.findIndex((e) => e.key === key)
-                if (nextIndex < 0) {
-                    const targetNode = isLast ? node : null
-                    const next: KeyData = {
+                let next = keys.find((e) => e.key === key)
+                if (!next) {
+                    next = {
                         key,
-                        array: node.kind === "array" && isLast,
-                        firstNode: targetNode,
-                        lastNode: targetNode,
+                        node,
                         keys: [],
                     }
                     if (isLast) {
                         before = getLast(keys)
                     }
                     keys.push(next)
-                    keys = next.keys
                 } else {
-                    const next = keys[nextIndex]
-                    if (next.array) {
-                        if (isLast) {
-                            before = getLast(next.keys) || next.lastNode
-                            next.lastNode = node
-                            next.keys = []
-                            break
-                        }
-                    }
                     if (isLast) {
-                        if (!next.firstNode && next.keys.length > 0) {
+                        if (next.keys.length > 0) {
                             const after = getFirst(next.keys)
                             return {
                                 before: null,
@@ -108,8 +93,8 @@ export default createRule("tables-order", {
                         /* istanbul ignore next */
                         before = getLast(keys)
                     }
-                    keys = next.keys
                 }
+                keys = next.keys
             }
 
             return {

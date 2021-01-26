@@ -105,7 +105,6 @@ export default createRule("precision-of-integer", {
         }
         const maxBit = context.options[0]?.maxBit ?? 64
         const maxValues = getMaxValues(maxBit)
-        const sourceCode = context.getSourceCode()
 
         /**
          * Verify number text
@@ -115,10 +114,7 @@ export default createRule("precision-of-integer", {
             numText: string,
             max: string,
         ) {
-            const num = numText
-                .replace(/_/g, "")
-                .replace(/^0+/, "")
-                .toLowerCase()
+            const num = numText.replace(/^0+/, "").toLowerCase()
             if (num.length < max.length) {
                 return
             }
@@ -138,7 +134,7 @@ export default createRule("precision-of-integer", {
          * Verify integer value node text
          */
         function verifyText(node: AST.TOMLNumberValue) {
-            const text = sourceCode.getText(node)
+            const text = node.number
             if (text.startsWith("0")) {
                 const maybeMark = text[1]
                 if (maybeMark === "x") {
