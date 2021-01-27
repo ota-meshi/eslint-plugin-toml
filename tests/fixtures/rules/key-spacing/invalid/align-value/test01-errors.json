@@ -1,0 +1,102 @@
+[
+    {
+        "message": "Missing space after key 'foo.a'.",
+        "line": 2,
+        "column": 5
+    },
+    {
+        "message": "Missing space before value for key 'foo.a'.",
+        "line": 2,
+        "column": 7
+    },
+    {
+        "message": "Missing space after key 'a'.",
+        "line": 2,
+        "column": 8
+    },
+    {
+        "message": "Missing space before value for key 'a'.",
+        "line": 2,
+        "column": 10
+    },
+    {
+        "message": "Missing space after key 'foo.b.c'.",
+        "line": 3,
+        "column": 10
+    },
+    {
+        "message": "Missing space before value for key 'foo.b.c'.",
+        "line": 3,
+        "column": 12
+    },
+    {
+        "message": "Missing space after key 'a'.",
+        "line": 3,
+        "column": 13
+    },
+    {
+        "message": "Missing space before value for key 'a'.",
+        "line": 3,
+        "column": 15
+    },
+    {
+        "message": "Missing space after key 'bar.a'.",
+        "line": 4,
+        "column": 5
+    },
+    {
+        "message": "Missing space before value for key 'bar.a'.",
+        "line": 4,
+        "column": 7
+    },
+    {
+        "message": "Missing space after key 'a'.",
+        "line": 4,
+        "column": 8
+    },
+    {
+        "message": "Missing space before value for key 'a'.",
+        "line": 4,
+        "column": 10
+    },
+    {
+        "message": "Missing space after key 'b'.",
+        "line": 4,
+        "column": 13
+    },
+    {
+        "message": "Missing space before value for key 'b'.",
+        "line": 4,
+        "column": 15
+    },
+    {
+        "message": "Extra space after key 'bar.b'.",
+        "line": 5,
+        "column": 6
+    },
+    {
+        "message": "Missing space before value for key 'bar.b'.",
+        "line": 5,
+        "column": 16
+    },
+    {
+        "message": "Extra space after key 'a'.",
+        "line": 5,
+        "column": 18
+    },
+    {
+        "message": "Extra space before value for key 'a'.",
+        "line": 5,
+        "column": 24
+    },
+    {
+        "message": "Extra space after key 'b'.",
+        "line": 5,
+        "column": 36
+    },
+    {
+        "message": "Extra space before value for key 'b'.",
+        "line": 5,
+        "column": 39
+    }
+]

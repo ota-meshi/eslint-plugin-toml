@@ -1,0 +1,37 @@
+[
+    {
+        "message": "Missing space after key 'foo.a'.",
+        "line": 2,
+        "column": 5
+    },
+    {
+        "message": "Missing space after key 'a'.",
+        "line": 2,
+        "column": 8
+    },
+    {
+        "message": "Missing space after key 'foo.b.c'.",
+        "line": 3,
+        "column": 10
+    },
+    {
+        "message": "Missing space after key 'a'.",
+        "line": 3,
+        "column": 13
+    },
+    {
+        "message": "Missing space after key 'bar'.",
+        "line": 4,
+        "column": 1
+    },
+    {
+        "message": "Missing space after key 'a'.",
+        "line": 4,
+        "column": 6
+    },
+    {
+        "message": "Missing space after key 'b'.",
+        "line": 4,
+        "column": 11
+    }
+]

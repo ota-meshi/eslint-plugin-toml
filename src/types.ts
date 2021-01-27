@@ -40,7 +40,7 @@ export interface RuleMetaData {
         url: string
         ruleId: string
         ruleName: string
-        replacedBy?: []
+        replacedBy?: string[]
         default?: "error" | "warn"
         extensionRule: string | false
     }
@@ -60,7 +60,7 @@ export interface PartialRuleMetaData {
     docs: {
         description: string
         categories: ("recommended" | "standard")[] | null
-        replacedBy?: []
+        replacedBy?: string[]
         default?: "error" | "warn"
         extensionRule: string | false
     }
