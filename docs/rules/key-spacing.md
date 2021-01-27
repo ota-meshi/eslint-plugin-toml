@@ -13,7 +13,7 @@ description: "enforce consistent spacing between keys and values in key/value pa
 
 ## :book: Rule Details
 
-This rule enforces consistent spacing between keys and values in key/value pairs. In the case of long lines, it is acceptable to add a new line wherever whitespace is allowed.
+This rule enforces consistent spacing between keys and values in key/value pairs.
 
 <eslint-code-block fix>
 
