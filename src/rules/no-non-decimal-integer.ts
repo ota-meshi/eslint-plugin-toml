@@ -62,8 +62,6 @@ export default createRule("no-non-decimal-integer", {
         const allowOctal = Boolean(context.options[0]?.allowOctal)
         const allowBinary = Boolean(context.options[0]?.allowBinary)
 
-        const sourceCode = context.getSourceCode()
-
         /**
          * Build fixer
          */
@@ -78,7 +76,7 @@ export default createRule("no-non-decimal-integer", {
             return (fixer) => {
                 const d = mark === "x" ? 16 : mark === "o" ? 8 : 2
 
-                const code = text.slice(2).replace(/_/gu, "")
+                const code = text.slice(2)
                 const decimalText = toDecimalText(code, d)
                 return fixer.replaceText(node, decimalText)
             }
@@ -88,7 +86,7 @@ export default createRule("no-non-decimal-integer", {
          * Verify number value node text
          */
         function verifyText(node: AST.TOMLNumberValue) {
-            const text = sourceCode.getText(node)
+            const text = node.number
             if (text.startsWith("0")) {
                 const maybeMark = text[1]
                 if (maybeMark === "x" && !allowHexadecimal) {
