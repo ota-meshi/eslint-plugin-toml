@@ -82,7 +82,7 @@ For example, the following style rules can also be used in TOML.
 {
     "rules": {
         "comma-spacing": "error",
-        "no-multi-spaces": "error",
+        "no-multi-spaces": ["error", { "exceptions": { "TOMLKeyValue": true } }],
         "no-multiple-empty-lines": "error",
         "no-trailing-spaces": "error"
     }
@@ -149,7 +149,6 @@ The rules with the following star :star: are included in the configs.
 | [toml/precision-of-fractional-seconds](https://ota-meshi.github.io/eslint-plugin-toml/rules/precision-of-fractional-seconds.html) | disallow precision of fractional seconds greater than the specified value. |  | :star: | :star: |
 | [toml/precision-of-integer](https://ota-meshi.github.io/eslint-plugin-toml/rules/precision-of-integer.html) | disallow precision of integer greater than the specified value. |  | :star: | :star: |
 | [toml/quoted-keys](https://ota-meshi.github.io/eslint-plugin-toml/rules/quoted-keys.html) | require or disallow quotes around keys | :wrench: |  | :star: |
-| [toml/space-eq-sign](https://ota-meshi.github.io/eslint-plugin-toml/rules/space-eq-sign.html) | require spacing around equals sign | :wrench: |  | :star: |
 | [toml/tables-order](https://ota-meshi.github.io/eslint-plugin-toml/rules/tables-order.html) | disallow defining tables out-of-order | :wrench: |  | :star: |
 | [toml/vue-custom-block/no-parsing-error](https://ota-meshi.github.io/eslint-plugin-toml/rules/vue-custom-block/no-parsing-error.html) | disallow parsing errors in Vue custom blocks |  | :star: | :star: |
 
@@ -162,8 +161,18 @@ The rules with the following star :star: are included in the configs.
 | [toml/array-element-newline](https://ota-meshi.github.io/eslint-plugin-toml/rules/array-element-newline.html) | enforce line breaks between array elements | :wrench: |  | :star: |
 | [toml/comma-style](https://ota-meshi.github.io/eslint-plugin-toml/rules/comma-style.html) | enforce consistent comma style in array | :wrench: |  | :star: |
 | [toml/inline-table-curly-spacing](https://ota-meshi.github.io/eslint-plugin-toml/rules/inline-table-curly-spacing.html) | enforce consistent spacing inside braces | :wrench: |  | :star: |
+| [toml/key-spacing](https://ota-meshi.github.io/eslint-plugin-toml/rules/key-spacing.html) | enforce consistent spacing between keys and values in key/value pairs | :wrench: |  | :star: |
 | [toml/spaced-comment](https://ota-meshi.github.io/eslint-plugin-toml/rules/spaced-comment.html) | enforce consistent spacing after the `#` in a comment | :wrench: |  | :star: |
 | [toml/table-bracket-spacing](https://ota-meshi.github.io/eslint-plugin-toml/rules/table-bracket-spacing.html) | enforce consistent spacing inside table brackets | :wrench: |  | :star: |
+
+## Deprecated
+
+- :warning: We're going to remove deprecated rules in the next major release. Please migrate to successor/new rules.
+- :innocent: We don't fix bugs which are in deprecated rules since we don't have enough resources.
+
+| Rule ID | Replaced by |
+|:--------|:------------|
+| [toml/space-eq-sign](https://ota-meshi.github.io/eslint-plugin-toml/rules/space-eq-sign.html) | [toml/key-spacing](https://ota-meshi.github.io/eslint-plugin-toml/rules/key-spacing.html.md) |
 
 <!--RULES_TABLE_END-->
 <!--RULES_SECTION_END-->

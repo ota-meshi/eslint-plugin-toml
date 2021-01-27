@@ -1,0 +1,4 @@
+# key-spacing/invalid/before-equal-false-after-equal-true/test01-input.toml
+foo.a= {a= 42}
+foo. b.  c= {a= 42}
+bar= {a= 42,b= 42}

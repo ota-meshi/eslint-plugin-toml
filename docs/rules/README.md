@@ -24,7 +24,6 @@ The rules with the following star :star: are included in the `plugin:toml/recomm
 | [toml/precision-of-fractional-seconds](./precision-of-fractional-seconds.md) | disallow precision of fractional seconds greater than the specified value. |  | :star: | :star: |
 | [toml/precision-of-integer](./precision-of-integer.md) | disallow precision of integer greater than the specified value. |  | :star: | :star: |
 | [toml/quoted-keys](./quoted-keys.md) | require or disallow quotes around keys | :wrench: |  | :star: |
-| [toml/space-eq-sign](./space-eq-sign.md) | require spacing around equals sign | :wrench: |  | :star: |
 | [toml/tables-order](./tables-order.md) | disallow defining tables out-of-order | :wrench: |  | :star: |
 | [toml/vue-custom-block/no-parsing-error](./vue-custom-block/no-parsing-error.md) | disallow parsing errors in Vue custom blocks |  | :star: | :star: |
 
@@ -37,5 +36,15 @@ The rules with the following star :star: are included in the `plugin:toml/recomm
 | [toml/array-element-newline](./array-element-newline.md) | enforce line breaks between array elements | :wrench: |  | :star: |
 | [toml/comma-style](./comma-style.md) | enforce consistent comma style in array | :wrench: |  | :star: |
 | [toml/inline-table-curly-spacing](./inline-table-curly-spacing.md) | enforce consistent spacing inside braces | :wrench: |  | :star: |
+| [toml/key-spacing](./key-spacing.md) | enforce consistent spacing between keys and values in key/value pairs | :wrench: |  | :star: |
 | [toml/spaced-comment](./spaced-comment.md) | enforce consistent spacing after the `#` in a comment | :wrench: |  | :star: |
 | [toml/table-bracket-spacing](./table-bracket-spacing.md) | enforce consistent spacing inside table brackets | :wrench: |  | :star: |
+
+## Deprecated
+
+- :warning: We're going to remove deprecated rules in the next major release. Please migrate to successor/new rules.
+- :innocent: We don't fix bugs which are in deprecated rules since we don't have enough resources.
+
+| Rule ID | Replaced by |
+|:--------|:------------|
+| [toml/space-eq-sign](./space-eq-sign.md) | [toml/key-spacing](./key-spacing.md.md) |

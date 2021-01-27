@@ -48,7 +48,7 @@ For example, the following style rules can also be used in TOML.
 {
     "rules": {
         "comma-spacing": "error",
-        "no-multi-spaces": "error",
+        "no-multi-spaces": ["error", { "exceptions": { "TOMLKeyValue": true } }],
         "no-multiple-empty-lines": "error",
         "no-trailing-spaces": "error"
     }

@@ -1,0 +1,72 @@
+[
+    {
+        "message": "Extra space after key 'foo.a'.",
+        "line": 2,
+        "column": 6
+    },
+    {
+        "message": "Extra space before value for key 'foo.a'.",
+        "line": 2,
+        "column": 7
+    },
+    {
+        "message": "Extra space after key 'a'.",
+        "line": 2,
+        "column": 11
+    },
+    {
+        "message": "Extra space before value for key 'a'.",
+        "line": 2,
+        "column": 12
+    },
+    {
+        "message": "Extra space after key 'foo.b.c'.",
+        "line": 3,
+        "column": 11
+    },
+    {
+        "message": "Extra space before value for key 'foo.b.c'.",
+        "line": 3,
+        "column": 12
+    },
+    {
+        "message": "Extra space after key 'a'.",
+        "line": 3,
+        "column": 16
+    },
+    {
+        "message": "Extra space before value for key 'a'.",
+        "line": 3,
+        "column": 17
+    },
+    {
+        "message": "Extra space after key 'bar'.",
+        "line": 4,
+        "column": 4
+    },
+    {
+        "message": "Extra space before value for key 'bar'.",
+        "line": 4,
+        "column": 5
+    },
+    {
+        "message": "Extra space after key 'a'.",
+        "line": 4,
+        "column": 9
+    },
+    {
+        "message": "Extra space before value for key 'a'.",
+        "line": 4,
+        "column": 10
+    },
+    {
+        "message": "Extra space after key 'b'.",
+        "line": 4,
+        "column": 16
+    },
+    {
+        "message": "Extra space before value for key 'b'.",
+        "line": 4,
+        "column": 17
+    }
+]

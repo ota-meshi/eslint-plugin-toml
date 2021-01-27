@@ -5,6 +5,7 @@ import arrayElementNewline from "../rules/array-element-newline"
 import commaStyle from "../rules/comma-style"
 import indent from "../rules/indent"
 import inlineTableCurlySpacing from "../rules/inline-table-curly-spacing"
+import keySpacing from "../rules/key-spacing"
 import keysOrder from "../rules/keys-order"
 import noMixedTypeInArray from "../rules/no-mixed-type-in-array"
 import noNonDecimalInteger from "../rules/no-non-decimal-integer"
@@ -28,6 +29,7 @@ export const rules = [
     commaStyle,
     indent,
     inlineTableCurlySpacing,
+    keySpacing,
     keysOrder,
     noMixedTypeInArray,
     noNonDecimalInteger,
