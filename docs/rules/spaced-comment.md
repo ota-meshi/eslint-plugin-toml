@@ -32,7 +32,7 @@ This rule will enforce consistency of spacing after the start of a comment `#`. 
 ## :wrench: Options
 
 ```yaml
-"toml/spaced-comment":
+toml/spaced-comment:
   - error
   - always # or "never"
   - exceptions: []

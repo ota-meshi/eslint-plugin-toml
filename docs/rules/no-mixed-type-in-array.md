@@ -37,7 +37,7 @@ bad.arr7 = [ 1, 'foo' ]
 ## :wrench: Options
 
 ```yaml
-"toml/no-mixed-type-in-array":
+toml/no-mixed-type-in-array:
   - error
   - typeMap:
       string: String

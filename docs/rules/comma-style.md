@@ -42,7 +42,7 @@ bad = [
 ## :wrench: Options
 
 ```yaml
-"toml/comma-style":
+toml/comma-style:
   - error
   - last # or "first"
 ```

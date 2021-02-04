@@ -36,7 +36,7 @@ This rule enforces consistent spacing inside table brackets.
 ## :wrench: Options
 
 ```yaml
-"toml/table-bracket-spacing":
+toml/table-bracket-spacing:
   - error
   - never # or "always"
 ```

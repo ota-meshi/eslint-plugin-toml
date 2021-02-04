@@ -34,7 +34,7 @@ This rule enforces consistent spacing between keys and values in key/value pairs
 ## :wrench: Options
 
 ```yaml
-"toml/key-spacing":
+toml/key-spacing:
   - error
   - beforeEqual: false
     afterEqual: true

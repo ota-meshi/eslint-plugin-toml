@@ -34,7 +34,7 @@ bad = {a = 42}
 ## :wrench: Options
 
 ```yaml
-"toml/inline-table-curly-spacing":
+toml/inline-table-curly-spacing:
   - error
   - always # or "never"
   - arraysInObjects: false

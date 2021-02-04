@@ -38,7 +38,7 @@ This rule enforces line breaks between array elements.
 ## :wrench: Options
 
 ```yaml
-"toml/array-element-newline":
+toml/array-element-newline:
   - error
   - always # or "never" or "consistent"
   - multiline: true
