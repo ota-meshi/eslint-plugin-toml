@@ -34,7 +34,7 @@ bad = [1, 2]
 ## :wrench: Options
 
 ```yaml
-"toml/array-bracket-spacing":
+toml/array-bracket-spacing:
   - error
   - always # or "never"
   - singleValue: true

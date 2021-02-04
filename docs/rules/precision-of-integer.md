@@ -42,7 +42,7 @@ Prevent unintended errors by specifying the maximum precision of the TOML implem
 ## :wrench: Options
 
 ```yaml
-"toml/precision-of-integer":
+toml/precision-of-integer:
   - error
   - maxBit: 64
 ```

@@ -51,7 +51,7 @@ bin1 = 0b11010110
 ## :wrench: Options
 
 ```yaml
-"toml/no-non-decimal-integer":
+toml/no-non-decimal-integer:
   - error
   - allowHexadecimal: false
     allowOctal: false

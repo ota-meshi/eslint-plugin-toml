@@ -45,7 +45,7 @@ bad3 = [
 ## :wrench: Options
 
 ```yaml
-"toml/array-bracket-newline":
+toml/array-bracket-newline:
   - error
   - always # or "never" or "consistent"
   - multiline: true

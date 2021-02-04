@@ -42,7 +42,7 @@ Prevent unintended rounding errors by specifying the maximum precision of the TO
 ## :wrench: Options
 
 ```yaml
-"toml/precision-of-fractional-seconds":
+toml/precision-of-fractional-seconds:
   - error
   - max: 3
 ```

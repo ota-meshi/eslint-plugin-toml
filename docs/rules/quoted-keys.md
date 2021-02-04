@@ -36,9 +36,9 @@ good = "foo"
 ## :wrench: Options
 
 ```yaml
-"toml/quoted-keys":
+toml/quoted-keys:
   - error
-  - prefer: "as-needed" # or "always"
+  - prefer: as-needed # or "always"
     numbers: true
 ```
 
