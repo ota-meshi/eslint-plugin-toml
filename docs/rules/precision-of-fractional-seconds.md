@@ -3,6 +3,7 @@ pageClass: "rule-details"
 sidebarDepth: 0
 title: "toml/precision-of-fractional-seconds"
 description: "disallow precision of fractional seconds greater than the specified value."
+since: "v0.1.0"
 ---
 # toml/precision-of-fractional-seconds
 
@@ -61,7 +62,12 @@ toml/precision-of-fractional-seconds:
 
 [toml/precision-of-integer]: ./precision-of-integer.md
 
-## Implementation
+## :rocket: Version
 
-- [Rule source](https://github.com/ota-meshi/eslint-plugin-toml/blob/main/src/rules/precision-of-fractional-seconds.ts)
-- [Test source](https://github.com/ota-meshi/eslint-plugin-toml/blob/main/tests/src/rules/precision-of-fractional-seconds.js)
+This rule was introduced in eslint-plugin-toml v0.1.0
+
+## :mag: Implementation
+
+- [Rule source](https://github.com/ota-meshi/eslint-plugin-toml/blob/master/src/rules/precision-of-fractional-seconds.ts)
+- [Test source](https://github.com/ota-meshi/eslint-plugin-toml/blob/master/tests/src/rules/precision-of-fractional-seconds.ts)
+- [Test fixture sources](https://github.com/ota-meshi/eslint-plugin-toml/tree/master/tests/fixtures/rules/precision-of-fractional-seconds)

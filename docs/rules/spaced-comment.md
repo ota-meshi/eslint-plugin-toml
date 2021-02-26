@@ -3,6 +3,7 @@ pageClass: "rule-details"
 sidebarDepth: 0
 title: "toml/spaced-comment"
 description: "enforce consistent spacing after the `#` in a comment"
+since: "v0.1.0"
 ---
 # toml/spaced-comment
 
@@ -54,9 +55,14 @@ See also [here](https://eslint.org/docs/rules/spaced-comment#options).
 
 [spaced-comment]: https://eslint.org/docs/rules/spaced-comment
 
-## Implementation
+## :rocket: Version
 
-- [Rule source](https://github.com/ota-meshi/eslint-plugin-toml/blob/main/src/rules/spaced-comment.ts)
-- [Test source](https://github.com/ota-meshi/eslint-plugin-toml/blob/main/tests/src/rules/spaced-comment.js)
+This rule was introduced in eslint-plugin-toml v0.1.0
+
+## :mag: Implementation
+
+- [Rule source](https://github.com/ota-meshi/eslint-plugin-toml/blob/master/src/rules/spaced-comment.ts)
+- [Test source](https://github.com/ota-meshi/eslint-plugin-toml/blob/master/tests/src/rules/spaced-comment.ts)
+- [Test fixture sources](https://github.com/ota-meshi/eslint-plugin-toml/tree/master/tests/fixtures/rules/spaced-comment)
 
 <sup>Taken with ❤️ [from ESLint core](https://eslint.org/docs/rules/spaced-comment)</sup>

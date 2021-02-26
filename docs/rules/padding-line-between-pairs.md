@@ -3,6 +3,7 @@ pageClass: "rule-details"
 sidebarDepth: 0
 title: "toml/padding-line-between-pairs"
 description: "require or disallow padding lines between pairs"
+since: "v0.1.0"
 ---
 # toml/padding-line-between-pairs
 
@@ -66,7 +67,12 @@ Nothing.
 [toml/padding-line-between-tables]: ./padding-line-between-tables.md
 [padding-line-between-statements]: https://eslint.org/docs/rules/padding-line-between-statements
 
-## Implementation
+## :rocket: Version
 
-- [Rule source](https://github.com/ota-meshi/eslint-plugin-toml/blob/main/src/rules/padding-line-between-pairs.ts)
-- [Test source](https://github.com/ota-meshi/eslint-plugin-toml/blob/main/tests/src/rules/padding-line-between-pairs.js)
+This rule was introduced in eslint-plugin-toml v0.1.0
+
+## :mag: Implementation
+
+- [Rule source](https://github.com/ota-meshi/eslint-plugin-toml/blob/master/src/rules/padding-line-between-pairs.ts)
+- [Test source](https://github.com/ota-meshi/eslint-plugin-toml/blob/master/tests/src/rules/padding-line-between-pairs.ts)
+- [Test fixture sources](https://github.com/ota-meshi/eslint-plugin-toml/tree/master/tests/fixtures/rules/padding-line-between-pairs)

@@ -3,6 +3,7 @@ pageClass: "rule-details"
 sidebarDepth: 0
 title: "toml/indent"
 description: "enforce consistent indentation"
+since: "v0.1.0"
 ---
 # toml/indent
 
@@ -134,7 +135,12 @@ role = "backend"
 
 [indent]: https://eslint.org/docs/rules/indent
 
-## Implementation
+## :rocket: Version
 
-- [Rule source](https://github.com/ota-meshi/eslint-plugin-toml/blob/main/src/rules/indent.ts)
-- [Test source](https://github.com/ota-meshi/eslint-plugin-toml/blob/main/tests/src/rules/indent.js)
+This rule was introduced in eslint-plugin-toml v0.1.0
+
+## :mag: Implementation
+
+- [Rule source](https://github.com/ota-meshi/eslint-plugin-toml/blob/master/src/rules/indent.ts)
+- [Test source](https://github.com/ota-meshi/eslint-plugin-toml/blob/master/tests/src/rules/indent.ts)
+- [Test fixture sources](https://github.com/ota-meshi/eslint-plugin-toml/tree/master/tests/fixtures/rules/indent)

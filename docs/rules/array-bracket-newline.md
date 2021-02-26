@@ -3,6 +3,7 @@ pageClass: "rule-details"
 sidebarDepth: 0
 title: "toml/array-bracket-newline"
 description: "enforce linebreaks after opening and before closing array brackets"
+since: "v0.1.0"
 ---
 # toml/array-bracket-newline
 
@@ -62,9 +63,14 @@ Same as [array-bracket-newline] rule option. See [here](https://eslint.org/docs/
 [array-bracket-newline]: https://eslint.org/docs/rules/array-bracket-newline
 [toml/array-bracket-spacing]: ./array-bracket-spacing.md
 
-## Implementation
+## :rocket: Version
 
-- [Rule source](https://github.com/ota-meshi/eslint-plugin-toml/blob/main/src/rules/array-bracket-newline.ts)
-- [Test source](https://github.com/ota-meshi/eslint-plugin-toml/blob/main/tests/src/rules/array-bracket-newline.js)
+This rule was introduced in eslint-plugin-toml v0.1.0
+
+## :mag: Implementation
+
+- [Rule source](https://github.com/ota-meshi/eslint-plugin-toml/blob/master/src/rules/array-bracket-newline.ts)
+- [Test source](https://github.com/ota-meshi/eslint-plugin-toml/blob/master/tests/src/rules/array-bracket-newline.ts)
+- [Test fixture sources](https://github.com/ota-meshi/eslint-plugin-toml/tree/master/tests/fixtures/rules/array-bracket-newline)
 
 <sup>Taken with ❤️ [from ESLint core](https://eslint.org/docs/rules/array-bracket-newline)</sup>
