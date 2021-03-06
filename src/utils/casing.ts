@@ -29,24 +29,24 @@ function capitalize(str: string) {
  * Checks whether the given string has symbols.
  * @param {string} str
  */
-function hasSymbols(str: string) {
-    return /[!"#%&'()*+,./:;<=>?@[\\\]^`{|}]/u.exec(str) // without " ", "$", "-" and "_"
+function hasSymbols(str: string): boolean {
+    return /[!"#%&'()*+,./:;<=>?@[\\\]^`{|}]/u.test(str) // without " ", "$", "-" and "_"
 }
 
 /**
  * Checks whether the given string has upper.
  * @param {string} str
  */
-function hasUpper(str: string) {
-    return /[A-Z]/u.exec(str)
+function hasUpper(str: string): boolean {
+    return /[A-Z]/u.test(str)
 }
 
 /**
  * Checks whether the given string has lower.
  * @param {string} str
  */
-function hasLower(str: string) {
-    return /[a-z]/u.exec(str)
+function hasLower(str: string): boolean {
+    return /[a-z]/u.test(str)
 }
 
 /**
@@ -70,8 +70,8 @@ export function isKebabCase(str: string): boolean {
     if (
         hasUpper(str) ||
         hasSymbols(str) ||
-        /^-/u.exec(str) || // starts with hyphen is not kebab-case
-        /_|--|\s/u.exec(str)
+        str.startsWith("-") || // starts with hyphen is not kebab-case
+        /_|--|\s/u.test(str)
     ) {
         return false
     }
@@ -96,7 +96,7 @@ export function snakeCase(str: string): string {
  * @param {string} str
  */
 export function isSnakeCase(str: string): boolean {
-    if (hasUpper(str) || hasSymbols(str) || /-|__|\s/u.exec(str)) {
+    if (hasUpper(str) || hasSymbols(str) || /-|__|\s/u.test(str)) {
         return false
     }
     return true
@@ -120,7 +120,7 @@ export function screamingSnakeCase(str: string): string {
  * @param {string} str
  */
 export function isScreamingSnakeCase(str: string): boolean {
-    if (hasLower(str) || hasSymbols(str) || /-|__|\s/u.exec(str)) {
+    if (hasLower(str) || hasSymbols(str) || /-|__|\s/u.test(str)) {
         return false
     }
     return true
@@ -149,8 +149,8 @@ export function camelCase(str: string): string {
 export function isCamelCase(str: string): boolean {
     if (
         hasSymbols(str) ||
-        /^[A-Z]/u.exec(str) ||
-        /-|_|\s/u.exec(str) // kebab or snake or space
+        /^[A-Z]/u.test(str) ||
+        /-|_|\s/u.test(str) // kebab or snake or space
     ) {
         return false
     }
@@ -173,8 +173,8 @@ export function pascalCase(str: string): string {
 export function isPascalCase(str: string): boolean {
     if (
         hasSymbols(str) ||
-        /^[a-z]/u.exec(str) ||
-        /-|_|\s/u.exec(str) // kebab or snake or space
+        /^[a-z]/u.test(str) ||
+        /-|_|\s/u.test(str) // kebab or snake or space
     ) {
         return false
     }
