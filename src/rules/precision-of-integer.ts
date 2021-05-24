@@ -94,8 +94,7 @@ export default createRule("precision-of-integer", {
             },
         ],
         messages: {
-            over:
-                "Integers with precision greater than {{maxBit}}-bit are forbidden.",
+            over: "Integers with precision greater than {{maxBit}}-bit are forbidden.",
         },
         type: "problem",
     },

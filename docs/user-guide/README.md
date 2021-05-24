@@ -57,6 +57,29 @@ For example, the following style rules can also be used in TOML.
 
 See [the rule list](../rules/README.md) to get the `rules` that this plugin provides.
 
+#### Parser Configuration
+
+If you have specified a parser, you need to configure a parser for `.toml`.
+
+For example, if you are using the `"@babel/eslint-parser"`, configure it as follows:
+
+```js
+module.exports = {
+  // ...
+  extends: ["plugin:toml/standard"],
+  // ...
+  parser: "@babel/eslint-parser",
+  // Add an `overrides` section to add a parser configuration for TOML.
+  overrides: [
+    {
+      files: ["*.toml"],
+      parser: "toml-eslint-parser",
+    },
+  ],
+  // ...
+};
+```
+
 ### Running ESLint from the command line
 
 If you want to run `eslint` from the command line, make sure you include the `.toml` extension using [the `--ext` option](https://eslint.org/docs/user-guide/configuring#specifying-file-extensions-to-lint) or a glob pattern, because ESLint targets only `.js` files by default.

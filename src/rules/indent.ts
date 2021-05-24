@@ -28,9 +28,7 @@ type LineIndentStep2 = {
 /**
  * Create get indentation function
  */
-export function buildIndentUtility(
-    optionValue?: number | "tab" | null,
-): {
+export function buildIndentUtility(optionValue?: number | "tab" | null): {
     getIndentText: (offset: number) => string
     outdent: (indent: string) => string
 } {
@@ -261,9 +259,8 @@ export default createRule("indent", {
 
                 // There can be no line breaks, but just in case, register the offset.
                 if (node.kind === "array") {
-                    const openBracketNext = sourceCode.getTokenAfter(
-                        openBracket,
-                    )
+                    const openBracketNext =
+                        sourceCode.getTokenAfter(openBracket)
                     setOffset(openBracketNext, 0, openBracket)
                 }
                 const key = sourceCode.getFirstToken(node.key)
@@ -271,9 +268,8 @@ export default createRule("indent", {
                 const closeBracket = sourceCode.getTokenAfter(node.key)!
                 setOffset(closeBracket, 0, openBracket)
                 if (node.kind === "array") {
-                    const closeBracketNext = sourceCode.getTokenAfter(
-                        closeBracket,
-                    )
+                    const closeBracketNext =
+                        sourceCode.getTokenAfter(closeBracket)
                     setOffset(closeBracketNext, 0, closeBracket)
                 }
 
@@ -336,9 +332,8 @@ export default createRule("indent", {
                         tokensOnSameLine.push(token)
                     } else {
                         // New line is detected, so validate the tokens.
-                        const lineIndent = processExpectedIndent(
-                            tokensOnSameLine,
-                        )
+                        const lineIndent =
+                            processExpectedIndent(tokensOnSameLine)
                         lineIndentsStep1[lineIndent.line] = lineIndent
                         tokensOnSameLine = [token]
                     }
@@ -586,9 +581,7 @@ export default createRule("indent", {
         /**
          * Gets the indentation information to display.
          */
-        function getIndentData(
-            lineIndent: LineIndentStep2,
-        ): {
+        function getIndentData(lineIndent: LineIndentStep2): {
             expected: string
             actual: string
         } {

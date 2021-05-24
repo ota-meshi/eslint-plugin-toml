@@ -129,15 +129,12 @@ export default {
 
     async mounted() {
         // Load linter asynchronously.
-        const [
-            { default: eslint4b },
-            tomlESLintParser,
-            vueESLintParser,
-        ] = await Promise.all([
-            import("eslint4b"),
-            import("toml-eslint-parser"),
-            import("espree").then(() => import("vue-eslint-parser")),
-        ])
+        const [{ default: eslint4b }, tomlESLintParser, vueESLintParser] =
+            await Promise.all([
+                import("eslint4b"),
+                import("toml-eslint-parser"),
+                import("espree").then(() => import("vue-eslint-parser")),
+            ])
         this.eslint4b = eslint4b
         this.tomlESLintParser = tomlESLintParser
         this.vueESLintParser = vueESLintParser

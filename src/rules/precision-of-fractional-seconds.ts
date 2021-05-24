@@ -22,8 +22,7 @@ export default createRule("precision-of-fractional-seconds", {
             },
         ],
         messages: {
-            over:
-                "Precision of fractional seconds greater than {{max}} are forbidden.",
+            over: "Precision of fractional seconds greater than {{max}} are forbidden.",
         },
         type: "problem",
     },

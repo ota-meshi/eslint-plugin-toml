@@ -113,9 +113,10 @@ export interface SourceCode {
 
     getAllComments(): AST.Comment[]
 
-    getComments(
-        node: TOMLNodeOrToken,
-    ): { leading: AST.Comment[]; trailing: AST.Comment[] }
+    getComments(node: TOMLNodeOrToken): {
+        leading: AST.Comment[]
+        trailing: AST.Comment[]
+    }
 
     getNodeByRangeIndex(index: number): AST.TOMLNode | null
 
