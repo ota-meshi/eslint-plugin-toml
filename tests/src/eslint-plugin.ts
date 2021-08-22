@@ -1,6 +1,6 @@
 import path from "path"
 import assert from "assert"
-import { ESLint } from "eslint"
+import { ESLint } from "./eslint-compat"
 import plugin from "../../src/index"
 
 // -----------------------------------------------------------------------------
