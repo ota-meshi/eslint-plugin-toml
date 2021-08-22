@@ -14,6 +14,8 @@ export default createRule("comma-style", {
             extensionRule: "comma-style",
         },
         fixable: coreRule.meta!.fixable,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any -- ignore
+        hasSuggestions: (coreRule.meta as any).hasSuggestions,
         schema: coreRule.meta!.schema!,
         messages: coreRule.meta!.messages!,
         type: coreRule.meta!.type!,
