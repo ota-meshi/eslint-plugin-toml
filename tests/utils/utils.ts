@@ -3,12 +3,11 @@ import path from "path"
 import assert from "assert"
 import type { RuleTester } from "eslint"
 import { Linter } from "eslint"
-// @ts-expect-error for test
-import { SourceCodeFixer } from "eslint/lib/linter"
 import * as tomlESLintParser from "toml-eslint-parser"
 import * as vueESLintParser from "vue-eslint-parser"
 // eslint-disable-next-line @typescript-eslint/no-require-imports -- tests
 import plugin = require("../../src/index")
+import { applyFixes } from "./apply-fixer"
 
 /**
  * Prevents leading spaces in a multiline template literal from appearing in the resulting string
@@ -237,7 +236,7 @@ function writeFixtures(
     }
 
     if (force || !exists(outputFile)) {
-        const output = SourceCodeFixer.applyFixes(config.code, result).output
+        const output = applyFixes(config.code, result).output
 
         if (plugin.rules[ruleName].meta.fixable != null) {
             fs.writeFileSync(outputFile, output, "utf8")

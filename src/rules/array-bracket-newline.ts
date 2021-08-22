@@ -15,6 +15,8 @@ export default createRule("array-bracket-newline", {
             extensionRule: "array-bracket-newline",
         },
         fixable: coreRule.meta!.fixable,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any -- ignore
+        hasSuggestions: (coreRule.meta as any).hasSuggestions,
         schema: coreRule.meta!.schema!,
         messages: coreRule.meta!.messages!,
         type: coreRule.meta!.type!,
