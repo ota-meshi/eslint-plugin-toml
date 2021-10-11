@@ -53,7 +53,7 @@
         "toml-eslint-parser": "^0.2.1"
     },
     "devDependencies": {
-        "@ota-meshi/eslint-plugin": "^0.8.0",
+        "@ota-meshi/eslint-plugin": "^0.10.0",
         "@types/debug": "^4.1.5",
         "@types/eslint": "^7.2.0",
         "@types/eslint-scope": "^3.7.0",
@@ -91,7 +91,7 @@
         "stylelint-config-standard": "^22.0.0",
         "stylelint-plugin-stylus": "^0.11.0",
         "ts-node": "^10.0.0",
-        "typescript": "^4.0.0",
+        "typescript": "~4.4.3",
         "vue-eslint-editor": "^1.1.0",
         "vue-eslint-parser": "^7.3.0",
         "vuepress": "^1.5.2"
