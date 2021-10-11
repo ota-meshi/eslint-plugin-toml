@@ -53,7 +53,7 @@
         "toml-eslint-parser": "^0.2.1"
     },
     "devDependencies": {
-        "@ota-meshi/eslint-plugin": "^0.8.0",
+        "@ota-meshi/eslint-plugin": "^0.10.0",
         "@types/debug": "^4.1.5",
         "@types/eslint": "^7.2.0",
         "@types/eslint-scope": "^3.7.0",
