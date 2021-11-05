@@ -42,7 +42,7 @@ jobs:
                   node-version: 14.x
             - name: Install Target Packages
               run: |+
-                  npm i -D eslint@6s
+                  npm i -D eslint@6
                   npx rimraf node_modules
                   npm install
             - name: Test
