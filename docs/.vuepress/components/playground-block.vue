@@ -28,10 +28,11 @@
                                 i
                             "
                             class="message"
+                            :class="getRule(msg.ruleId).classes"
                         >
                             [{{ msg.line }}:{{ msg.column }}]:
                             {{ msg.message }} (<a
-                                :href="getURL(msg.ruleId)"
+                                :href="getRule(msg.ruleId).url"
                                 target="_blank"
                             >
                                 {{ msg.ruleId }} </a
@@ -45,13 +46,11 @@
 </template>
 
 <script>
-import * as coreRules from "../../../node_modules/eslint4b/dist/core-rules"
-import plugin from "../../.."
 import PgEditor from "./components/PgEditor.vue"
 import RulesSettings from "./components/RulesSettings.vue"
 import SnsBar from "./components/SnsBar.vue"
 import { deserializeState, serializeState } from "./state"
-import { DEFAULT_RULES_CONFIG } from "./rules"
+import { DEFAULT_RULES_CONFIG, getRule } from "./rules"
 
 const DEFAULT_CODE = `
 TOML .X=                    "ESLINT"
@@ -94,16 +93,6 @@ role = "frontend"
 ip = "10.0.0.2"
 role = "backend"
 `
-
-const ruleURLs = {}
-for (const k of Object.keys(plugin.rules)) {
-    const rule = plugin.rules[k]
-    ruleURLs[rule.meta.docs.ruleId] = rule.meta.docs.url
-}
-for (const k of Object.keys(coreRules)) {
-    const rule = coreRules[k]
-    ruleURLs[k] = rule.meta.docs.url
-}
 
 export default {
     name: "PlaygroundBlock",
@@ -155,8 +144,8 @@ export default {
         onChange({ messages }) {
             this.messages = messages
         },
-        getURL(ruleId) {
-            return ruleURLs[ruleId] || ""
+        getRule(ruleId) {
+            return getRule(ruleId)
         },
         onUrlHashChange() {
             const serializedString =
@@ -196,13 +185,13 @@ function equalsRules(a, b) {
     height: calc(100% - 100px);
     border: 1px solid #cfd4db;
     background-color: #282c34;
-    color: #f8c555;
+    color: #fff;
 }
 
 .main-content > .rules-settings {
     height: 100%;
     overflow: auto;
-    width: 25%;
+    width: 30%;
     box-sizing: border-box;
 }
 
@@ -229,5 +218,13 @@ function equalsRules(a, b) {
     border-top: 1px solid #cfd4db;
     padding: 8px;
     font-size: 12px;
+}
+
+.eslint-core-rule a {
+    color: #8080f2;
+}
+
+.eslint-plugin-toml-rule a {
+    color: #dd6b20;
 }
 </style>

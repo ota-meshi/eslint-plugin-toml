@@ -17,6 +17,7 @@
 
 <script>
 import EslintEditor from "vue-eslint-editor"
+import { Linter } from "eslint/lib/linter"
 import plugin from "../../../.."
 
 export default {
@@ -58,7 +59,6 @@ export default {
 
     data() {
         return {
-            eslint4b: null,
             tomlESLintParser: null,
             vueESLintParser: null,
             format: {
@@ -100,20 +100,14 @@ export default {
                 parser: this.parser,
                 parserOptions: {
                     sourceType: "script",
-                    ecmaVersion: 2020,
+                    ecmaVersion: 2021,
                 },
             }
         },
         linter() {
-            if (
-                !this.eslint4b ||
-                !this.tomlESLintParser ||
-                !this.vueESLintParser
-            ) {
+            if (!this.tomlESLintParser || !this.vueESLintParser) {
                 return null
             }
-            const Linter = this.eslint4b
-
             const linter = new Linter()
             linter.defineParser("toml-eslint-parser", this.tomlESLintParser)
             linter.defineParser("vue-eslint-parser", this.vueESLintParser)
@@ -128,14 +122,11 @@ export default {
     },
 
     async mounted() {
-        // Load linter asynchronously.
-        const [{ default: eslint4b }, tomlESLintParser, vueESLintParser] =
-            await Promise.all([
-                import("eslint4b"),
-                import("toml-eslint-parser"),
-                import("espree").then(() => import("vue-eslint-parser")),
-            ])
-        this.eslint4b = eslint4b
+        // Load parser asynchronously.
+        const [tomlESLintParser, vueESLintParser] = await Promise.all([
+            import("toml-eslint-parser"),
+            import("espree").then(() => import("vue-eslint-parser")),
+        ])
         this.tomlESLintParser = tomlESLintParser
         this.vueESLintParser = vueESLintParser
 
