@@ -1,3 +1,4 @@
+/* eslint node/no-missing-import: 0 -- DEMO */
 // eslint-disable-next-line eslint-comments/disable-enable-pair -- DEMO
 /* eslint-disable node/no-unsupported-features/es-syntax -- DEMO */
 import { Linter } from "eslint/lib/linter"
@@ -27,9 +28,6 @@ const CATEGORY_CLASSES = {
 const allRules = []
 
 for (const k of Object.keys(plugin.rules)) {
-    if (k === "auto") {
-        continue
-    }
     const rule = plugin.rules[k]
     rule.meta.docs.category = "toml"
     allRules.push({
