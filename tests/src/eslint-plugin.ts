@@ -14,7 +14,7 @@ describe("Integration with eslint-plugin-toml", () => {
         const engine = new ESLint({
             cwd: TEST_CWD,
             extensions: [".js", ".toml"],
-            plugins: { "eslint-plugin-toml": plugin },
+            plugins: { "eslint-plugin-toml": plugin as any },
         })
         const results = await engine.lintFiles(["test01/src"])
         assert.strictEqual(results.length, 2)
