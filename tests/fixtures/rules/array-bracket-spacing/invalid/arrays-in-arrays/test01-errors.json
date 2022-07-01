@@ -1,22 +1,22 @@
 [
-    {
-        "message": "A space is required after '['.",
-        "line": 3,
-        "column": 7
-    },
-    {
-        "message": "A space is required before ']'.",
-        "line": 3,
-        "column": 11
-    },
-    {
-        "message": "A space is required after '['.",
-        "line": 4,
-        "column": 7
-    },
-    {
-        "message": "A space is required before ']'.",
-        "line": 4,
-        "column": 13
-    }
+  {
+    "message": "A space is required after '['.",
+    "line": 3,
+    "column": 7
+  },
+  {
+    "message": "A space is required before ']'.",
+    "line": 3,
+    "column": 11
+  },
+  {
+    "message": "A space is required after '['.",
+    "line": 4,
+    "column": 7
+  },
+  {
+    "message": "A space is required before ']'.",
+    "line": 4,
+    "column": 13
+  }
 ]

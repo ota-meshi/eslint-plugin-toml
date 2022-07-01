@@ -1,22 +1,22 @@
 [
-    {
-        "message": "Unnecessarily quoted key 'key1' found.",
-        "line": 2,
-        "column": 1
-    },
-    {
-        "message": "Unnecessarily quoted key 'key2' found.",
-        "line": 3,
-        "column": 1
-    },
-    {
-        "message": "Unnecessarily quoted key 'bar' found.",
-        "line": 4,
-        "column": 5
-    },
-    {
-        "message": "Unnecessarily quoted key 'baz' found.",
-        "line": 4,
-        "column": 11
-    }
+  {
+    "message": "Unnecessarily quoted key 'key1' found.",
+    "line": 2,
+    "column": 1
+  },
+  {
+    "message": "Unnecessarily quoted key 'key2' found.",
+    "line": 3,
+    "column": 1
+  },
+  {
+    "message": "Unnecessarily quoted key 'bar' found.",
+    "line": 4,
+    "column": 5
+  },
+  {
+    "message": "Unnecessarily quoted key 'baz' found.",
+    "line": 4,
+    "column": 11
+  }
 ]

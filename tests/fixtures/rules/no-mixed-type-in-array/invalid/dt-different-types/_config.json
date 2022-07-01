@@ -1,12 +1,12 @@
 {
-    "options": [
-        {
-            "typeMap": {
-                "offsetDateTime": "OffsetDateTime",
-                "localDateTime": "LocalDateTime",
-                "localDate": "LocalDate",
-                "localTime": "LocalTime"
-            }
-        }
-    ]
+  "options": [
+    {
+      "typeMap": {
+        "offsetDateTime": "OffsetDateTime",
+        "localDateTime": "LocalDateTime",
+        "localDate": "LocalDate",
+        "localTime": "LocalTime"
+      }
+    }
+  ]
 }

@@ -1,42 +1,42 @@
 [
-    {
-        "message": "Unexpected whitespace before dot.",
-        "line": 2,
-        "column": 5
-    },
-    {
-        "message": "Unexpected whitespace after dot.",
-        "line": 2,
-        "column": 7
-    },
-    {
-        "message": "Unexpected whitespace before dot.",
-        "line": 2,
-        "column": 11
-    },
-    {
-        "message": "Unexpected whitespace after dot.",
-        "line": 2,
-        "column": 17
-    },
-    {
-        "message": "Unexpected whitespace before dot.",
-        "line": 3,
-        "column": 6
-    },
-    {
-        "message": "Unexpected whitespace after dot.",
-        "line": 3,
-        "column": 8
-    },
-    {
-        "message": "Unexpected whitespace before dot.",
-        "line": 3,
-        "column": 12
-    },
-    {
-        "message": "Unexpected whitespace after dot.",
-        "line": 3,
-        "column": 18
-    }
+  {
+    "message": "Unexpected whitespace before dot.",
+    "line": 2,
+    "column": 5
+  },
+  {
+    "message": "Unexpected whitespace after dot.",
+    "line": 2,
+    "column": 7
+  },
+  {
+    "message": "Unexpected whitespace before dot.",
+    "line": 2,
+    "column": 11
+  },
+  {
+    "message": "Unexpected whitespace after dot.",
+    "line": 2,
+    "column": 17
+  },
+  {
+    "message": "Unexpected whitespace before dot.",
+    "line": 3,
+    "column": 6
+  },
+  {
+    "message": "Unexpected whitespace after dot.",
+    "line": 3,
+    "column": 8
+  },
+  {
+    "message": "Unexpected whitespace before dot.",
+    "line": 3,
+    "column": 12
+  },
+  {
+    "message": "Unexpected whitespace after dot.",
+    "line": 3,
+    "column": 18
+  }
 ]

@@ -1,32 +1,32 @@
 [
-    {
-        "message": "Integers with precision greater than 64-bit are forbidden.",
-        "line": 2,
-        "column": 10
-    },
-    {
-        "message": "Integers with precision greater than 64-bit are forbidden.",
-        "line": 3,
-        "column": 11
-    },
-    {
-        "message": "Integers with precision greater than 64-bit are forbidden.",
-        "line": 4,
-        "column": 11
-    },
-    {
-        "message": "Integers with precision greater than 64-bit are forbidden.",
-        "line": 5,
-        "column": 9
-    },
-    {
-        "message": "Integers with precision greater than 64-bit are forbidden.",
-        "line": 6,
-        "column": 11
-    },
-    {
-        "message": "Integers with precision greater than 64-bit are forbidden.",
-        "line": 7,
-        "column": 12
-    }
+  {
+    "message": "Integers with precision greater than 64-bit are forbidden.",
+    "line": 2,
+    "column": 10
+  },
+  {
+    "message": "Integers with precision greater than 64-bit are forbidden.",
+    "line": 3,
+    "column": 11
+  },
+  {
+    "message": "Integers with precision greater than 64-bit are forbidden.",
+    "line": 4,
+    "column": 11
+  },
+  {
+    "message": "Integers with precision greater than 64-bit are forbidden.",
+    "line": 5,
+    "column": 9
+  },
+  {
+    "message": "Integers with precision greater than 64-bit are forbidden.",
+    "line": 6,
+    "column": 11
+  },
+  {
+    "message": "Integers with precision greater than 64-bit are forbidden.",
+    "line": 7,
+    "column": 12
+  }
 ]

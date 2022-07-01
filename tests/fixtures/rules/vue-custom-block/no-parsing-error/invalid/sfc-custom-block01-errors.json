@@ -1,7 +1,7 @@
 [
-    {
-        "message": "Unspecified values are invalid",
-        "line": 4,
-        "column": 1
-    }
+  {
+    "message": "Unspecified values are invalid",
+    "line": 4,
+    "column": 1
+  }
 ]

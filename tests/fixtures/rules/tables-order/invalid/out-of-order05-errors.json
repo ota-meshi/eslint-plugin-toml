@@ -1,7 +1,7 @@
 [
-    {
-        "message": "'a' must be previous to 'a.b'.",
-        "line": 4,
-        "column": 2
-    }
+  {
+    "message": "'a' must be previous to 'a.b'.",
+    "line": 4,
+    "column": 2
+  }
 ]

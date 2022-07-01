@@ -1,12 +1,12 @@
 [
-    {
-        "message": "Unquoted key '123' found.",
-        "line": 3,
-        "column": 2
-    },
-    {
-        "message": "Unquoted key '123' found.",
-        "line": 4,
-        "column": 1
-    }
+  {
+    "message": "Unquoted key '123' found.",
+    "line": 3,
+    "column": 2
+  },
+  {
+    "message": "Unquoted key '123' found.",
+    "line": 4,
+    "column": 1
+  }
 ]

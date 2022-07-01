@@ -1,17 +1,17 @@
 [
-    {
-        "message": "Precision of fractional seconds greater than 6 are forbidden.",
-        "line": 3,
-        "column": 15
-    },
-    {
-        "message": "Precision of fractional seconds greater than 6 are forbidden.",
-        "line": 4,
-        "column": 15
-    },
-    {
-        "message": "Precision of fractional seconds greater than 6 are forbidden.",
-        "line": 5,
-        "column": 14
-    }
+  {
+    "message": "Precision of fractional seconds greater than 6 are forbidden.",
+    "line": 3,
+    "column": 15
+  },
+  {
+    "message": "Precision of fractional seconds greater than 6 are forbidden.",
+    "line": 4,
+    "column": 15
+  },
+  {
+    "message": "Precision of fractional seconds greater than 6 are forbidden.",
+    "line": 5,
+    "column": 14
+  }
 ]

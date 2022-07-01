@@ -1,17 +1,17 @@
 [
-    {
-        "message": "Octal integers are forbidden.",
-        "line": 9,
-        "column": 8
-    },
-    {
-        "message": "Octal integers are forbidden.",
-        "line": 10,
-        "column": 8
-    },
-    {
-        "message": "Binary integers are forbidden.",
-        "line": 13,
-        "column": 8
-    }
+  {
+    "message": "Octal integers are forbidden.",
+    "line": 9,
+    "column": 8
+  },
+  {
+    "message": "Octal integers are forbidden.",
+    "line": 10,
+    "column": 8
+  },
+  {
+    "message": "Binary integers are forbidden.",
+    "line": 13,
+    "column": 8
+  }
 ]
