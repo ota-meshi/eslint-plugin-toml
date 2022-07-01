@@ -1,3 +1,3 @@
 {
-    "options": ["never", { "objectsInArrays": true }]
+  "options": ["never", { "objectsInArrays": true }]
 }

@@ -1,12 +1,12 @@
 [
-    {
-        "message": "'apple.color' must be next to 'apple.skin'.",
-        "line": 2,
-        "column": 123
-    },
-    {
-        "message": "'apple.color' must be next to 'apple.skin'.",
-        "line": 5,
-        "column": 123
-    }
+  {
+    "message": "'apple.color' must be next to 'apple.skin'.",
+    "line": 2,
+    "column": 123
+  },
+  {
+    "message": "'apple.color' must be next to 'apple.skin'.",
+    "line": 5,
+    "column": 123
+  }
 ]

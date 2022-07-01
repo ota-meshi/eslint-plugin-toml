@@ -1,32 +1,32 @@
 [
-    {
-        "message": "Integers with precision greater than 32-bit are forbidden.",
-        "line": 3,
-        "column": 16
-    },
-    {
-        "message": "Integers with precision greater than 32-bit are forbidden.",
-        "line": 4,
-        "column": 17
-    },
-    {
-        "message": "Integers with precision greater than 32-bit are forbidden.",
-        "line": 5,
-        "column": 17
-    },
-    {
-        "message": "Integers with precision greater than 32-bit are forbidden.",
-        "line": 6,
-        "column": 15
-    },
-    {
-        "message": "Integers with precision greater than 32-bit are forbidden.",
-        "line": 7,
-        "column": 17
-    },
-    {
-        "message": "Integers with precision greater than 32-bit are forbidden.",
-        "line": 8,
-        "column": 18
-    }
+  {
+    "message": "Integers with precision greater than 32-bit are forbidden.",
+    "line": 3,
+    "column": 16
+  },
+  {
+    "message": "Integers with precision greater than 32-bit are forbidden.",
+    "line": 4,
+    "column": 17
+  },
+  {
+    "message": "Integers with precision greater than 32-bit are forbidden.",
+    "line": 5,
+    "column": 17
+  },
+  {
+    "message": "Integers with precision greater than 32-bit are forbidden.",
+    "line": 6,
+    "column": 15
+  },
+  {
+    "message": "Integers with precision greater than 32-bit are forbidden.",
+    "line": 7,
+    "column": 17
+  },
+  {
+    "message": "Integers with precision greater than 32-bit are forbidden.",
+    "line": 8,
+    "column": 18
+  }
 ]

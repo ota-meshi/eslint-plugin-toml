@@ -217,7 +217,7 @@ function writeFixtures(
                     column: m.column,
                 })),
                 null,
-                4,
+                2,
             )}\n`,
             "utf8",
         )

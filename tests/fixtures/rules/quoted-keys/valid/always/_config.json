@@ -1,7 +1,7 @@
 {
-    "options": [
-        {
-            "prefer": "always"
-        }
-    ]
+  "options": [
+    {
+      "prefer": "always"
+    }
+  ]
 }

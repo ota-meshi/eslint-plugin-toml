@@ -1,17 +1,17 @@
 [
-    {
-        "message": "Expected blank line before this table.",
-        "line": 3,
-        "column": 2
-    },
-    {
-        "message": "Expected blank line before this table.",
-        "line": 5,
-        "column": 2
-    },
-    {
-        "message": "Expected blank line before this table.",
-        "line": 7,
-        "column": 3
-    }
+  {
+    "message": "Expected blank line before this table.",
+    "line": 3,
+    "column": 2
+  },
+  {
+    "message": "Expected blank line before this table.",
+    "line": 5,
+    "column": 2
+  },
+  {
+    "message": "Expected blank line before this table.",
+    "line": 7,
+    "column": 3
+  }
 ]
