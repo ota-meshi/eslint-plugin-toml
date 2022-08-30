@@ -1,4 +1,4 @@
-import type { TOMLToken } from "../types"
+import type { TOMLToken } from "../types";
 
 /**
  * Checks if the given token is a comment token or not.
@@ -6,7 +6,7 @@ import type { TOMLToken } from "../types"
  * @returns {boolean} `true` if the token is a comment token.
  */
 export function isCommentToken(token: TOMLToken | null): boolean {
-    return Boolean(token && token.type === "Block")
+  return Boolean(token && token.type === "Block");
 }
 
 /**
@@ -15,5 +15,5 @@ export function isCommentToken(token: TOMLToken | null): boolean {
  * @returns `true` if the token is a equal sign.
  */
 export function isEqualSign(token: TOMLToken | null): token is TOMLToken {
-    return token != null && token.type === "Punctuator" && token.value === "="
+  return token != null && token.type === "Punctuator" && token.value === "=";
 }
