@@ -94,6 +94,7 @@ export function defineWrapperListener(
     getSourceCode() {
       return proxySourceCode;
     },
+    sourceCode: proxySourceCode,
   }) as RuleListener;
 
   const tomlListener =
