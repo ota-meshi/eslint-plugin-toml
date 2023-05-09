@@ -5,6 +5,7 @@ title: "toml/array-element-newline"
 description: "enforce line breaks between array elements"
 since: "v0.1.0"
 ---
+
 # toml/array-element-newline
 
 > enforce line breaks between array elements
@@ -62,8 +63,8 @@ This rule was introduced in eslint-plugin-toml v0.1.0
 
 ## :mag: Implementation
 
-- [Rule source](https://github.com/ota-meshi/eslint-plugin-toml/blob/master/src/rules/array-element-newline.ts)
-- [Test source](https://github.com/ota-meshi/eslint-plugin-toml/blob/master/tests/src/rules/array-element-newline.ts)
-- [Test fixture sources](https://github.com/ota-meshi/eslint-plugin-toml/tree/master/tests/fixtures/rules/array-element-newline)
+- [Rule source](https://github.com/ota-meshi/eslint-plugin-toml/blob/main/src/rules/array-element-newline.ts)
+- [Test source](https://github.com/ota-meshi/eslint-plugin-toml/blob/main/tests/src/rules/array-element-newline.ts)
+- [Test fixture sources](https://github.com/ota-meshi/eslint-plugin-toml/tree/main/tests/fixtures/rules/array-element-newline)
 
 <sup>Taken with ❤️ [from ESLint core](https://eslint.org/docs/rules/array-element-newline)</sup>

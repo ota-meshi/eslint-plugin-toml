@@ -5,6 +5,7 @@ title: "toml/precision-of-integer"
 description: "disallow precision of integer greater than the specified value."
 since: "v0.1.0"
 ---
+
 # toml/precision-of-integer
 
 > disallow precision of integer greater than the specified value.
@@ -66,6 +67,6 @@ This rule was introduced in eslint-plugin-toml v0.1.0
 
 ## :mag: Implementation
 
-- [Rule source](https://github.com/ota-meshi/eslint-plugin-toml/blob/master/src/rules/precision-of-integer.ts)
-- [Test source](https://github.com/ota-meshi/eslint-plugin-toml/blob/master/tests/src/rules/precision-of-integer.ts)
-- [Test fixture sources](https://github.com/ota-meshi/eslint-plugin-toml/tree/master/tests/fixtures/rules/precision-of-integer)
+- [Rule source](https://github.com/ota-meshi/eslint-plugin-toml/blob/main/src/rules/precision-of-integer.ts)
+- [Test source](https://github.com/ota-meshi/eslint-plugin-toml/blob/main/tests/src/rules/precision-of-integer.ts)
+- [Test fixture sources](https://github.com/ota-meshi/eslint-plugin-toml/tree/main/tests/fixtures/rules/precision-of-integer)

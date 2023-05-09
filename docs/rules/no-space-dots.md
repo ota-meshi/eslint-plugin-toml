@@ -5,6 +5,7 @@ title: "toml/no-space-dots"
 description: "disallow spacing around infix operators"
 since: "v0.1.0"
 ---
+
 # toml/no-space-dots
 
 > disallow spacing around infix operators
@@ -49,6 +50,6 @@ This rule was introduced in eslint-plugin-toml v0.1.0
 
 ## :mag: Implementation
 
-- [Rule source](https://github.com/ota-meshi/eslint-plugin-toml/blob/master/src/rules/no-space-dots.ts)
-- [Test source](https://github.com/ota-meshi/eslint-plugin-toml/blob/master/tests/src/rules/no-space-dots.ts)
-- [Test fixture sources](https://github.com/ota-meshi/eslint-plugin-toml/tree/master/tests/fixtures/rules/no-space-dots)
+- [Rule source](https://github.com/ota-meshi/eslint-plugin-toml/blob/main/src/rules/no-space-dots.ts)
+- [Test source](https://github.com/ota-meshi/eslint-plugin-toml/blob/main/tests/src/rules/no-space-dots.ts)
+- [Test fixture sources](https://github.com/ota-meshi/eslint-plugin-toml/tree/main/tests/fixtures/rules/no-space-dots)

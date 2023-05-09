@@ -7,9 +7,9 @@ export default createRule("space-eq-sign", {
       description: "require spacing around equals sign",
       categories: ["standard"],
       extensionRule: false,
-      replacedBy: ["key-spacing"],
     },
     deprecated: true,
+    replacedBy: ["key-spacing"],
     fixable: "whitespace",
     schema: [],
     messages: {
