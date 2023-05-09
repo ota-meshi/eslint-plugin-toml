@@ -5,6 +5,7 @@ title: "toml/tables-order"
 description: "disallow defining tables out-of-order"
 since: "v0.1.0"
 ---
+
 # toml/tables-order
 
 > disallow defining tables out-of-order
@@ -56,6 +57,6 @@ This rule was introduced in eslint-plugin-toml v0.1.0
 
 ## :mag: Implementation
 
-- [Rule source](https://github.com/ota-meshi/eslint-plugin-toml/blob/master/src/rules/tables-order.ts)
-- [Test source](https://github.com/ota-meshi/eslint-plugin-toml/blob/master/tests/src/rules/tables-order.ts)
-- [Test fixture sources](https://github.com/ota-meshi/eslint-plugin-toml/tree/master/tests/fixtures/rules/tables-order)
+- [Rule source](https://github.com/ota-meshi/eslint-plugin-toml/blob/main/src/rules/tables-order.ts)
+- [Test source](https://github.com/ota-meshi/eslint-plugin-toml/blob/main/tests/src/rules/tables-order.ts)
+- [Test fixture sources](https://github.com/ota-meshi/eslint-plugin-toml/tree/main/tests/fixtures/rules/tables-order)

@@ -5,6 +5,7 @@ title: "toml/no-non-decimal-integer"
 description: "disallow hexadecimal, octal and binary integer"
 since: "v0.1.0"
 ---
+
 # toml/no-non-decimal-integer
 
 > disallow hexadecimal, octal and binary integer
@@ -69,6 +70,6 @@ This rule was introduced in eslint-plugin-toml v0.1.0
 
 ## :mag: Implementation
 
-- [Rule source](https://github.com/ota-meshi/eslint-plugin-toml/blob/master/src/rules/no-non-decimal-integer.ts)
-- [Test source](https://github.com/ota-meshi/eslint-plugin-toml/blob/master/tests/src/rules/no-non-decimal-integer.ts)
-- [Test fixture sources](https://github.com/ota-meshi/eslint-plugin-toml/tree/master/tests/fixtures/rules/no-non-decimal-integer)
+- [Rule source](https://github.com/ota-meshi/eslint-plugin-toml/blob/main/src/rules/no-non-decimal-integer.ts)
+- [Test source](https://github.com/ota-meshi/eslint-plugin-toml/blob/main/tests/src/rules/no-non-decimal-integer.ts)
+- [Test fixture sources](https://github.com/ota-meshi/eslint-plugin-toml/tree/main/tests/fixtures/rules/no-non-decimal-integer)

@@ -5,6 +5,7 @@ title: "toml/inline-table-curly-spacing"
 description: "enforce consistent spacing inside braces"
 since: "v0.1.0"
 ---
+
 # toml/inline-table-curly-spacing
 
 > enforce consistent spacing inside braces
@@ -58,8 +59,8 @@ This rule was introduced in eslint-plugin-toml v0.1.0
 
 ## :mag: Implementation
 
-- [Rule source](https://github.com/ota-meshi/eslint-plugin-toml/blob/master/src/rules/inline-table-curly-spacing.ts)
-- [Test source](https://github.com/ota-meshi/eslint-plugin-toml/blob/master/tests/src/rules/inline-table-curly-spacing.ts)
-- [Test fixture sources](https://github.com/ota-meshi/eslint-plugin-toml/tree/master/tests/fixtures/rules/inline-table-curly-spacing)
+- [Rule source](https://github.com/ota-meshi/eslint-plugin-toml/blob/main/src/rules/inline-table-curly-spacing.ts)
+- [Test source](https://github.com/ota-meshi/eslint-plugin-toml/blob/main/tests/src/rules/inline-table-curly-spacing.ts)
+- [Test fixture sources](https://github.com/ota-meshi/eslint-plugin-toml/tree/main/tests/fixtures/rules/inline-table-curly-spacing)
 
 <sup>Taken with ❤️ [from ESLint core](https://eslint.org/docs/rules/object-curly-spacing)</sup>

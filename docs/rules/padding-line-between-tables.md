@@ -5,6 +5,7 @@ title: "toml/padding-line-between-tables"
 description: "require or disallow padding lines between tables"
 since: "v0.1.0"
 ---
+
 # toml/padding-line-between-tables
 
 > require or disallow padding lines between tables
@@ -62,6 +63,6 @@ This rule was introduced in eslint-plugin-toml v0.1.0
 
 ## :mag: Implementation
 
-- [Rule source](https://github.com/ota-meshi/eslint-plugin-toml/blob/master/src/rules/padding-line-between-tables.ts)
-- [Test source](https://github.com/ota-meshi/eslint-plugin-toml/blob/master/tests/src/rules/padding-line-between-tables.ts)
-- [Test fixture sources](https://github.com/ota-meshi/eslint-plugin-toml/tree/master/tests/fixtures/rules/padding-line-between-tables)
+- [Rule source](https://github.com/ota-meshi/eslint-plugin-toml/blob/main/src/rules/padding-line-between-tables.ts)
+- [Test source](https://github.com/ota-meshi/eslint-plugin-toml/blob/main/tests/src/rules/padding-line-between-tables.ts)
+- [Test fixture sources](https://github.com/ota-meshi/eslint-plugin-toml/tree/main/tests/fixtures/rules/padding-line-between-tables)

@@ -5,6 +5,7 @@ title: "toml/table-bracket-spacing"
 description: "enforce consistent spacing inside table brackets"
 since: "v0.1.0"
 ---
+
 # toml/table-bracket-spacing
 
 > enforce consistent spacing inside table brackets
@@ -63,8 +64,8 @@ This rule was introduced in eslint-plugin-toml v0.1.0
 
 ## :mag: Implementation
 
-- [Rule source](https://github.com/ota-meshi/eslint-plugin-toml/blob/master/src/rules/table-bracket-spacing.ts)
-- [Test source](https://github.com/ota-meshi/eslint-plugin-toml/blob/master/tests/src/rules/table-bracket-spacing.ts)
-- [Test fixture sources](https://github.com/ota-meshi/eslint-plugin-toml/tree/master/tests/fixtures/rules/table-bracket-spacing)
+- [Rule source](https://github.com/ota-meshi/eslint-plugin-toml/blob/main/src/rules/table-bracket-spacing.ts)
+- [Test source](https://github.com/ota-meshi/eslint-plugin-toml/blob/main/tests/src/rules/table-bracket-spacing.ts)
+- [Test fixture sources](https://github.com/ota-meshi/eslint-plugin-toml/tree/main/tests/fixtures/rules/table-bracket-spacing)
 
 <sup>Taken with ❤️ [from ESLint core](https://eslint.org/docs/rules/array-bracket-spacing)</sup>

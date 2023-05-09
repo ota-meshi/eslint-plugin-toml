@@ -40,7 +40,6 @@ export interface RuleMetaData {
     url: string;
     ruleId: string;
     ruleName: string;
-    replacedBy?: string[];
     default?: "error" | "warn";
     extensionRule: string | false;
   };
@@ -49,6 +48,7 @@ export interface RuleMetaData {
   hasSuggestions?: boolean;
   schema: JSONSchema4 | JSONSchema4[];
   deprecated?: boolean;
+  replacedBy?: string[];
   type: "problem" | "suggestion" | "layout";
 }
 
@@ -61,7 +61,6 @@ export interface PartialRuleMetaData {
   docs: {
     description: string;
     categories: ("recommended" | "standard")[] | null;
-    replacedBy?: string[];
     default?: "error" | "warn";
     extensionRule: string | false;
   };
@@ -70,6 +69,7 @@ export interface PartialRuleMetaData {
   hasSuggestions?: boolean;
   schema: JSONSchema4 | JSONSchema4[];
   deprecated?: boolean;
+  replacedBy?: string[];
   type: "problem" | "suggestion" | "layout";
 }
 
