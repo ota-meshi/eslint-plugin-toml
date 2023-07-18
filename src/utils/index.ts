@@ -20,7 +20,7 @@ const log = debug("eslint-plugin-toml:utils/index");
  */
 export function createRule(
   ruleName: string,
-  rule: PartialRuleModule
+  rule: PartialRuleModule,
 ): RuleModule {
   return {
     meta: {
@@ -48,7 +48,7 @@ export function createRule(
                 customBlock: true,
               });
             },
-          }
+          },
         );
       }
       return rule.create(context as any, {
@@ -71,7 +71,7 @@ export function defineWrapperListener(
     options: any[];
     createListenerProxy?: (listener: CoreRuleListener) => RuleListener;
     getNodeProxy?: (node: AST.TOMLNode) => any;
-  }
+  },
 ): RuleListener {
   if (!context.parserServices.isTOML) {
     return {};

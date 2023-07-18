@@ -12,5 +12,5 @@ const tester = new RuleTester({
 tester.run(
   "no-mixed-type-in-array",
   rule as any,
-  loadTestCases("no-mixed-type-in-array")
+  loadTestCases("no-mixed-type-in-array"),
 );

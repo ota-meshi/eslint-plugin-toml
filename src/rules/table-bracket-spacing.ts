@@ -38,7 +38,7 @@ export default createRule("table-bracket-spacing", {
      */
     function reportRequiredBeginningSpace(
       node: AST.TOMLTable,
-      token: AST.Token
+      token: AST.Token,
     ) {
       context.report({
         node,

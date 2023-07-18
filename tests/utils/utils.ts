@@ -24,7 +24,7 @@ export function unIndent(strings: readonly string[]): string {
  * for `code` and `output`
  */
 export function unIndentCodeAndOutput([code]: readonly string[]): (
-  args: readonly string[]
+  args: readonly string[],
 ) => {
   code: string;
   output: string;
@@ -36,7 +36,7 @@ export function unIndentCodeAndOutput([code]: readonly string[]): (
     const outputLines = output.split("\n");
     const minLineIndent = Math.min(
       getMinIndent(outputLines),
-      codeMinLineIndent
+      codeMinLineIndent,
     );
 
     return {
@@ -65,22 +65,22 @@ export function loadTestCases(
   additionals?: {
     valid?: (RuleTester.ValidTestCase | string)[];
     invalid?: RuleTester.InvalidTestCase[];
-  }
+  },
 ): {
   valid: RuleTester.ValidTestCase[];
   invalid: RuleTester.InvalidTestCase[];
 } {
   const validFixtureRoot = path.resolve(
     __dirname,
-    `../fixtures/rules/${ruleName}/valid/`
+    `../fixtures/rules/${ruleName}/valid/`,
   );
   const invalidFixtureRoot = path.resolve(
     __dirname,
-    `../fixtures/rules/${ruleName}/invalid/`
+    `../fixtures/rules/${ruleName}/invalid/`,
   );
 
   const valid = listupInput(validFixtureRoot).map((inputFile) =>
-    getConfig(ruleName, inputFile)
+    getConfig(ruleName, inputFile),
   );
 
   const fixable = plugin.rules[ruleName].meta.fixable != null;
@@ -90,7 +90,7 @@ export function loadTestCases(
     const errorFile = inputFile.replace(/input\.(?:toml|vue)$/u, "errors.json");
     const outputFile = inputFile.replace(
       /input\.(?:toml|vue)$/u,
-      isToml(inputFile) ? "output.toml" : "output.vue"
+      isToml(inputFile) ? "output.toml" : "output.vue",
     );
     let errors;
     try {
@@ -140,7 +140,7 @@ export function loadTestCases(
           const output = tomlESLintParser.parseForESLint(test.output);
           assert.deepStrictEqual(
             tomlESLintParser.getStaticTOMLValue(input.ast),
-            tomlESLintParser.getStaticTOMLValue(output.ast)
+            tomlESLintParser.getStaticTOMLValue(output.ast),
           );
         });
       }
@@ -174,13 +174,13 @@ function* itrListupInput(rootDir: string): IterableIterator<string> {
 function writeFixtures(
   ruleName: string,
   inputFile: string,
-  { force }: { force?: boolean } = {}
+  { force }: { force?: boolean } = {},
 ) {
   const linter = getLinter(ruleName);
   const errorFile = inputFile.replace(/input\.(?:toml|vue)$/u, "errors.json");
   const outputFile = inputFile.replace(
     /input\.(?:toml|vue)$/u,
-    isToml(inputFile) ? "output.toml" : "output.vue"
+    isToml(inputFile) ? "output.toml" : "output.vue",
   );
 
   const config = getConfig(ruleName, inputFile);
@@ -196,7 +196,7 @@ function writeFixtures(
         toml: { indent: 8 },
       },
     },
-    config.filename
+    config.filename,
   );
   if (force || !fs.existsSync(errorFile)) {
     fs.writeFileSync(
@@ -208,9 +208,9 @@ function writeFixtures(
           column: m.column,
         })),
         null,
-        2
+        2,
       )}\n`,
-      "utf8"
+      "utf8",
     );
   }
 
@@ -254,7 +254,7 @@ function getConfig(ruleName: string, inputFile: string) {
   let code, config;
   let configFile: string = inputFile.replace(
     /input\.(?:toml|vue)$/u,
-    "config.json"
+    "config.json",
   );
   if (!fs.existsSync(configFile)) {
     configFile = path.join(path.dirname(inputFile), "_config.json");
@@ -269,7 +269,7 @@ function getConfig(ruleName: string, inputFile: string) {
     return Object.assign(
       isVue(inputFile) ? { parser: require.resolve("vue-eslint-parser") } : {},
       config,
-      { code, filename }
+      { code, filename },
     );
   }
   // inline config
@@ -293,7 +293,7 @@ function getConfig(ruleName: string, inputFile: string) {
   return Object.assign(
     isVue(inputFile) ? { parser: require.resolve("vue-eslint-parser") } : {},
     config,
-    { code, filename }
+    { code, filename },
   );
 }
 

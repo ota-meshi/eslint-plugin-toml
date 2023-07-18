@@ -126,7 +126,7 @@ function initOptions(
     align?: Partial<AlignOption>;
     multiLine?: UserOption;
     singleLine?: UserOption;
-  } & UserOption
+  } & UserOption,
 ) {
   let align: AlignOption | undefined,
     multiLine: ParsedOption,
@@ -284,7 +284,7 @@ function create(context: RuleContext): RuleListener {
    * @returns {boolean} Whether the property is a key/value property.
    */
   function isKeyValueProperty(
-    property: AST.TOMLKeyValue | AST.TOMLTable
+    property: AST.TOMLKeyValue | AST.TOMLTable,
   ): property is AST.TOMLKeyValue {
     return property.type === "TOMLKeyValue";
   }
@@ -339,7 +339,7 @@ function create(context: RuleContext): RuleListener {
     side: "key" | "value",
     whitespace: string,
     expected: number,
-    mode: "strict" | "minimum"
+    mode: "strict" | "minimum",
   ) {
     const diff = whitespace.length - expected;
     const nextEqual = getNextEqual(property.key);
@@ -434,7 +434,7 @@ function create(context: RuleContext): RuleListener {
    */
   function getPropertyWhitespace(pair: AST.TOMLKeyValue) {
     const whitespace = /(\s*)=(\s*)/u.exec(
-      sourceCode.getText().slice(pair.key.range[1], pair.value.range[0])
+      sourceCode.getText().slice(pair.key.range[1], pair.value.range[0]),
     );
 
     if (whitespace) {
@@ -462,14 +462,14 @@ function create(context: RuleContext): RuleListener {
         "key",
         actual.beforeEqual,
         lineOptions.beforeEqual ? 1 : 0,
-        lineOptions.mode
+        lineOptions.mode,
       );
       report(
         node,
         "value",
         actual.afterEqual,
         lineOptions.afterEqual ? 1 : 0,
-        lineOptions.mode
+        lineOptions.mode,
       );
     }
   }
@@ -482,7 +482,7 @@ function create(context: RuleContext): RuleListener {
    */
   function verifyListSpacing(
     properties: AST.TOMLKeyValue[],
-    lineOptions: ParsedOption
+    lineOptions: ParsedOption,
   ) {
     const length = properties.length;
 
@@ -508,7 +508,7 @@ function create(context: RuleContext): RuleListener {
   function defineAlignmentVisitor(alignmentOptions: AlignOption) {
     return {
       "TOMLTopLevelTable, TOMLTable, TOMLInlineTable"(
-        node: AST.TOMLTopLevelTable | AST.TOMLTable | AST.TOMLInlineTable
+        node: AST.TOMLTopLevelTable | AST.TOMLTable | AST.TOMLInlineTable,
       ) {
         if (isSingleLine(node)) {
           const body: (AST.TOMLKeyValue | AST.TOMLTable)[] = node.body;
@@ -560,7 +560,7 @@ function create(context: RuleContext): RuleListener {
               "value",
               whitespace.afterEqual,
               targetWidth - width,
-              mode
+              mode,
             );
           } else {
             // align = "equal"
@@ -569,7 +569,7 @@ function create(context: RuleContext): RuleListener {
               "key",
               whitespace.beforeEqual,
               targetWidth - width,
-              mode
+              mode,
             );
             report(property, "value", whitespace.afterEqual, afterEqual, mode);
           }
@@ -585,7 +585,7 @@ function create(context: RuleContext): RuleListener {
      */
     function continuesPropertyGroup(
       lastMember: AST.TOMLKeyValue,
-      candidate: AST.TOMLKeyValue
+      candidate: AST.TOMLKeyValue,
     ) {
       const groupEndLine = lastMember.loc.start.line;
       const candidateStartLine = candidate.loc.start.line;
@@ -625,7 +625,7 @@ function create(context: RuleContext): RuleListener {
      * @returns {Array.<ASTNode[]>} Groups of property AST node lists.
      */
     function createGroups(
-      node: AST.TOMLTopLevelTable | AST.TOMLTable | AST.TOMLInlineTable
+      node: AST.TOMLTopLevelTable | AST.TOMLTable | AST.TOMLInlineTable,
     ) {
       const body: (AST.TOMLKeyValue | AST.TOMLTable)[] = node.body;
       const pairs = body.filter(isKeyValueProperty);
@@ -646,7 +646,7 @@ function create(context: RuleContext): RuleListener {
 
           return groups;
         },
-        [[]] as AST.TOMLKeyValue[][]
+        [[]] as AST.TOMLKeyValue[][],
       );
     }
 
@@ -656,7 +656,7 @@ function create(context: RuleContext): RuleListener {
      * @returns {void}
      */
     function verifyAlignment(
-      node: AST.TOMLTopLevelTable | AST.TOMLTable | AST.TOMLInlineTable
+      node: AST.TOMLTopLevelTable | AST.TOMLTable | AST.TOMLInlineTable,
     ) {
       createGroups(node).forEach((group) => {
         const properties = group;
@@ -680,7 +680,7 @@ function create(context: RuleContext): RuleListener {
         if (!isKeyValueProperty(node)) return;
         verifySpacing(
           node,
-          isSingleLine(node.parent) ? singleLineOptions : multiLineOptions
+          isSingleLine(node.parent) ? singleLineOptions : multiLineOptions,
         );
       },
     };

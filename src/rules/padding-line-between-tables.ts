@@ -28,7 +28,7 @@ export default createRule("padding-line-between-tables", {
      */
     function verifyTables(
       prevNode: AST.TOMLTable | AST.TOMLKeyValue,
-      nextNode: AST.TOMLTable
+      nextNode: AST.TOMLTable,
     ) {
       const tokens = sourceCode.getTokensBetween(prevNode, nextNode, {
         includeComments: true,

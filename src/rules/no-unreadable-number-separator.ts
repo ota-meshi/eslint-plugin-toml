@@ -33,7 +33,7 @@ export default createRule("no-unreadable-number-separator", {
     function parseCharCounts(
       text: string,
       startIndex: number,
-      exitChars: string[]
+      exitChars: string[],
     ) {
       let start = startIndex;
       let count = 0;
@@ -79,7 +79,7 @@ export default createRule("no-unreadable-number-separator", {
         integerCharCounts: CharCountData[];
         fractionalCharCounts: CharCountData[];
         exponentCharCounts: CharCountData[];
-      }
+      },
     ) {
       for (const { count, range } of [
         ...integerCharCounts.slice(1),
@@ -119,7 +119,7 @@ export default createRule("no-unreadable-number-separator", {
       const parsedInteger = parseCharCounts(
         text,
         index,
-        integer ? [] : [".", "E", "e"]
+        integer ? [] : [".", "E", "e"],
       );
       const integerCharCounts = parsedInteger.charCounts;
       const fractionalCharCounts: CharCountData[] = [];

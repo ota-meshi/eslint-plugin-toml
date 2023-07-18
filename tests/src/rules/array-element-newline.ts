@@ -12,5 +12,5 @@ const tester = new RuleTester({
 tester.run(
   "array-element-newline",
   rule as any,
-  loadTestCases("array-element-newline")
+  loadTestCases("array-element-newline"),
 );

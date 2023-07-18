@@ -12,5 +12,5 @@ const tester = new RuleTester({
 tester.run(
   "no-non-decimal-integer",
   rule as any,
-  loadTestCases("no-non-decimal-integer")
+  loadTestCases("no-non-decimal-integer"),
 );

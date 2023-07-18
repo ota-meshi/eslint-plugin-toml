@@ -31,7 +31,7 @@ export default createRule("padding-line-between-pairs", {
       prevNode: AST.TOMLKeyValue,
       prevKeys: string[],
       nextNode: AST.TOMLKeyValue,
-      nextKeys: string[]
+      nextKeys: string[],
     ) {
       const needPadding =
         nextKeys.length !== prevKeys.length ||
@@ -67,7 +67,7 @@ export default createRule("padding-line-between-pairs", {
           *fix(fixer) {
             yield fixer.replaceTextRange(
               [prevTarget.range[1], nextNode.range[0]],
-              "\n"
+              "\n",
             );
           },
         });

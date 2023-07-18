@@ -108,7 +108,7 @@ export interface SourceCode {
   getText(
     node?: TOMLNodeOrToken,
     beforeCount?: number,
-    afterCount?: number
+    afterCount?: number,
   ): string;
 
   getLines(): string[];
@@ -133,91 +133,91 @@ export interface SourceCode {
 
   getTokenByRangeStart(
     offset: number,
-    options?: { includeComments?: boolean }
+    options?: { includeComments?: boolean },
   ): TOMLToken | null;
 
   getFirstToken(node: AST.TOMLNode): AST.Token;
   getFirstToken(
     node: AST.TOMLNode,
-    options?: CursorWithSkipOptions
+    options?: CursorWithSkipOptions,
   ): TOMLToken | null;
 
   getFirstTokens(
     node: AST.TOMLNode,
-    options?: CursorWithCountOptions
+    options?: CursorWithCountOptions,
   ): TOMLToken[];
 
   getLastToken(node: AST.TOMLNode): AST.Token;
   getLastToken(
     node: AST.TOMLNode,
-    options?: CursorWithSkipOptions
+    options?: CursorWithSkipOptions,
   ): TOMLToken | null;
 
   getLastTokens(
     node: AST.TOMLNode,
-    options?: CursorWithCountOptions
+    options?: CursorWithCountOptions,
   ): TOMLToken[];
 
   getTokenBefore(node: TOMLNodeOrToken): AST.Token | null;
   getTokenBefore(
     node: TOMLNodeOrToken,
-    options?: CursorWithSkipOptions
+    options?: CursorWithSkipOptions,
   ): TOMLToken | null;
 
   getTokensBefore(
     node: TOMLNodeOrToken,
-    options?: CursorWithCountOptions
+    options?: CursorWithCountOptions,
   ): TOMLToken[];
 
   getTokenAfter(node: TOMLNodeOrToken): AST.Token | null;
   getTokenAfter(
     node: TOMLNodeOrToken,
-    options?: CursorWithSkipOptions
+    options?: CursorWithSkipOptions,
   ): TOMLToken | null;
 
   getTokensAfter(
     node: TOMLNodeOrToken,
-    options?: CursorWithCountOptions
+    options?: CursorWithCountOptions,
   ): TOMLToken[];
 
   getFirstTokenBetween(
     left: TOMLNodeOrToken,
     right: TOMLNodeOrToken,
-    options?: CursorWithSkipOptions
+    options?: CursorWithSkipOptions,
   ): TOMLToken | null;
 
   getFirstTokensBetween(
     left: TOMLNodeOrToken,
     right: TOMLNodeOrToken,
-    options?: CursorWithCountOptions
+    options?: CursorWithCountOptions,
   ): TOMLToken[];
 
   getLastTokenBetween(
     left: TOMLNodeOrToken,
     right: TOMLNodeOrToken,
-    options?: CursorWithSkipOptions
+    options?: CursorWithSkipOptions,
   ): TOMLToken | null;
 
   getLastTokensBetween(
     left: TOMLNodeOrToken,
     right: TOMLNodeOrToken,
-    options?: CursorWithCountOptions
+    options?: CursorWithCountOptions,
   ): TOMLToken[];
 
   getTokensBetween(
     left: TOMLNodeOrToken,
     right: TOMLNodeOrToken,
-    padding?: number | FilterPredicate | CursorWithCountOptions
+    padding?: number | FilterPredicate | CursorWithCountOptions,
   ): TOMLToken[];
 
   getTokens(
     node: AST.TOMLNode,
     beforeCount?: number,
-    afterCount?: number
+    afterCount?: number,
   ): TOMLToken[];
   getTokens(
     node: AST.TOMLNode,
-    options: FilterPredicate | CursorWithCountOptions
+    options: FilterPredicate | CursorWithCountOptions,
   ): TOMLToken[];
 
   commentsExistBetween(left: TOMLNodeOrToken, right: TOMLNodeOrToken): boolean;
