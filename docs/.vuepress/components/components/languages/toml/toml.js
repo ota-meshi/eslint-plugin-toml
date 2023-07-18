@@ -1,4 +1,4 @@
-// eslint-disable-next-line node/no-unsupported-features/es-syntax -- build
+// eslint-disable-next-line n/no-unsupported-features/es-syntax -- build
 export const language = {
   tokenPostfix: ".toml",
   brackets: [
