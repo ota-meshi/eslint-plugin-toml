@@ -35,7 +35,7 @@ export default createRule("keys-order", {
      */
     function applyKey(
       tableKeys: KeyData[],
-      node: AST.TOMLKeyValue
+      node: AST.TOMLKeyValue,
     ): AST.TOMLKeyValue | null {
       const keyNames = getStaticTOMLValue(node.key);
 
@@ -65,7 +65,7 @@ export default createRule("keys-order", {
      * Verify table
      */
     function verify(
-      node: AST.TOMLTopLevelTable | AST.TOMLTable | AST.TOMLInlineTable
+      node: AST.TOMLTopLevelTable | AST.TOMLTable | AST.TOMLInlineTable,
     ) {
       const keys: KeyData[] = [];
       let prev: AST.TOMLKeyValue | null = null;
@@ -94,7 +94,7 @@ export default createRule("keys-order", {
               return [
                 fixer.insertTextAfter(
                   before,
-                  node.type === "TOMLInlineTable" ? code : `\n${code.trim()}`
+                  node.type === "TOMLInlineTable" ? code : `\n${code.trim()}`,
                 ),
                 fixer.removeRange([start, body.range[1]]),
               ];

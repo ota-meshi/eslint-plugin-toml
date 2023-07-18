@@ -48,7 +48,7 @@ export function maxBitToMaxValues(maxBit: number): MaxValues {
   function processDigits(
     digits: number[],
     binaryNum: number,
-    radix: 10 | 16 | 8
+    radix: 10 | 16 | 8,
   ) {
     let num = binaryNum;
     for (let place = 0; place < digits.length; place++) {
@@ -111,7 +111,7 @@ export default createRule("precision-of-integer", {
     function verifyMaxValue(
       node: AST.TOMLNumberValue,
       numText: string,
-      max: string
+      max: string,
     ) {
       const num = numText.replace(/^0+/, "").toLowerCase();
       if (num.length < max.length) {

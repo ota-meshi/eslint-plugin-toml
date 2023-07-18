@@ -12,5 +12,5 @@ const tester = new RuleTester({
 tester.run(
   "inline-table-curly-spacing",
   rule as any,
-  loadTestCases("inline-table-curly-spacing")
+  loadTestCases("inline-table-curly-spacing"),
 );

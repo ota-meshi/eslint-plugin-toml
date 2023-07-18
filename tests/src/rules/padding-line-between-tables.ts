@@ -12,5 +12,5 @@ const tester = new RuleTester({
 tester.run(
   "padding-line-between-tables",
   rule as any,
-  loadTestCases("padding-line-between-tables")
+  loadTestCases("padding-line-between-tables"),
 );

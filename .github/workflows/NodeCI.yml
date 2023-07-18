@@ -60,8 +60,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install Target Packages
         run: |+
-          npm i -D eslint@^7
+          npm i -D eslint@^7 -f
           npx rimraf node_modules
-          npm install
+          npm install -f
       - name: Test
         run: npm test

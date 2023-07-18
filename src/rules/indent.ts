@@ -100,7 +100,7 @@ export default createRule("indent", {
     function setOffset(
       token: TOMLToken | (TOMLToken | null)[] | null,
       offset: Offset,
-      baseToken: TOMLToken
+      baseToken: TOMLToken,
     ) {
       if (token == null) {
         return;
@@ -127,7 +127,7 @@ export default createRule("indent", {
       nodeList: (AST.TOMLNode | null)[],
       left: TOMLToken,
       right: TOMLToken | null,
-      offset: Offset
+      offset: Offset,
     ) {
       let lastToken = left;
 
@@ -435,7 +435,7 @@ export default createRule("indent", {
         commentLines: {
           range: [number, number];
           commentLineIndents: LineIndentStep1[];
-        }[]
+        }[],
       ) {
         for (const { range, commentLineIndents } of commentLines) {
           const prev: LineIndentStep2 | undefined = results
@@ -534,7 +534,7 @@ export default createRule("indent", {
                   sourceCode.getIndexFromLoc(startLoc),
                   lineIndent.firstToken.range[0],
                 ],
-                lineIndent.expectedIndent
+                lineIndent.expectedIndent,
               );
             },
           });

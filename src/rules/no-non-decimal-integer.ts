@@ -68,7 +68,7 @@ export default createRule("no-non-decimal-integer", {
     function buildFixer(
       node: AST.TOMLNumberValue,
       text: string,
-      mark: "x" | "o" | "b"
+      mark: "x" | "o" | "b",
     ): ((fixer: RuleFixer) => Fix) | undefined {
       if (allowHexadecimal || allowOctal || allowBinary) {
         return undefined;

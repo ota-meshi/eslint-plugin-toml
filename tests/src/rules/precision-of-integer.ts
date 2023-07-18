@@ -15,7 +15,7 @@ const tester = new RuleTester({
 tester.run(
   "precision-of-integer",
   rule as any,
-  loadTestCases("precision-of-integer")
+  loadTestCases("precision-of-integer"),
 );
 
 if (typeof BigInt !== "undefined") {

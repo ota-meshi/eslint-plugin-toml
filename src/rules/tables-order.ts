@@ -57,7 +57,7 @@ export default createRule("tables-order", {
      */
     function applyKey(
       rootKeys: KeyData[],
-      node: AST.TOMLTable
+      node: AST.TOMLTable,
     ):
       | { before: AST.TOMLTable; after: null }
       | { before: null; after: AST.TOMLTable }
@@ -129,7 +129,7 @@ export default createRule("tables-order", {
               const startToken = sourceCode.getTokenBefore(body)!;
               const code = sourceCode.text.slice(
                 startToken.range[1],
-                body.range[1]
+                body.range[1],
               );
               return [
                 fixer.insertTextBefore(after, `${code.trim()}\n`),
@@ -149,7 +149,7 @@ export default createRule("tables-order", {
               const startToken = sourceCode.getTokenBefore(body)!;
               const code = sourceCode.text.slice(
                 startToken.range[1],
-                body.range[1]
+                body.range[1],
               );
               return [
                 fixer.insertTextAfter(before, `\n${code.trim()}`),

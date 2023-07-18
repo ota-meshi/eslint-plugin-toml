@@ -145,20 +145,20 @@ export default {
       monaco.languages.register({ id: "toml" });
       monaco.languages.setMonarchTokensProvider(
         "toml",
-        require("./languages/toml/toml").language
+        require("./languages/toml/toml").language,
       );
     });
     editor.$watch("codeEditor", () => {
       if (editor.codeEditor) {
         editor.codeEditor.onDidChangeModelDecorations(() =>
-          this.onDidChangeModelDecorations(editor.codeEditor)
+          this.onDidChangeModelDecorations(editor.codeEditor),
         );
       }
     });
     editor.$watch("fixedCodeEditor", () => {
       if (editor.fixedCodeEditor) {
         editor.fixedCodeEditor.onDidChangeModelDecorations(() =>
-          this.onDidChangeModelDecorations(editor.fixedCodeEditor)
+          this.onDidChangeModelDecorations(editor.fixedCodeEditor),
         );
       }
     });
