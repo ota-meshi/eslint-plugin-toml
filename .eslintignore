@@ -6,12 +6,13 @@
 /tests/fixtures/**/*.toml
 /assets
 /dist
-/docs/.vuepress/dist
-/docs/.vuepress/components/demo/demo-code.js
-/docs/.vitepress/cache
-/docs/.vitepress/build-system/shim
 /lib
 !/.github
 !/.vscode
 !/docs/.vuepress
 !/docs/.vitepress
+/docs/.vuepress/dist
+/docs/.vuepress/components/demo/demo-code.js
+/docs/.vitepress/cache
+/docs/.vitepress/build-system/shim
+/docs/.vitepress/dist
