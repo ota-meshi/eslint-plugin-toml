@@ -13,7 +13,7 @@ module.exports = {
     "plugin:@ota-meshi/+node",
     "plugin:@ota-meshi/+typescript",
     "plugin:@ota-meshi/+eslint-plugin",
-    "plugin:@ota-meshi/+vue2",
+    "plugin:@ota-meshi/+vue3",
     "plugin:@ota-meshi/+json",
     "plugin:@ota-meshi/+yaml",
     "plugin:@ota-meshi/+md",
@@ -33,7 +33,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ["*.ts"],
+      files: ["*.ts", "*.mts"],
       parser: "@typescript-eslint/parser",
       parserOptions: {
         sourceType: "module",
@@ -103,16 +103,17 @@ module.exports = {
       },
     },
     {
-      files: ["docs/.vuepress/**"],
+      files: ["docs/.vitepress/**"],
       parserOptions: {
         sourceType: "module",
-        ecmaVersion: 2020,
+        ecmaVersion: "latest",
       },
       globals: {
         window: true,
       },
       rules: {
         "require-jsdoc": "off",
+        "n/file-extension-in-import": "off",
       },
     },
   ],
