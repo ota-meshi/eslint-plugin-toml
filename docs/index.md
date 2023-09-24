@@ -44,6 +44,6 @@ See [Available Rules](./rules/index.md).
 
 ## :lock: License
 
-See the [LICENSE](LICENSE) file for license rights and limitations (MIT).
+See the [LICENSE](https://github.com/ota-meshi/eslint-plugin-toml/blob/main/LICENSE) file for license rights and limitations (MIT).
 
 [TOML]: https://toml.io/
