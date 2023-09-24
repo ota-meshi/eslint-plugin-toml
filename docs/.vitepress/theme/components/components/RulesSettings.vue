@@ -12,20 +12,12 @@
       </label>
       <label class="tool">
         <input
-          :checked="
-            categories.every((category) =>
+          v-bind="
+            checkedBinds(categories, (category) =>
               category.rules.every((rule) => isErrorState(rule.ruleId)),
             )
           "
           type="checkbox"
-          :indeterminate.prop="
-            categories.some((category) =>
-              category.rules.some((rule) => isErrorState(rule.ruleId)),
-            ) &&
-            categories.some((category) =>
-              category.rules.some((rule) => !isErrorState(rule.ruleId)),
-            )
-          "
           @input="onAllClick($event)"
         />
         <span class="tool-label">All Rules</span>
@@ -61,14 +53,12 @@
           <div class="category-title-wrapper">
             <label class="category-title">
               <input
-                :checked="
-                  category.rules.every((rule) => isErrorState(rule.ruleId))
+                v-bind="
+                  checkedBinds(category.rules, (rule) =>
+                    isErrorState(rule.ruleId),
+                  )
                 "
                 type="checkbox"
-                :indeterminate.prop="
-                  !category.rules.every((rule) => isErrorState(rule.ruleId)) &&
-                  !category.rules.every((rule) => !isErrorState(rule.ruleId))
-                "
                 @input="onCategoryClick(category, $event)"
               />
               {{ category.title }}
@@ -200,6 +190,24 @@ export default {
     },
     isErrorState(ruleId) {
       return this.rules[ruleId] === "error" || this.rules[ruleId] === 2;
+    },
+    checkedBinds(array, fn) {
+      if (array.every(fn)) {
+        return {
+          checked: true,
+          indeterminate: undefined,
+        };
+      }
+      if (array.every((...args) => !fn(...args))) {
+        return {
+          checked: false,
+          indeterminate: undefined,
+        };
+      }
+      return {
+        checked: undefined,
+        indeterminate: true,
+      };
     },
   },
 };
