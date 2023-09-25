@@ -12,10 +12,15 @@
       </label>
       <label class="tool">
         <input
-          v-bind="
+          :checked="
             checkedBinds(categories, (category) =>
               category.rules.every((rule) => isErrorState(rule.ruleId)),
-            )
+            ).checked
+          "
+          :indeterminate.prop="
+            checkedBinds(categories, (category) =>
+              category.rules.every((rule) => isErrorState(rule.ruleId)),
+            ).indeterminate
           "
           type="checkbox"
           @input="onAllClick($event)"
@@ -53,10 +58,15 @@
           <div class="category-title-wrapper">
             <label class="category-title">
               <input
-                v-bind="
+                :checked="
                   checkedBinds(category.rules, (rule) =>
                     isErrorState(rule.ruleId),
-                  )
+                  ).checked
+                "
+                :indeterminate.prop="
+                  checkedBinds(category.rules, (rule) =>
+                    isErrorState(rule.ruleId),
+                  ).indeterminate
                 "
                 type="checkbox"
                 @input="onCategoryClick(category, $event)"
@@ -195,17 +205,17 @@ export default {
       if (array.every(fn)) {
         return {
           checked: true,
-          indeterminate: undefined,
+          indeterminate: false,
         };
       }
       if (array.every((...args) => !fn(...args))) {
         return {
           checked: false,
-          indeterminate: undefined,
+          indeterminate: false,
         };
       }
       return {
-        checked: undefined,
+        checked: false,
         indeterminate: true,
       };
     },
