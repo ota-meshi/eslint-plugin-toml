@@ -1,5 +1,6 @@
 import type { AST } from "toml-eslint-parser";
 import { createRule } from "../utils";
+import { getSourceCode } from "../utils/compat";
 
 type TypeMap = {
   string: string;
@@ -51,7 +52,8 @@ export default createRule("no-mixed-type-in-array", {
     type: "suggestion",
   },
   create(context) {
-    if (!context.parserServices.isTOML) {
+    const sourceCode = getSourceCode(context);
+    if (!sourceCode.parserServices.isTOML) {
       return {};
     }
     const typeMap: TypeMap = {

@@ -11,6 +11,7 @@ import type { AST } from "toml-eslint-parser";
 import * as tomlESLintParser from "toml-eslint-parser";
 import debug from "debug";
 import path from "path";
+import { getFilename, getSourceCode } from "./compat";
 const log = debug("eslint-plugin-toml:utils/index");
 
 /**
@@ -33,12 +34,13 @@ export function createRule(
       },
     },
     create(context: Rule.RuleContext): any {
+      const sourceCode = getSourceCode(context);
       if (
-        typeof context.parserServices.defineCustomBlocksVisitor ===
+        typeof sourceCode.parserServices.defineCustomBlocksVisitor ===
           "function" &&
-        path.extname(context.getFilename()) === ".vue"
+        path.extname(getFilename(context)) === ".vue"
       ) {
-        return context.parserServices.defineCustomBlocksVisitor(
+        return sourceCode.parserServices.defineCustomBlocksVisitor(
           context,
           tomlESLintParser,
           {
@@ -73,10 +75,10 @@ export function defineWrapperListener(
     getNodeProxy?: (node: AST.TOMLNode) => any;
   },
 ): RuleListener {
-  if (!context.parserServices.isTOML) {
+  const sourceCode = getSourceCode(context);
+  if (!sourceCode.parserServices.isTOML) {
     return {};
   }
-  const sourceCode = context.getSourceCode();
   const proxySourceCode = {
     __proto__: sourceCode,
     ...(["getNodeByRangeIndex"] as const).reduce((obj, key) => {

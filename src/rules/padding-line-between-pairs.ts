@@ -2,6 +2,7 @@ import type { AST } from "toml-eslint-parser";
 import { getStaticTOMLValue } from "toml-eslint-parser";
 import type { TOMLToken } from "../types";
 import { createRule } from "../utils";
+import { getSourceCode } from "../utils/compat";
 
 export default createRule("padding-line-between-pairs", {
   meta: {
@@ -19,10 +20,10 @@ export default createRule("padding-line-between-pairs", {
     type: "layout",
   },
   create(context) {
-    if (!context.parserServices.isTOML) {
+    const sourceCode = getSourceCode(context);
+    if (!sourceCode.parserServices.isTOML) {
       return {};
     }
-    const sourceCode = context.getSourceCode();
 
     /**
      * Verify pairs

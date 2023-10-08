@@ -1,5 +1,6 @@
 import type { AST } from "toml-eslint-parser";
 import { createRule } from "../utils";
+import { getSourceCode } from "../utils/compat";
 
 export default createRule("space-eq-sign", {
   meta: {
@@ -18,10 +19,10 @@ export default createRule("space-eq-sign", {
     type: "layout",
   },
   create(context) {
-    if (!context.parserServices.isTOML) {
+    const sourceCode = getSourceCode(context);
+    if (!sourceCode.parserServices.isTOML) {
       return {};
     }
-    const sourceCode = context.getSourceCode();
 
     /**
      * Reports an equal sign token as a rule violation

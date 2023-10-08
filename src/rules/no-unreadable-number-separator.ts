@@ -1,5 +1,6 @@
 import type { AST } from "toml-eslint-parser";
 import { createRule } from "../utils";
+import { getSourceCode } from "../utils/compat";
 
 export default createRule("no-unreadable-number-separator", {
   meta: {
@@ -17,10 +18,10 @@ export default createRule("no-unreadable-number-separator", {
     type: "suggestion",
   },
   create(context) {
-    if (!context.parserServices.isTOML) {
+    const sourceCode = getSourceCode(context);
+    if (!sourceCode.parserServices.isTOML) {
       return {};
     }
-    const sourceCode = context.getSourceCode();
 
     type CharCountData = {
       count: number;

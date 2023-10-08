@@ -1,5 +1,6 @@
 import type { AST } from "toml-eslint-parser";
 import { createRule } from "../utils";
+import { getSourceCode } from "../utils/compat";
 
 export default createRule("precision-of-fractional-seconds", {
   meta: {
@@ -27,7 +28,8 @@ export default createRule("precision-of-fractional-seconds", {
     type: "problem",
   },
   create(context) {
-    if (!context.parserServices.isTOML) {
+    const sourceCode = getSourceCode(context);
+    if (!sourceCode.parserServices.isTOML) {
       return {};
     }
     const max = context.options[0]?.max ?? 3;

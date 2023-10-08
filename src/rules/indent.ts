@@ -3,6 +3,7 @@ import { getStaticTOMLValue } from "toml-eslint-parser";
 import type { TOMLToken } from "../types";
 import { createRule } from "../utils";
 import { isCommentToken, isEqualSign } from "../utils/ast-utils";
+import { getSourceCode } from "../utils/compat";
 const ITERATION_OPTS = Object.freeze({
   includeComments: true,
 } as const);
@@ -80,14 +81,13 @@ export default createRule("indent", {
     type: "layout",
   },
   create(context) {
-    if (!context.parserServices.isTOML) {
+    const sourceCode = getSourceCode(context);
+    if (!sourceCode.parserServices.isTOML) {
       return {};
     }
     const { getIndentText, outdent } = buildIndentUtility(context.options[0]);
     const subTablesOffset: Offset = context.options[1]?.subTables ?? 0;
     const keyValuePairsOffset: Offset = context.options[1]?.keyValuePairs ?? 0;
-
-    const sourceCode = context.getSourceCode();
 
     const offsets = new Map<TOMLToken, OffsetInfo>();
 

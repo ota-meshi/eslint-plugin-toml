@@ -1,4 +1,5 @@
 import { createRule } from "../utils";
+import { getSourceCode } from "../utils/compat";
 
 export default createRule("no-space-dots", {
   meta: {
@@ -16,10 +17,10 @@ export default createRule("no-space-dots", {
     type: "layout",
   },
   create(context) {
-    if (!context.parserServices.isTOML) {
+    const sourceCode = getSourceCode(context);
+    if (!sourceCode.parserServices.isTOML) {
       return {};
     }
-    const sourceCode = context.getSourceCode();
 
     return {
       TOMLKey(node) {
