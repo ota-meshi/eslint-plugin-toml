@@ -1,6 +1,7 @@
 import type { AST } from "toml-eslint-parser";
 import type { Fix, RuleFixer } from "../types";
 import { createRule } from "../utils";
+import { getSourceCode } from "../utils/compat";
 
 /**
  * Convert the given string to decimal string
@@ -55,7 +56,8 @@ export default createRule("no-non-decimal-integer", {
     type: "suggestion",
   },
   create(context) {
-    if (!context.parserServices.isTOML) {
+    const sourceCode = getSourceCode(context);
+    if (!sourceCode.parserServices.isTOML) {
       return {};
     }
     const allowHexadecimal = Boolean(context.options[0]?.allowHexadecimal);

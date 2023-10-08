@@ -2,6 +2,7 @@ import type { AST } from "toml-eslint-parser";
 import { getStaticTOMLValue } from "toml-eslint-parser";
 import lodash from "lodash";
 import { createRule } from "../utils";
+import { getSourceCode } from "../utils/compat";
 
 type KeyData = {
   key: string | number;
@@ -47,10 +48,10 @@ export default createRule("tables-order", {
     type: "suggestion",
   },
   create(context) {
-    if (!context.parserServices.isTOML) {
+    const sourceCode = getSourceCode(context);
+    if (!sourceCode.parserServices.isTOML) {
       return {};
     }
-    const sourceCode = context.getSourceCode();
 
     /**
      * Apply new key

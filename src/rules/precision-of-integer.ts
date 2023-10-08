@@ -1,5 +1,6 @@
 import type { AST } from "toml-eslint-parser";
 import { createRule } from "../utils";
+import { getSourceCode } from "../utils/compat";
 
 type MaxValues = {
   "+": string;
@@ -99,7 +100,8 @@ export default createRule("precision-of-integer", {
     type: "problem",
   },
   create(context) {
-    if (!context.parserServices.isTOML) {
+    const sourceCode = getSourceCode(context);
+    if (!sourceCode.parserServices.isTOML) {
       return {};
     }
     const maxBit = context.options[0]?.maxBit ?? 64;

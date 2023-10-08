@@ -4,6 +4,7 @@ import {
   defineWrapperListener,
   getCoreRule,
 } from "../utils";
+import { getSourceCode } from "../utils/compat";
 const coreRule = getCoreRule("comma-style");
 
 export default createRule("comma-style", {
@@ -21,7 +22,8 @@ export default createRule("comma-style", {
     type: coreRule.meta!.type!,
   },
   create(context) {
-    if (!context.parserServices.isTOML) {
+    const sourceCode = getSourceCode(context);
+    if (!sourceCode.parserServices.isTOML) {
       return {};
     }
 

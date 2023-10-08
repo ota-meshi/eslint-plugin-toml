@@ -1,6 +1,7 @@
 import type { AST } from "toml-eslint-parser";
 import lodash from "lodash";
 import { createRule } from "../utils";
+import { getSourceCode } from "../utils/compat";
 
 //------------------------------------------------------------------------------
 // Helpers
@@ -156,11 +157,10 @@ export default createRule("spaced-comment", {
     type: "suggestion",
   },
   create(context) {
-    if (!context.parserServices.isTOML) {
+    const sourceCode = getSourceCode(context);
+    if (!sourceCode.parserServices.isTOML) {
       return {};
     }
-
-    const sourceCode = context.getSourceCode();
 
     // Unless the first option is never, require a space
     const requireSpace = context.options[0] !== "never";

@@ -30,6 +30,14 @@ module.exports = {
     "jsonc/array-element-newline": "off",
     "jsonc/object-property-newline": "off",
     "jsonc/object-curly-newline": "off",
+    "no-restricted-properties": [
+      "error",
+      { object: "context", property: "getSourceCode" },
+      { object: "context", property: "getFilename" },
+      { object: "context", property: "getCwd" },
+      { object: "context", property: "getScope" },
+      { object: "context", property: "parserServices" },
+    ],
   },
   overrides: [
     {

@@ -1,4 +1,5 @@
 import { createRule } from "../utils";
+import { getSourceCode } from "../utils/compat";
 
 export default createRule("quoted-keys", {
   meta: {
@@ -30,7 +31,8 @@ export default createRule("quoted-keys", {
     type: "layout",
   },
   create(context) {
-    if (!context.parserServices.isTOML) {
+    const sourceCode = getSourceCode(context);
+    if (!sourceCode.parserServices.isTOML) {
       return {};
     }
 

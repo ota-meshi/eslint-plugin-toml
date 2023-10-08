@@ -1,5 +1,6 @@
 import type { AST } from "toml-eslint-parser";
 import { createRule } from "../../utils";
+import { getSourceCode } from "../../utils/compat";
 
 export default createRule("vue-custom-block/no-parsing-error", {
   meta: {
@@ -16,7 +17,10 @@ export default createRule("vue-custom-block/no-parsing-error", {
     if (!customBlock) {
       return {};
     }
-    const parseError = context.parserServices.parseError;
+    const sourceCode = getSourceCode(context);
+    // eslint-disable-next-line no-restricted-properties -- Workaround for bug in vue-eslint-parser v9.3.1
+    const parserServices = context.parserServices ?? sourceCode.parserServices;
+    const parseError = parserServices.parseError;
     if (parseError) {
       let loc: AST.Position | undefined = undefined;
       if ("column" in parseError && "lineNumber" in parseError) {
