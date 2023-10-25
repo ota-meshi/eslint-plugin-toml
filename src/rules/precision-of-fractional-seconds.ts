@@ -41,7 +41,7 @@ export default createRule("precision-of-fractional-seconds", {
       const text = node.datetime;
 
       const fractional =
-        /^\d{4}-\d{2}-\d{2}[ Tt]\d{2}:\d{2}:\d{2}.(\d+)/u.exec(text)?.[1] ||
+        /^\d{4}-\d{2}-\d{2}[ t]\d{2}:\d{2}:\d{2}.(\d+)/iu.exec(text)?.[1] ||
         /^\d{2}:\d{2}:\d{2}.(\d+)/u.exec(text)?.[1];
       if (!fractional) {
         return;

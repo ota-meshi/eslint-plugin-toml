@@ -9,6 +9,7 @@
 /lib
 !/.github
 !/.vscode
+!/.devcontainer
 !/docs/.vuepress
 !/docs/.vitepress
 /docs/.vuepress/dist
