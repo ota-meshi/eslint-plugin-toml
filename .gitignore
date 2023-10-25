@@ -109,5 +109,6 @@ dist
 # docs
 /docs/assets
 /docs/**/*.html
+/docs/.vitepress/.temp
 /docs/.vitepress/cache
 /docs/.vitepress/build-system/shim

@@ -114,20 +114,26 @@ export default {
     serializedString(serializedString) {
       if (
         typeof window !== "undefined" &&
-        serializedString !== window.location.hash.slice(1)
+        serializedString !== window.location.hash.slice(1) &&
+        !this._initializing
       ) {
         window.location.replace(`#${serializedString}`);
       }
     },
   },
   mounted() {
-    if (this.processUrlHashChange()) {
-      this.$nextTick().then(() => {
-        this.$forceUpdate();
-      });
-    }
     if (typeof window !== "undefined") {
       window.addEventListener("hashchange", this.processUrlHashChange);
+    }
+    const serializedString =
+      (typeof window !== "undefined" && window.location.hash.slice(1)) || "";
+    if (serializedString) {
+      this._initializing = true;
+      this.rules = {};
+      this.$nextTick().then(() => {
+        this._initializing = false;
+        this.processUrlHashChange();
+      });
     }
   },
   beforeUnmount() {
