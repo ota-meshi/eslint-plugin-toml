@@ -1,5 +1,11 @@
 # eslint-plugin-toml
 
+## 0.7.0
+
+### Minor Changes
+
+- [#164](https://github.com/ota-meshi/eslint-plugin-toml/pull/164) [`08579a2`](https://github.com/ota-meshi/eslint-plugin-toml/commit/08579a2733332bc94744bbb37658f09611f5a71a) Thanks [@ota-meshi](https://github.com/ota-meshi)! - feat: experimental support for TOML v1.1
+
 ## 0.6.1
 
 ### Patch Changes
