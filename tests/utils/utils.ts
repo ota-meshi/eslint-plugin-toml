@@ -136,8 +136,12 @@ export function loadTestCases(
     describe(`Output test for ${ruleName}`, () => {
       for (const test of invalid.filter(({ filename }) => isToml(filename))) {
         it(test.filename, () => {
-          const input = tomlESLintParser.parseForESLint(test.code);
-          const output = tomlESLintParser.parseForESLint(test.output);
+          const input = tomlESLintParser.parseForESLint(test.code, {
+            tomlVersion: "1.1",
+          });
+          const output = tomlESLintParser.parseForESLint(test.output, {
+            tomlVersion: "1.1",
+          });
           assert.deepStrictEqual(
             tomlESLintParser.getStaticTOMLValue(input.ast),
             tomlESLintParser.getStaticTOMLValue(output.ast),
@@ -195,6 +199,7 @@ function writeFixtures(
       settings: {
         toml: { indent: 8 },
       },
+      parserOptions: { tomlVersion: "1.1" },
     },
     config.filename,
   );
