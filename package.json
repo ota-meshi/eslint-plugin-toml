@@ -59,7 +59,7 @@
     "debug": "^4.1.1",
     "eslint-compat-utils": "^0.1.2",
     "lodash": "^4.17.19",
-    "toml-eslint-parser": "^0.7.0"
+    "toml-eslint-parser": "^0.8.1"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.6",
