@@ -73,7 +73,7 @@ import { loadTestCases } from "../../utils/utils"
 const tester = new RuleTester({
     parser: require.resolve("toml-eslint-parser"),
     parserOptions: {
-        tomlVersion: "1.1",
+        tomlVersion: "next",
     },
 })
 

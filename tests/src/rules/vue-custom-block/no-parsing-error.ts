@@ -5,7 +5,7 @@ import { loadTestCases } from "../../../utils/utils";
 const tester = new RuleTester({
   parser: require.resolve("yaml-eslint-parser"),
   parserOptions: {
-    tomlVersion: "1.1",
+    tomlVersion: "next",
   },
 });
 
