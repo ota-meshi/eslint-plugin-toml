@@ -91,7 +91,7 @@ export default async (): Promise<UserConfig<DefaultTheme.Config>> => {
             items: [{ text: "Available Rules", link: "/rules/" }],
           },
           {
-            text: "YAML Rules",
+            text: "TOML Rules",
             collapsed: false,
             items: rules
               .filter(
