@@ -14,7 +14,7 @@ since: "v0.1.0"
 
 ## :book: Rule Details
 
-This rule reports YAML parsing errors in Vue custom blocks.
+This rule reports TOML parsing errors in Vue custom blocks.
 
 <eslint-code-block parser="vue-eslint-parser" file-name="sample.vue" language="html">
 
