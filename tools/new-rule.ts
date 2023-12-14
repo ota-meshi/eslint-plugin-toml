@@ -35,8 +35,8 @@ const logger = console;
     ruleFile,
     `
 import type { AST } from "toml-eslint-parser"
-import { createRule, defineWrapperListener, getCoreRule } from "../utils"
-const coreRule = getCoreRule("${ruleId}")
+import { createRule } from "../utils"
+import { getSourceCode } from "../utils/compat";
 
 export default createRule("${ruleId}", {
     meta: {
@@ -44,22 +44,21 @@ export default createRule("${ruleId}", {
             description: "...",
             categories: ["..."],
         },
-        fixable: coreRule.meta!.fixable,
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any -- ignore
-        hasSuggestions: (coreRule.meta as any).hasSuggestions,
-        schema: coreRule.meta!.schema!,
-        messages: coreRule.meta!.messages!,
-        type: coreRule.meta!.type!,
+        fixable: null,
+        hasSuggestions: null,
+        schema: [],
+        messages: {},
+        type: "",
     },
     create(context) {
-        if (!context.parserServices.isTOML) {
+      const sourceCode = getSourceCode(context)
+        if (!sourceCode.parserServices.isTOML) {
             return {}
         }
-        const sourceCode = context.getSourceCode()
 
-        return defineWrapperListener(coreRule, context, {
-            options: context.options,
-        })
+        return {
+          // ...
+        }
     },
 })
 `,
