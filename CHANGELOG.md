@@ -1,5 +1,11 @@
 # eslint-plugin-toml
 
+## 0.8.0
+
+### Minor Changes
+
+- [#177](https://github.com/ota-meshi/eslint-plugin-toml/pull/177) [`b141b45`](https://github.com/ota-meshi/eslint-plugin-toml/commit/b141b45f82fa224b63eb03ead08b855d7b78f241) Thanks [@ota-meshi](https://github.com/ota-meshi)! - Improve compatibility with ESLint v9
+
 ## 0.7.1
 
 ### Patch Changes
