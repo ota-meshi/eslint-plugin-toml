@@ -136,7 +136,7 @@ export interface SourceCode {
     options?: { includeComments?: boolean },
   ): TOMLToken | null;
 
-  getFirstToken(node: AST.TOMLNode): AST.Token;
+  getFirstToken(node: AST.TOMLNode | AST.Token): AST.Token;
   getFirstToken(
     node: AST.TOMLNode,
     options?: CursorWithSkipOptions,
@@ -288,7 +288,7 @@ export interface RuleFixer {
 
   replaceText(nodeOrToken: TOMLNodeOrToken, text: string): Fix;
 
-  replaceTextRange(range: AST.Range, text: string): Fix;
+  replaceTextRange(range: Readonly<AST.Range>, text: string): Fix;
 }
 
 export interface Fix {
