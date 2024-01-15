@@ -1,11 +1,14 @@
-import { RuleTester } from "eslint";
+import { RuleTester } from "../test-lib/eslint-compat";
 import rule from "../../../src/rules/keys-order";
 import { loadTestCases } from "../../utils/utils";
+import * as tomlParser from "toml-eslint-parser";
 
 const tester = new RuleTester({
-  parser: require.resolve("toml-eslint-parser"),
-  parserOptions: {
-    tomlVersion: "next",
+  languageOptions: {
+    parser: tomlParser,
+    parserOptions: {
+      tomlVersion: "next",
+    },
   },
 });
 
