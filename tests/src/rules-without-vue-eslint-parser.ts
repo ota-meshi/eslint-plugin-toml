@@ -1,7 +1,9 @@
-import { Linter } from "eslint";
+import { getLinter } from "eslint-compat-utils/linter";
 import plugin from "../../src/index";
 import assert from "assert";
 const rules = plugin.rules;
+// eslint-disable-next-line @typescript-eslint/naming-convention -- class name
+const Linter = getLinter();
 
 describe("Don't crash even if without toml-eslint-parser.", () => {
   const code = "{a:[1,2,3,4]}";
@@ -11,13 +13,15 @@ describe("Don't crash even if without toml-eslint-parser.", () => {
 
     it(ruleId, () => {
       const linter = new Linter();
-      const config: Linter.Config = {
-        parserOptions: { ecmaVersion: 2015 },
+      const config = {
+        languageOptions: { ecmaVersion: 2015 },
+        plugins: {
+          toml: plugin,
+        },
         rules: {
           [ruleId]: "error",
         },
-      };
-      linter.defineRule(ruleId, rules[key] as any);
+      } as any;
       const resultJs = linter.verifyAndFix(code, config, "test.js");
       assert.strictEqual(resultJs.messages.length, 0);
     });

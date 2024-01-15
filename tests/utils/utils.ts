@@ -195,11 +195,15 @@ function writeFixtures(
       rules: {
         [ruleName]: ["error", ...(config.options || [])],
       },
-      parser: isToml(inputFile) ? "toml-eslint-parser" : "vue-eslint-parser",
+      ...({
+        languageOptions: {
+          parser: isToml(inputFile) ? tomlESLintParser : vueESLintParser,
+          parserOptions: { tomlVersion: "next" },
+        },
+      } as any),
       settings: {
         toml: { indent: 8 },
       },
-      parserOptions: { tomlVersion: "next" },
     },
     config.filename,
   );
@@ -272,7 +276,7 @@ function getConfig(ruleName: string, inputFile: string) {
       ? `# ${filename}\n${code0}`
       : `<!--${filename}-->\n${code0}`;
     return Object.assign(
-      isVue(inputFile) ? { parser: require.resolve("vue-eslint-parser") } : {},
+      isVue(inputFile) ? { languageOptions: { parser: vueESLintParser } } : {},
       config,
       { code, filename },
     );
@@ -296,7 +300,7 @@ function getConfig(ruleName: string, inputFile: string) {
   }
 
   return Object.assign(
-    isVue(inputFile) ? { parser: require.resolve("vue-eslint-parser") } : {},
+    isVue(inputFile) ? { languageOptions: { parser: vueESLintParser } } : {},
     config,
     { code, filename },
   );

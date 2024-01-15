@@ -65,15 +65,18 @@ export default createRule("${ruleId}", {
   );
   fs.writeFileSync(
     testFile,
-    `import { RuleTester } from "eslint"
+    `import { RuleTester } from "../test-lib/eslint-compat"
 import rule from "../../../src/rules/${ruleId}"
 import { loadTestCases } from "../../utils/utils"
+import * as tomlParser from "toml-eslint-parser";
 
 const tester = new RuleTester({
-    parser: require.resolve("toml-eslint-parser"),
+  languageOptions: {
+    parser: tomlParser,
     parserOptions: {
-        tomlVersion: "next",
+      tomlVersion: "next",
     },
+  },
 })
 
 tester.run("${ruleId}", rule as any, loadTestCases("${ruleId}"))

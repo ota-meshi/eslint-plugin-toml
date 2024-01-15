@@ -1,11 +1,14 @@
-import { RuleTester } from "eslint";
+import { RuleTester } from "../../test-lib/eslint-compat";
 import rule from "../../../../src/rules/vue-custom-block/no-parsing-error";
 import { loadTestCases } from "../../../utils/utils";
+import * as vueParser from "vue-eslint-parser";
 
 const tester = new RuleTester({
-  parser: require.resolve("yaml-eslint-parser"),
-  parserOptions: {
-    tomlVersion: "next",
+  languageOptions: {
+    parser: vueParser,
+    parserOptions: {
+      tomlVersion: "next",
+    },
   },
 });
 
