@@ -267,7 +267,7 @@ export default createRule("comma-style", {
          * dangling comma.
          */
         if (arrayLiteral) {
-          const lastToken = sourceCode.getLastToken(node)!;
+          const lastToken = sourceCode.getLastToken(node);
           const nextToLastToken = sourceCode.getTokenBefore(lastToken)!;
 
           if (isCommaToken(nextToLastToken)) {
