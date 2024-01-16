@@ -57,7 +57,7 @@
   },
   "dependencies": {
     "debug": "^4.1.1",
-    "eslint-compat-utils": "^0.4.0",
+    "eslint-compat-utils": "^0.3.0",
     "lodash": "^4.17.19",
     "toml-eslint-parser": "^0.9.0"
   },
