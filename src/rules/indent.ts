@@ -138,8 +138,8 @@ export default createRule("indent", {
           continue;
         }
         const elementTokens = {
-          firstToken: sourceCode.getFirstToken(node)!,
-          lastToken: sourceCode.getLastToken(node)!,
+          firstToken: sourceCode.getFirstToken(node),
+          lastToken: sourceCode.getLastToken(node),
         };
 
         // Collect comma/comment tokens between the last token of the previous node and the first token of this node.
@@ -249,7 +249,7 @@ export default createRule("indent", {
         }
       },
       TOMLTable(node) {
-        const openBracket = sourceCode.getFirstToken(node)!;
+        const openBracket = sourceCode.getFirstToken(node);
 
         // There can be no line breaks, but just in case, register the offset.
         if (node.kind === "array") {
@@ -289,14 +289,14 @@ export default createRule("indent", {
         // noop
       },
       TOMLArray(node) {
-        const openBracket = sourceCode.getFirstToken(node)!;
-        const closeBracket = sourceCode.getLastToken(node)!;
+        const openBracket = sourceCode.getFirstToken(node);
+        const closeBracket = sourceCode.getLastToken(node);
         processNodeList(node.elements, openBracket, closeBracket, 1);
       },
       TOMLInlineTable(node) {
         // There can be no line breaks, but just in case, register the offset.
-        const openBrace = sourceCode.getFirstToken(node)!;
-        const closeBrace = sourceCode.getLastToken(node)!;
+        const openBrace = sourceCode.getFirstToken(node);
+        const closeBrace = sourceCode.getLastToken(node);
         processNodeList(node.body, openBrace, closeBrace, 1);
       },
       "Program:exit"(node) {

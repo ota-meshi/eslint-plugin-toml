@@ -244,7 +244,7 @@ export default createRule("inline-table-curly-spacing", {
     function checkForObject(node: AST.TOMLInlineTable) {
       if (node.body.length === 0) return;
 
-      const first = sourceCode.getFirstToken(node)!;
+      const first = sourceCode.getFirstToken(node);
       const last = getClosingBraceOfObject(node)!;
       const second = sourceCode.getTokenAfter(first, {
         includeComments: true,

@@ -189,8 +189,8 @@ export default createRule("array-bracket-newline", {
       const elements = node.elements;
       const normalizedOptions = normalizeOptions(context.options[0]);
       const options = normalizedOptions[node.type];
-      const openBracket = sourceCode.getFirstToken(node)!;
-      const closeBracket = sourceCode.getLastToken(node)!;
+      const openBracket = sourceCode.getFirstToken(node);
+      const closeBracket = sourceCode.getLastToken(node);
       const firstIncComment = sourceCode.getTokenAfter(openBracket, {
         includeComments: true,
       })!;
