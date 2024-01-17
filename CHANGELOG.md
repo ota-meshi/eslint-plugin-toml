@@ -1,5 +1,11 @@
 # eslint-plugin-toml
 
+## 0.9.2
+
+### Patch Changes
+
+- [#191](https://github.com/ota-meshi/eslint-plugin-toml/pull/191) [`4a77e43`](https://github.com/ota-meshi/eslint-plugin-toml/commit/4a77e4320b637867bf139424bebb23c71a5c9313) Thanks [@ota-meshi](https://github.com/ota-meshi)! - fix(deps): update dependency eslint-compat-utils to ^0.4.0
+
 ## 0.9.1
 
 ### Patch Changes
