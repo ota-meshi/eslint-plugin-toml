@@ -9,6 +9,10 @@ const RULESET_NAME = {
   recommended: "../src/configs/recommended.ts",
   standard: "../src/configs/standard.ts",
 };
+const FLAT_RULESET_NAME = {
+  recommended: "../src/configs/flat/recommended.ts",
+  standard: "../src/configs/flat/standard.ts",
+};
 
 for (const rec of ["recommended", "standard"] as const) {
   let content = `/*
@@ -41,6 +45,48 @@ export = {
 `;
 
   const filePath = path.resolve(__dirname, RULESET_NAME[rec]);
+
+  if (isWin) {
+    content = content
+      .replace(/\r?\n/gu, "\n")
+      .replace(/\r/gu, "\n")
+      .replace(/\n/gu, "\r\n");
+  }
+
+  // Update file.
+  fs.writeFileSync(filePath, content);
+}
+
+for (const rec of ["recommended", "standard"] as const) {
+  let content = `/*
+ * IMPORTANT!
+ * This file has been automatically generated,
+ * in order to update its content execute "npm run update"
+ */
+import base from './base';
+export default [
+  ...base,
+  {
+    rules: {
+      // eslint-plugin-toml rules
+      ${rules
+        .filter(
+          (rule) =>
+            rule.meta.docs.categories &&
+            !rule.meta.deprecated &&
+            rule.meta.docs.categories.includes(rec),
+        )
+        .map((rule) => {
+          const conf = rule.meta.docs.default || "error";
+          return `"${rule.meta.docs.ruleId}": "${conf}"`;
+        })
+        .join(",\n")}
+    },
+  }
+]
+`;
+
+  const filePath = path.resolve(__dirname, FLAT_RULESET_NAME[rec]);
 
   if (isWin) {
     content = content

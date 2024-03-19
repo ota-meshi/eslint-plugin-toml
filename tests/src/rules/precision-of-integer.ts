@@ -1,10 +1,9 @@
 import { RuleTester } from "../test-lib/eslint-compat";
-import rule, {
-  maxBitToMaxValues,
-} from "../../../src/rules/precision-of-integer";
+import rule from "../../../src/rules/precision-of-integer";
 import { loadTestCases } from "../../utils/utils";
 import assert from "assert";
 import * as tomlParser from "toml-eslint-parser";
+import { maxBitToMaxValues } from "../../../src/utils/bit";
 
 const tester = new RuleTester({
   languageOptions: {

@@ -26,10 +26,11 @@ type LineIndentStep2 = {
   expectedIndent: string;
   actualIndent: string;
 };
+
 /**
  * Create get indentation function
  */
-export function buildIndentUtility(optionValue?: number | "tab" | null): {
+function buildIndentUtility(optionValue?: number | "tab" | null): {
   getIndentText: (offset: number) => string;
   outdent: (indent: string) => string;
 } {

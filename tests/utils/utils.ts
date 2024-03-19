@@ -108,7 +108,7 @@ export function loadTestCases(
         writeFixtures(ruleName, inputFile);
         output = fs.readFileSync(outputFile, "utf8");
       }
-      config.output = output;
+      config.output = output === config.code ? null : output;
     }
 
     return config;
@@ -139,9 +139,12 @@ export function loadTestCases(
           const input = tomlESLintParser.parseForESLint(test.code, {
             tomlVersion: "next",
           });
-          const output = tomlESLintParser.parseForESLint(test.output, {
-            tomlVersion: "next",
-          });
+          const output = tomlESLintParser.parseForESLint(
+            test.output ?? test.code,
+            {
+              tomlVersion: "next",
+            },
+          );
           assert.deepStrictEqual(
             tomlESLintParser.getStaticTOMLValue(input.ast),
             tomlESLintParser.getStaticTOMLValue(output.ast),

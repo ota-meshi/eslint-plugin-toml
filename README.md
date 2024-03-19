@@ -51,7 +51,38 @@ npm install --save-dev eslint eslint-plugin-toml
 
 ### Configuration
 
-Use `.eslintrc.*` file to configure rules. See also: [https://eslint.org/docs/user-guide/configuring](https://eslint.org/docs/user-guide/configuring).
+#### New (ESLint>=v9) Config (Flat Config)
+
+Use `eslint.config.js` file to configure rules. See also: <https://eslint.org/docs/latest/use/configure/configuration-files-new>.
+
+Example **eslint.config.js**:
+
+```mjs
+import eslintPluginToml from 'eslint-plugin-toml';
+export default [
+  // add more generic rule sets here, such as:
+  // js.configs.recommended,
+  ...eslintPluginToml.configs['flat/recommended'],
+  {
+    rules: {
+      // override/add rules settings here, such as:
+    // 'toml/rule-name': 'error'
+    }
+  }
+];
+```
+
+This plugin provides configs:
+
+- `*.configs['flat/base']` ... Configuration to enable correct TOML parsing.
+- `*.configs['flat/recommended']` ... Above, plus rules to prevent errors or unintended behavior.
+- `*.configs['flat/standard']` ... Above, plus rules to enforce the common stylistic conventions.
+
+See [the rule list](https://ota-meshi.github.io/eslint-plugin-yml/rules/) to get the `rules` that this plugin provides.
+
+#### Legacy Config (ESLint<v9)
+
+Use `.eslintrc.*` file to configure rules. See also: <https://eslint.org/docs/latest/use/configure/>.
 
 Example **.eslintrc.js**:
 

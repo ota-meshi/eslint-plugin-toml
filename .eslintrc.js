@@ -128,5 +128,28 @@ module.exports = {
         "n/file-extension-in-import": "off",
       },
     },
+    {
+      files: ["*.mjs"],
+      parserOptions: {
+        sourceType: "module",
+      },
+    },
+    {
+      files: ["*.md/**", "**/*.md/**"],
+      rules: {
+        "n/no-missing-import": "off",
+      },
+    },
+    {
+      files: ["docs/.vitepress/**/*.*"],
+      rules: {
+        "eslint-plugin/require-meta-docs-description": "off",
+        "eslint-plugin/require-meta-docs-url": "off",
+        "eslint-plugin/require-meta-type": "off",
+        "eslint-plugin/prefer-message-ids": "off",
+        "eslint-plugin/prefer-object-rule": "off",
+        "eslint-plugin/require-meta-schema": "off",
+      },
+    },
   ],
 };
