@@ -78,7 +78,7 @@ This plugin provides configs:
 - `*.configs['flat/recommended']` ... Above, plus rules to prevent errors or unintended behavior.
 - `*.configs['flat/standard']` ... Above, plus rules to enforce the common stylistic conventions.
 
-See [the rule list](https://ota-meshi.github.io/eslint-plugin-yml/rules/) to get the `rules` that this plugin provides.
+See [the rule list](https://ota-meshi.github.io/eslint-plugin-toml/rules/) to get the `rules` that this plugin provides.
 
 #### Legacy Config (ESLint<v9)
 
