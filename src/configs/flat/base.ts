@@ -1,4 +1,4 @@
-import type { ESLint } from "eslint";
+import type { ESLint, Linter } from "eslint";
 import * as parser from "toml-eslint-parser";
 export default [
   {
@@ -20,4 +20,4 @@ export default [
       "spaced-comment": "off",
     },
   },
-];
+] satisfies Linter.FlatConfig[];
