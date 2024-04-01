@@ -1,5 +1,11 @@
 # eslint-plugin-toml
 
+## 0.11.0
+
+### Minor Changes
+
+- [#206](https://github.com/ota-meshi/eslint-plugin-toml/pull/206) [`d12e246`](https://github.com/ota-meshi/eslint-plugin-toml/commit/d12e246d595103d4a3b99dfac710b88419df962a) Thanks [@ota-meshi](https://github.com/ota-meshi)! - feat: improved compatibility with `@types/eslint` for flat config.
+
 ## 0.10.0
 
 ### Minor Changes
