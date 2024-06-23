@@ -1,7 +1,5 @@
-import { Linter } from "eslint";
+import { builtinRules } from "eslint/use-at-your-own-risk";
 import { rules } from "../../../../../src/utils/rules.ts";
-
-const coreRules = Object.fromEntries(new Linter().getRules());
 
 const CATEGORY_TITLES = {
   toml: "eslint-plugin-toml",
@@ -37,8 +35,7 @@ for (const k of Object.keys(rules)) {
     initChecked: CATEGORY_INDEX.toml <= 3,
   });
 }
-for (const k of Object.keys(coreRules)) {
-  const rule = coreRules[k];
+for (const [k, rule] of builtinRules.entries()) {
   if (rule.meta.deprecated) {
     continue;
   }
