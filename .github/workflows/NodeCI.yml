@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x, 17.x]
+        node-version: [18, 20, 22]
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
@@ -31,16 +31,22 @@ jobs:
         run: npm install
       - name: Test
         run: npm test
-  test-with-eslint9:
+  test-with-eslint8:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 16.x, 17.x]
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
       - name: Install Target Packages
         run: |+
-          npm i -D eslint@^9.0.0-0 -f
+          npm i -D eslint@8
           npx rimraf node_modules
-          npm install -f
+          npm install
       - name: Test
         run: npm test
   test-with-eslint6:
@@ -70,8 +76,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install Target Packages
         run: |+
-          npm i -D eslint@^7 -f
+          npm i -D eslint@^7
           npx rimraf node_modules
-          npm install -f
+          npm install
       - name: Test
         run: npm test
