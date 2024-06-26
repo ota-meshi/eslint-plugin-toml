@@ -1,5 +1,11 @@
 # eslint-plugin-toml
 
+## 0.11.1
+
+### Patch Changes
+
+- [#222](https://github.com/ota-meshi/eslint-plugin-toml/pull/222) [`9d26552`](https://github.com/ota-meshi/eslint-plugin-toml/commit/9d26552b00f83682186b2d22e87d02cbcb111c9a) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency toml-eslint-parser to ^0.10.0
+
 ## 0.11.0
 
 ### Minor Changes
