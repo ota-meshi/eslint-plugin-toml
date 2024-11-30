@@ -1,5 +1,11 @@
 # eslint-plugin-toml
 
+## 0.12.0
+
+### Minor Changes
+
+- [#237](https://github.com/ota-meshi/eslint-plugin-toml/pull/237) [`152ba05`](https://github.com/ota-meshi/eslint-plugin-toml/commit/152ba05cd144857d302e3f135fdd228144fb8367) Thanks [@ota-meshi](https://github.com/ota-meshi)! - feat: changed to prevent crash when used with language plugins.
+
 ## 0.11.1
 
 ### Patch Changes
