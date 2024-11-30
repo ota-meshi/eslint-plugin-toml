@@ -80,7 +80,7 @@ export function isTokenOnSameLine(
  * @returns Negated function.
  */
 function negate<
-  // eslint-disable-next-line @typescript-eslint/ban-types -- ignore
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type -- ignore
   T extends Function,
 >(f: T): T {
   return ((token: unknown) => !f(token)) as unknown as T;
