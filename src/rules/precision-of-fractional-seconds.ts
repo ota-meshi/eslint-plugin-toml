@@ -29,7 +29,7 @@ export default createRule("precision-of-fractional-seconds", {
   },
   create(context) {
     const sourceCode = getSourceCode(context);
-    if (!sourceCode.parserServices.isTOML) {
+    if (!sourceCode.parserServices?.isTOML) {
       return {};
     }
     const max = context.options[0]?.max ?? 3;

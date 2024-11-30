@@ -77,7 +77,7 @@ export interface RuleContext {
   id: string;
   options: any[];
   parserPath: string;
-  parserServices: {
+  parserServices?: {
     isTOML?: true;
     parseError?: any;
   };
@@ -98,8 +98,9 @@ export interface SourceCode {
   ast: AST.TOMLProgram;
   lines: string[];
   hasBOM: boolean;
-  parserServices: {
+  parserServices?: {
     isTOML?: true;
+    parseError?: any;
   };
   visitorKeys: {
     [nodeType: string]: string[];

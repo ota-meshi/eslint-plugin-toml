@@ -31,21 +31,44 @@ describe("Integration with eslint-plugin-toml", () => {
       0,
     );
   });
-  it("should lint without errors", async () => {
+  describe("should lint without errors", () => {
     // eslint-disable-next-line @typescript-eslint/naming-convention -- Class name
     const ESLint = getESLint();
     if (!semver.satisfies(ESLint.version, ">=8")) return;
-    const engine = new ESLint({
-      cwd: path.join(
-        __dirname,
-        "../fixtures/integrations/eslint-plugin/test01",
-      ),
-    });
-    const results = await engine.lintFiles(["src"]);
-    assert.strictEqual(results.length, 2);
-    assert.strictEqual(
-      results.reduce((s, a) => s + a.errorCount, 0),
-      0,
-    );
+    for (const { dir, expects } of [
+      {
+        dir: "test01",
+        expects: {
+          files: 2,
+          errors: 0,
+        },
+      },
+      ...(semver.satisfies(process.version, ">=18")
+        ? [
+            {
+              dir: "with-json",
+              expects: {
+                files: 2,
+                errors: 0,
+              },
+            },
+          ]
+        : []),
+    ]) {
+      it(dir, async () => {
+        const engine = new ESLint({
+          cwd: path.join(
+            __dirname,
+            `../fixtures/integrations/eslint-plugin/${dir}`,
+          ),
+        });
+        const results = await engine.lintFiles(["src"]);
+        assert.strictEqual(results.length, expects.files);
+        assert.strictEqual(
+          results.reduce((s, a) => s + a.errorCount, 0),
+          expects.errors,
+        );
+      });
+    }
   });
 });

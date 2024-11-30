@@ -83,7 +83,7 @@ export default createRule("indent", {
   },
   create(context) {
     const sourceCode = getSourceCode(context);
-    if (!sourceCode.parserServices.isTOML) {
+    if (!sourceCode.parserServices?.isTOML) {
       return {};
     }
     const { getIndentText, outdent } = buildIndentUtility(context.options[0]);

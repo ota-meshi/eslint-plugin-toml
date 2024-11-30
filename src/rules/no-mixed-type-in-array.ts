@@ -53,7 +53,7 @@ export default createRule("no-mixed-type-in-array", {
   },
   create(context) {
     const sourceCode = getSourceCode(context);
-    if (!sourceCode.parserServices.isTOML) {
+    if (!sourceCode.parserServices?.isTOML) {
       return {};
     }
     const typeMap: TypeMap = {

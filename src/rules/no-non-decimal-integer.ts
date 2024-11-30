@@ -57,7 +57,7 @@ export default createRule("no-non-decimal-integer", {
   },
   create(context) {
     const sourceCode = getSourceCode(context);
-    if (!sourceCode.parserServices.isTOML) {
+    if (!sourceCode.parserServices?.isTOML) {
       return {};
     }
     const allowHexadecimal = Boolean(context.options[0]?.allowHexadecimal);
