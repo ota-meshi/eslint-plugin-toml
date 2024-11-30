@@ -21,7 +21,7 @@ export default createRule("padding-line-between-pairs", {
   },
   create(context) {
     const sourceCode = getSourceCode(context);
-    if (!sourceCode.parserServices.isTOML) {
+    if (!sourceCode.parserServices?.isTOML) {
       return {};
     }
 

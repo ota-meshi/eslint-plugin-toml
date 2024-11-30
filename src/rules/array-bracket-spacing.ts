@@ -47,7 +47,7 @@ export default createRule("array-bracket-spacing", {
   },
   create(context) {
     const sourceCode = getSourceCode(context);
-    if (!sourceCode.parserServices.isTOML) {
+    if (!sourceCode.parserServices?.isTOML) {
       return {};
     }
     const spaced = (context.options[0] || "always") === "always";

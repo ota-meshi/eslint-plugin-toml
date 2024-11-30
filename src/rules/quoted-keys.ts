@@ -32,7 +32,7 @@ export default createRule("quoted-keys", {
   },
   create(context) {
     const sourceCode = getSourceCode(context);
-    if (!sourceCode.parserServices.isTOML) {
+    if (!sourceCode.parserServices?.isTOML) {
       return {};
     }
 

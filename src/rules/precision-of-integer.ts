@@ -43,7 +43,7 @@ export default createRule("precision-of-integer", {
   },
   create(context) {
     const sourceCode = getSourceCode(context);
-    if (!sourceCode.parserServices.isTOML) {
+    if (!sourceCode.parserServices?.isTOML) {
       return {};
     }
     const maxBit = context.options[0]?.maxBit ?? 64;

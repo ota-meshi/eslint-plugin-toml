@@ -19,7 +19,7 @@ export default createRule("no-unreadable-number-separator", {
   },
   create(context) {
     const sourceCode = getSourceCode(context);
-    if (!sourceCode.parserServices.isTOML) {
+    if (!sourceCode.parserServices?.isTOML) {
       return {};
     }
 

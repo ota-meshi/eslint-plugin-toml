@@ -26,7 +26,7 @@ export default createRule("table-bracket-spacing", {
   },
   create(context) {
     const sourceCode = getSourceCode(context);
-    if (!sourceCode.parserServices.isTOML) {
+    if (!sourceCode.parserServices?.isTOML) {
       return {};
     }
     const prefer: "never" | "always" = context.options[0] || "never";
