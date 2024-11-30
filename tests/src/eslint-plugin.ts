@@ -3,6 +3,7 @@ import assert from "assert";
 import { getLegacyESLint, getESLint } from "eslint-compat-utils/eslint";
 import plugin from "../../src/index";
 import { setPlugin } from "../fixtures/integrations/eslint-plugin/plugin-store.cjs";
+import semver from "semver";
 
 // -----------------------------------------------------------------------------
 // Tests
@@ -33,6 +34,7 @@ describe("Integration with eslint-plugin-toml", () => {
   it("should lint without errors", async () => {
     // eslint-disable-next-line @typescript-eslint/naming-convention -- Class name
     const ESLint = getESLint();
+    if (!semver.satisfies(ESLint.version, ">=8")) return;
     const engine = new ESLint({
       cwd: path.join(
         __dirname,
