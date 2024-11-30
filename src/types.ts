@@ -100,6 +100,7 @@ export interface SourceCode {
   hasBOM: boolean;
   parserServices?: {
     isTOML?: true;
+    parseError?: any;
   };
   visitorKeys: {
     [nodeType: string]: string[];
