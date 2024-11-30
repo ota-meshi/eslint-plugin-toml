@@ -10,6 +10,7 @@ describe("`standard` config", () => {
         toml: plugin as never,
       },
       baseConfig: {
+        // @ts-expect-error -- typing bug
         parserOptions: {
           ecmaVersion: 2020,
         },
@@ -37,9 +38,7 @@ describe("`standard` config", () => {
   });
   it("`flat/standard` config should work. ", async () => {
     const linter = new ESLint({
-      // @ts-expect-error -- typing bug
       overrideConfigFile: true,
-      // @ts-expect-error -- typing bug
       overrideConfig: [
         ...plugin.configs["flat/recommended"],
         ...plugin.configs["flat/standard"],
@@ -65,9 +64,7 @@ describe("`standard` config", () => {
   });
   it("`flat/standard` config with *.js should work. ", async () => {
     const linter = new ESLint({
-      // @ts-expect-error -- typing bug
       overrideConfigFile: true,
-      // @ts-expect-error -- typing bug
       overrideConfig: [
         ...plugin.configs["flat/recommended"],
         ...plugin.configs["flat/standard"],
