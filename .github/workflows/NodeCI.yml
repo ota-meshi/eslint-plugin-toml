@@ -48,7 +48,7 @@ jobs:
           npx rimraf node_modules
           npm install
       - name: Test
-        run: npm test:debug
+        run: npm run test:debug
   test-with-eslint6:
     runs-on: ubuntu-latest
     steps:
@@ -62,7 +62,7 @@ jobs:
           npx rimraf node_modules
           npm install
       - name: Test
-        run: npm test:debug
+        run: npm run test:debug
   test-with-eslint7:
     runs-on: ubuntu-latest
     strategy:
@@ -80,4 +80,4 @@ jobs:
           npx rimraf node_modules
           npm install
       - name: Test
-        run: npm test:debug
+        run:run 
