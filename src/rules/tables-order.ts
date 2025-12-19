@@ -1,6 +1,5 @@
 import type { AST } from "toml-eslint-parser";
 import { getStaticTOMLValue } from "toml-eslint-parser";
-import lodash from "lodash";
 import { createRule } from "../utils";
 import { getSourceCode } from "../utils/compat";
 
@@ -25,7 +24,7 @@ function getFirst(keys: KeyData[]): AST.TOMLTable | null {
  * Get last key node
  */
 function getLast(keys: KeyData[]): AST.TOMLTable | null {
-  const last = lodash.last(keys);
+  const last = keys[keys.length - 1];
   if (last) {
     return getLast(last.keys) || last.node;
   }

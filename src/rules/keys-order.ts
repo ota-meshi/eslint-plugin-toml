@@ -1,6 +1,5 @@
 import type { AST } from "toml-eslint-parser";
 import { getStaticTOMLValue } from "toml-eslint-parser";
-import lodash from "lodash";
 import { createRule } from "../utils";
 import { getSourceCode } from "../utils/compat";
 
@@ -50,7 +49,7 @@ export default createRule("keys-order", {
             node,
             keys: [],
           };
-          before = lodash.last(keys)?.node || null;
+          before = keys[keys.length - 1]?.node || null;
           keys.push(next);
         } else {
           next.node = node;

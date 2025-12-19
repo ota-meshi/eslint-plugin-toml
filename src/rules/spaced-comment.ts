@@ -1,5 +1,4 @@
 import type { AST } from "toml-eslint-parser";
-import lodash from "lodash";
 import { createRule } from "../utils";
 import { getSourceCode } from "../utils/compat";
 
@@ -13,7 +12,7 @@ import { getSourceCode } from "../utils/compat";
  * @returns {string} An escaped string.
  */
 function escapeText(s: string) {
-  return `(?:${lodash.escapeRegExp(s)})`;
+  return `(?:${s.replace(/[$()*+.?[\\\]^{|}]/g, "\\$&")})`;
 }
 
 /**
