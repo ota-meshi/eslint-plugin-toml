@@ -20,7 +20,6 @@ describe("Integration with eslint-plugin-toml", () => {
         __dirname,
         "../fixtures/integrations/eslint-plugin/legacy-test01",
       ),
-      // @ts-expect-error -- old
       extensions: [".js", ".toml"],
       plugins: { "eslint-plugin-toml": plugin as any },
     });
