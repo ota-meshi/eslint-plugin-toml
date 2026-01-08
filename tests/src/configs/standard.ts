@@ -6,14 +6,9 @@ const code = `foo =   42`;
 describe("`standard` config", () => {
   it("legacy `standard` config should work. ", async () => {
     const linter = new LegacyESLint({
-      plugins: {
-        toml: plugin as never,
-      },
+      plugins: { toml: plugin as never },
       baseConfig: {
-        // @ts-expect-error -- typing bug
-        parserOptions: {
-          ecmaVersion: 2020,
-        },
+        parserOptions: { ecmaVersion: 2020 },
         extends: ["plugin:toml/recommended", "plugin:toml/standard"],
       },
       useEslintrc: false,
