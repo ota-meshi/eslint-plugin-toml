@@ -1,5 +1,13 @@
 # eslint-plugin-toml
 
+## 0.13.0
+
+### Minor Changes
+
+- [#267](https://github.com/ota-meshi/eslint-plugin-toml/pull/267) [`3afb35a`](https://github.com/ota-meshi/eslint-plugin-toml/commit/3afb35ae019e9e0593ab5974ea985e7f2a7bf658) Thanks [@andreww2012](https://github.com/andreww2012)! - refactor: get rid of lodash
+
+- [#269](https://github.com/ota-meshi/eslint-plugin-toml/pull/269) [`0fc6837`](https://github.com/ota-meshi/eslint-plugin-toml/commit/0fc68370de52fc40c0cf4f06a66addd7dc9820bf) Thanks [@ota-meshi](https://github.com/ota-meshi)! - feat(deps): update toml-eslint-parser to ^0.11.0
+
 ## 0.12.0
 
 ### Minor Changes
