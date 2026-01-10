@@ -1,17 +1,16 @@
 import assert from "assert";
 import plugin from "../../../src/index.ts";
-import { LegacyESLint, ESLint } from "../test-lib/eslint-compat.ts";
+import { ESLint } from "../test-lib/eslint-compat.ts";
 
 const code = `foo =   42`;
 describe("`standard` config", () => {
-  it("legacy `standard` config should work. ", async () => {
-    const linter = new LegacyESLint({
-      plugins: { toml: plugin as never },
-      baseConfig: {
-        parserOptions: { ecmaVersion: 2020 },
-        extends: ["plugin:toml/recommended", "plugin:toml/standard"],
-      },
-      useEslintrc: false,
+  it("`standard` config should work. ", async () => {
+    const linter = new ESLint({
+      overrideConfigFile: true,
+      overrideConfig: [
+        ...plugin.configs.recommended,
+        ...plugin.configs.standard,
+      ],
     });
     const result = await linter.lintText(code, { filePath: "test.toml" });
     const messages = result[0].messages;
@@ -31,7 +30,7 @@ describe("`standard` config", () => {
       ],
     );
   });
-  it("`flat/standard` config should work. ", async () => {
+  it("`flat/standard` config should work (backward compatibility). ", async () => {
     const linter = new ESLint({
       overrideConfigFile: true,
       overrideConfig: [
@@ -57,12 +56,12 @@ describe("`standard` config", () => {
       ],
     );
   });
-  it("`flat/standard` config with *.js should work. ", async () => {
+  it("`standard` config with *.js should work. ", async () => {
     const linter = new ESLint({
       overrideConfigFile: true,
       overrideConfig: [
-        ...plugin.configs["flat/recommended"],
-        ...plugin.configs["flat/standard"],
+        ...plugin.configs.recommended,
+        ...plugin.configs.standard,
       ],
     });
 

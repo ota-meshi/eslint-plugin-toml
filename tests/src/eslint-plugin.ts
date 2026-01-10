@@ -1,7 +1,7 @@
 import path from "path";
 import { fileURLToPath } from "url";
 import assert from "assert";
-import { getLegacyESLint, getESLint } from "eslint-compat-utils/eslint";
+import { getESLint } from "eslint-compat-utils/eslint";
 import plugin from "../../src/index.ts";
 import { setPlugin } from "../fixtures/integrations/eslint-plugin/plugin-store.cjs";
 import semver from "semver";
@@ -19,24 +19,6 @@ const __dirname = path.dirname(__filename);
 setPlugin(plugin);
 
 describe("Integration with eslint-plugin-toml", () => {
-  it("should lint without errors (legacy)", async () => {
-    // eslint-disable-next-line @typescript-eslint/naming-convention -- Class name
-    const ESLint = getLegacyESLint();
-    const engine = new ESLint({
-      cwd: path.join(
-        __dirname,
-        "../fixtures/integrations/eslint-plugin/legacy-test01",
-      ),
-      extensions: [".js", ".toml"],
-      plugins: { "eslint-plugin-toml": plugin as any },
-    });
-    const results = await engine.lintFiles(["src"]);
-    assert.strictEqual(results.length, 2);
-    assert.strictEqual(
-      results.reduce((s, a) => s + a.errorCount, 0),
-      0,
-    );
-  });
   describe("should lint without errors", () => {
     // eslint-disable-next-line @typescript-eslint/naming-convention -- Class name
     const ESLint = getESLint();

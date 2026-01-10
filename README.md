@@ -51,8 +51,6 @@ npm install --save-dev eslint eslint-plugin-toml
 
 ### Configuration
 
-#### New Config (`eslint.config.js`)
-
 Use `eslint.config.js` file to configure rules. See also: <https://eslint.org/docs/latest/use/configure/configuration-files-new>.
 
 Example **eslint.config.js**:
@@ -62,7 +60,7 @@ import eslintPluginToml from 'eslint-plugin-toml';
 export default [
   // add more generic rule sets here, such as:
   // js.configs.recommended,
-  ...eslintPluginToml.configs['flat/recommended'],
+  ...eslintPluginToml.configs.recommended,
   {
     rules: {
       // override/add rules settings here, such as:
@@ -74,51 +72,15 @@ export default [
 
 This plugin provides configs:
 
-- `*.configs['flat/base']` ... Configuration to enable correct TOML parsing.
-- `*.configs['flat/recommended']` ... Above, plus rules to prevent errors or unintended behavior.
-- `*.configs['flat/standard']` ... Above, plus rules to enforce the common stylistic conventions.
+- `*.configs.base` ... Configuration to enable correct TOML parsing.
+- `*.configs.recommended` ... Above, plus rules to prevent errors or unintended behavior.
+- `*.configs.standard` ... Above, plus rules to enforce the common stylistic conventions.
 
-See [the rule list](https://ota-meshi.github.io/eslint-plugin-toml/rules/) to get the `rules` that this plugin provides.
+For backward compatibility, you can also use the `flat/*` namespace:
 
-#### Legacy Config (`.eslintrc`)
-
-Use `.eslintrc.*` file to configure rules. See also: <https://eslint.org/docs/latest/use/configure/>.
-
-Example **.eslintrc.js**:
-
-```js
-module.exports = {
-  extends: [
-    // add more generic rulesets here, such as:
-    // 'eslint:recommended',
-    'plugin:toml/standard'
-  ],
-  rules: {
-    // override/add rules settings here, such as:
-    // 'toml/rule-name': 'error'
-  }
-}
-```
-
-This plugin provides configs:
-
-- `plugin:toml/base` ... Configuration to enable correct TOML parsing.
-- `plugin:toml/recommended` ... Above, plus rules to prevent errors or unintended behavior.
-- `plugin:toml/standard` ... Above, plus rules to enforce the common stylistic conventions.
-
-Note that these configurations do not enable ESLint's core rules.
-For example, the following style rules can also be used in TOML.
-
-```json5
-{
-    "rules": {
-        "comma-spacing": "error",
-        "no-multi-spaces": ["error", { "exceptions": { "TOMLKeyValue": true } }],
-        "no-multiple-empty-lines": "error",
-        "no-trailing-spaces": "error"
-    }
-}
-```
+- `*.configs['flat/base']`
+- `*.configs['flat/recommended']`
+- `*.configs['flat/standard']`
 
 See [the rule list](https://ota-meshi.github.io/eslint-plugin-toml/rules/) to get the `rules` that this plugin provides.
 
@@ -129,20 +91,18 @@ If you have specified a parser, you need to configure a parser for `.toml`.
 For example, if you are using the `"@babel/eslint-parser"`, configure it as follows:
 
 ```js
-module.exports = {
-  // ...
-  extends: ["plugin:toml/standard"],
-  // ...
-  parser: "@babel/eslint-parser",
-  // Add an `overrides` section to add a parser configuration for TOML.
-  overrides: [
-    {
-      files: ["*.toml"],
-      parser: "toml-eslint-parser",
+import eslintPluginToml from 'eslint-plugin-toml';
+import babelParser from '@babel/eslint-parser';
+
+export default [
+  {
+    files: ['**/*.js'],
+    languageOptions: {
+      parser: babelParser,
     },
-  ],
-  // ...
-};
+  },
+  ...eslintPluginToml.configs.standard,
+];
 ```
 
 ### Running ESLint from the command line
