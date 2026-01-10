@@ -1,3 +1,5 @@
+import type { Linter } from "eslint";
+import type { RuleDefinition } from "@eslint/core";
 import type { RuleModule } from "./types.ts";
 import { rules as ruleList } from "./utils/rules.ts";
 import base from "./configs/base.ts";
@@ -9,12 +11,12 @@ import flatStandard from "./configs/flat/standard.ts";
 import * as meta from "./meta.ts";
 
 const configs = {
-  base,
-  recommended,
-  standard,
-  "flat/base": flatBase,
-  "flat/recommended": flatRecommended,
-  "flat/standard": flatStandard,
+  base: base as Linter.LegacyConfig,
+  recommended: recommended as Linter.LegacyConfig,
+  standard: standard as Linter.LegacyConfig,
+  "flat/base": flatBase as Linter.Config,
+  "flat/recommended": flatRecommended as Linter.Config,
+  "flat/standard": flatStandard as Linter.Config,
 };
 
 const rules = ruleList.reduce(
@@ -23,7 +25,7 @@ const rules = ruleList.reduce(
     return obj;
   },
   {} as { [key: string]: RuleModule },
-);
+) as Record<string, RuleDefinition>;
 
 export { meta, configs, rules };
 export default { meta, configs, rules };
