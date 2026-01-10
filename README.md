@@ -39,7 +39,7 @@ npm install --save-dev eslint eslint-plugin-toml
 
 > **Requirements**
 >
-> - ESLint v6.0.0 and above
+> - ESLint v9.38.0 and above
 > - Node.js v20.19.x, v22.13.x, v24.x and above
 
 <!--DOCS_IGNORE_END-->
