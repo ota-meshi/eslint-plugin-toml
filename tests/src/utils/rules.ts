@@ -1,14 +1,18 @@
 import type { RuleModule } from "../../../src/types";
 import assert from "assert";
 import path from "path";
+import { fileURLToPath } from "url";
 import fs from "fs";
 
-import { rules as allRules } from "../../../src/utils/rules";
+import { rules as allRules } from "../../../src/utils/rules.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 /**
  * @returns {Array} Get the list of rules placed in the directory.
  */
-function getDirRules() {
+async function getDirRules() {
   const rules: { [key: string]: RuleModule } = {};
 
   const rulesRoot = path.resolve(__dirname, "../../../src/rules");
@@ -18,8 +22,7 @@ function getDirRules() {
     const ruleName = filename.replace(/\.ts$/u, "");
     const ruleId = `toml/${ruleName}`;
 
-    // eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-require-imports -- for test
-    const rule = require(path.join(rulesRoot, filename)).default;
+    const rule = (await import(path.join(rulesRoot, filename))).default;
     rules[ruleId] = rule;
   }
 
@@ -31,16 +34,15 @@ function getDirRules() {
     const ruleName = `vue-custom-block/${filename.replace(/\.ts$/u, "")}`;
     const ruleId = `toml/${ruleName}`;
 
-    // eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-require-imports -- for test
-    const rule = require(
-      path.join(vueCustomBlockRulesLibRoot, filename),
+    const rule = (
+      await import(path.join(vueCustomBlockRulesLibRoot, filename))
     ).default;
     rules[ruleId] = rule;
   }
   return rules;
 }
 
-const dirRules = getDirRules();
+const dirRules = await getDirRules();
 
 describe("Check that all the rules have the correct names.", () => {
   for (const ruleId of Object.keys(dirRules)) {

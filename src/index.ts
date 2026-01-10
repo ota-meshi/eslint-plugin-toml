@@ -25,7 +25,7 @@ const rules = ruleList.reduce(
   {} as { [key: string]: RuleModule },
 );
 
-export = {
+export default {
   meta,
   configs,
   rules,

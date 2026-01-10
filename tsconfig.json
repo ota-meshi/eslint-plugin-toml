@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
-    "target": "es2020",
-    "module": "node16",
-    "lib": ["es2020"],
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["ES2020"],
     "allowJs": true,
     "checkJs": true,
     "declaration": true,

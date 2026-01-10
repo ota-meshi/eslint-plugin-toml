@@ -1,5 +1,5 @@
 import assert from "assert";
-import plugin from "../../../src/index";
+import plugin from "../../../src/index.js";
 import { LegacyESLint, ESLint } from "../test-lib/eslint-compat";
 
 const code = `foo =   42`;
