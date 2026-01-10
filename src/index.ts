@@ -6,6 +6,11 @@ import base from "./configs/flat/base.ts";
 import recommended from "./configs/flat/recommended.ts";
 import standard from "./configs/flat/standard.ts";
 import * as meta from "./meta.ts";
+import {
+  TOMLLanguage,
+  TOMLSourceCode,
+  type TOMLLanguageOptions,
+} from "./language/index.ts";
 
 const configs = {
   base: base as Linter.Config,
@@ -25,5 +30,17 @@ const rules = ruleList.reduce(
   {} as { [key: string]: RuleModule },
 ) as Record<string, RuleDefinition>;
 
-export { meta, configs, rules };
-export default { meta, configs, rules };
+const languages = {
+  toml: new TOMLLanguage(),
+};
+
+export {
+  meta,
+  configs,
+  rules,
+  languages,
+  TOMLLanguage,
+  TOMLSourceCode,
+  type TOMLLanguageOptions,
+};
+export default { meta, configs, rules, languages };
