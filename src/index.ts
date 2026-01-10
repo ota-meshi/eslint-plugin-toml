@@ -7,7 +7,7 @@ import flatBase from "./configs/flat/base";
 import flatRecommended from "./configs/flat/recommended";
 import flatStandard from "./configs/flat/standard";
 import * as meta from "./meta";
-import { plugin as pluginProxy } from "./plugin-proxy";
+import { plugin } from "./plugin-proxy.js";
 
 const configs = {
   base,
@@ -26,13 +26,11 @@ const rules = ruleList.reduce(
   {} as { [key: string]: RuleModule },
 );
 
-const pluginObject = {
+// Fill in the proxy to ensure it's the same object everywhere
+Object.assign(plugin, {
   meta,
   configs,
   rules,
-};
+});
 
-// Fill in the proxy for flat configs
-Object.assign(pluginProxy, pluginObject);
-
-export default pluginObject;
+export default plugin;

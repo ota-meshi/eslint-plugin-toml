@@ -8,10 +8,4 @@ export default defineConfig({
   },
   clean: true,
   outDir: "lib",
-  rolldown: {
-    output: {
-      entryFileNames: "[name].js",
-      chunkFileNames: "[name].js",
-    },
-  },
 });
