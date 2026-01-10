@@ -7,7 +7,8 @@
     ".": {
       "import": "./lib/index.mjs",
       "types": "./lib/index.d.mts"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "files": [
     "lib"
