@@ -136,6 +136,14 @@ export class TOMLSourceCode extends TextSourceCodeBase<{
   #tokenEndsMap: Map<number, number>;
 
   /**
+   * Parser services for backward compatibility.
+   * This allows existing rules to check for TOML files.
+   */
+  parserServices = {
+    isTOML: true as const,
+  };
+
+  /**
    * Creates a new instance.
    */
   constructor({ text, ast }: { text: string; ast: AST.TOMLProgram }) {
@@ -163,6 +171,14 @@ export class TOMLSourceCode extends TextSourceCodeBase<{
    * Returns an array of all comment tokens in the source code.
    */
   getComments(): Array<AST.Comment> {
+    return this.#comments;
+  }
+
+  /**
+   * Returns an array of all comment tokens in the source code.
+   * Alias for getComments() for backward compatibility with old ESLint API.
+   */
+  getAllComments(): Array<AST.Comment> {
     return this.#comments;
   }
 
