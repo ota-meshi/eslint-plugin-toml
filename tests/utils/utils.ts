@@ -6,8 +6,8 @@ import type { RuleTester } from "eslint";
 import { Linter } from "eslint";
 import * as tomlESLintParser from "toml-eslint-parser";
 import * as vueESLintParser from "vue-eslint-parser";
-import plugin from "../../src/index.js";
-import { applyFixes } from "./apply-fixer";
+import plugin from "../../src/index.ts";
+import { applyFixes } from "./apply-fixer.ts";
 
 // ESM compatibility
 // eslint-disable-next-line @typescript-eslint/naming-convention -- ESM compat

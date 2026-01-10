@@ -2,7 +2,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import assert from "assert";
 import { getLegacyESLint, getESLint } from "eslint-compat-utils/eslint";
-import plugin from "../../src/index.js";
+import plugin from "../../src/index.ts";
 import { setPlugin } from "../fixtures/integrations/eslint-plugin/plugin-store.cjs";
 import semver from "semver";
 

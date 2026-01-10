@@ -1,11 +1,13 @@
 import type { ESLint, Linter } from "eslint";
 import * as parser from "toml-eslint-parser";
-import { plugin } from "../../plugin-proxy.js";
+import plugin from "../../index.ts";
 
 export default [
   {
     plugins: {
-      toml: plugin as ESLint.Plugin,
+      get toml(): ESLint.Plugin {
+        return plugin;
+      },
     },
   },
   {
@@ -19,4 +21,4 @@ export default [
       "spaced-comment": "off",
     },
   },
-] satisfies Linter.FlatConfig[];
+] satisfies Linter.Config[];

@@ -1,10 +1,10 @@
-import type { RuleModule } from "../../../src/types";
+import type { RuleModule } from "../../../src/types.ts";
 import assert from "assert";
 import path from "path";
 import { fileURLToPath } from "url";
 import fs from "fs";
 
-import { rules as allRules } from "../../../src/utils/rules.js";
+import { rules as allRules } from "../../../src/utils/rules.ts";
 
 // ESM compatibility
 // eslint-disable-next-line @typescript-eslint/naming-convention -- ESM compat

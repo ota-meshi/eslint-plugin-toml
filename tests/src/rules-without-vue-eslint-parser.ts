@@ -1,5 +1,5 @@
 import { getLinter } from "eslint-compat-utils/linter";
-import plugin from "../../src/index.js";
+import plugin from "../../src/index.ts";
 import assert from "assert";
 const rules = plugin.rules;
 // eslint-disable-next-line @typescript-eslint/naming-convention -- class name

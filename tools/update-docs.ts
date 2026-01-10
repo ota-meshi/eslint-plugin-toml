@@ -1,8 +1,8 @@
 import path from "path";
 import fs from "fs";
-import { rules } from "../src/utils/rules";
-import type { RuleModule } from "../src/types";
-import { getNewVersion } from "./lib/changesets-util";
+import { rules } from "../src/utils/rules.ts";
+import type { RuleModule } from "../src/types.ts";
+import { getNewVersion } from "./lib/changesets-util.ts";
 
 //eslint-disable-next-line jsdoc/require-jsdoc -- tools
 function formatItems(items: string[]) {
@@ -22,7 +22,8 @@ function yamlValue(val: unknown) {
   return val;
 }
 
-const ROOT = path.resolve(__dirname, "../docs/rules");
+const dirname = import.meta.dirname;
+const ROOT = path.resolve(dirname, "../docs/rules");
 
 //eslint-disable-next-line jsdoc/require-jsdoc -- tools
 function pickSince(content: string): string | null | Promise<string> {

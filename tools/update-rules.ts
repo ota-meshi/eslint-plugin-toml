@@ -2,7 +2,7 @@ import path from "path";
 import fs from "fs";
 import os from "os";
 // import eslint from "eslint"
-import { rules } from "./lib/load-rules";
+import { rules } from "./lib/load-rules.ts";
 const isWin = os.platform().startsWith("win");
 
 /**
@@ -17,13 +17,13 @@ let content = `/*
  * This file has been automatically generated,
  * in order to update its content execute "npm run update"
  */
-import type { RuleModule } from "../types"
+import type { RuleModule } from "../types.ts"
 ${rules
   .map(
     (rule) =>
       `import ${camelCase(rule.meta.docs.ruleName)} from "../rules/${
         rule.meta.docs.ruleName
-      }"`,
+      }.ts"`,
   )
   .join("\n")}
 
@@ -32,7 +32,8 @@ export const rules = [
 ] as RuleModule[]
 `;
 
-const filePath = path.resolve(__dirname, "../src/utils/rules.ts");
+const dirname = import.meta.dirname;
+const filePath = path.resolve(dirname, "../src/utils/rules.ts");
 
 if (isWin) {
   content = content

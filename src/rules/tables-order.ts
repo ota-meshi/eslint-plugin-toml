@@ -1,7 +1,7 @@
 import type { AST } from "toml-eslint-parser";
 import { getStaticTOMLValue } from "toml-eslint-parser";
-import { createRule } from "../utils";
-import { getSourceCode } from "../utils/compat";
+import { createRule } from "../utils/index.ts";
+import { getSourceCode } from "../utils/compat.ts";
 
 type KeyData = {
   key: string | number;

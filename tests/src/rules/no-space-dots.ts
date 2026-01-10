@@ -1,6 +1,6 @@
-import { RuleTester } from "../test-lib/eslint-compat";
-import rule from "../../../src/rules/no-space-dots";
-import { loadTestCases } from "../../utils/utils";
+import { RuleTester } from "../test-lib/eslint-compat.ts";
+import rule from "../../../src/rules/no-space-dots.ts";
+import { loadTestCases } from "../../utils/utils.ts";
 import * as tomlParser from "toml-eslint-parser";
 
 const tester = new RuleTester({

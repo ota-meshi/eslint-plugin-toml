@@ -1,7 +1,7 @@
 import type { AST } from "toml-eslint-parser";
-import { createRule } from "../utils";
-import { getSourceCode } from "../utils/compat";
-import { isCommentToken, isTokenOnSameLine } from "../utils/ast-utils";
+import { createRule } from "../utils/index.ts";
+import { getSourceCode } from "../utils/compat.ts";
+import { isCommentToken, isTokenOnSameLine } from "../utils/ast-utils.ts";
 type Schema0 =
   | ("always" | "never" | "consistent")
   | {

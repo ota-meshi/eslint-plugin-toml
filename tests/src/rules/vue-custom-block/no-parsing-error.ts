@@ -1,6 +1,6 @@
-import { RuleTester } from "../../test-lib/eslint-compat";
-import rule from "../../../../src/rules/vue-custom-block/no-parsing-error";
-import { loadTestCases } from "../../../utils/utils";
+import { RuleTester } from "../../test-lib/eslint-compat.ts";
+import rule from "../../../../src/rules/vue-custom-block/no-parsing-error.ts";
+import { loadTestCases } from "../../../utils/utils.ts";
 import * as vueParser from "vue-eslint-parser";
 import semver from "semver";
 

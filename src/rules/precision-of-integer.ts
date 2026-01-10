@@ -1,8 +1,8 @@
 import type { AST } from "toml-eslint-parser";
-import { createRule } from "../utils";
-import { getSourceCode } from "../utils/compat";
-import type { MaxValues } from "../utils/bit";
-import { maxBitToMaxValues } from "../utils/bit";
+import { createRule } from "../utils/index.ts";
+import { getSourceCode } from "../utils/compat.ts";
+import type { MaxValues } from "../utils/bit.ts";
+import { maxBitToMaxValues } from "../utils/bit.ts";
 
 const cacheMaxValues: Record<number, MaxValues> = {};
 

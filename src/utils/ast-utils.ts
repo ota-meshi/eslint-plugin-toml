@@ -1,4 +1,4 @@
-import type { TOMLToken } from "../types";
+import type { TOMLToken } from "../types.ts";
 export const LINEBREAK_MATCHER = /\r\n|[\n\r\u2028\u2029]/u;
 /**
  * Checks if the given token is a comment token or not.
