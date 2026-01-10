@@ -18,8 +18,7 @@
   },
   "scripts": {
     "prebuild": "npm run -s clean",
-    "build": "npm run build:meta && npm run build:ts",
-    "build:meta": "node --experimental-strip-types ./tools/update-meta.ts",
+    "build": "npm run build:ts",
     "build:ts": "tsdown",
     "clean": "rimraf .nyc_output dist coverage lib",
     "lint": "eslint . --ignore-pattern playground",

@@ -1,5 +1,3 @@
-// IMPORTANT!
-// This file has been automatically generated,
-// in order to update its content execute "npm run update"
-export const name = "eslint-plugin-toml" as const;
-export const version = "0.13.1" as const;
+import pkg from "../package.json" assert { type: "json" };
+export const name = pkg.name;
+export const version = pkg.version;
