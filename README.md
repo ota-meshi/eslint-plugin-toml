@@ -91,20 +91,18 @@ If you have specified a parser, you need to configure a parser for `.toml`.
 For example, if you are using the `"@babel/eslint-parser"`, configure it as follows:
 
 ```js
-module.exports = {
-  // ...
-  extends: ["plugin:toml/standard"],
-  // ...
-  parser: "@babel/eslint-parser",
-  // Add an `overrides` section to add a parser configuration for TOML.
-  overrides: [
-    {
-      files: ["*.toml"],
-      parser: "toml-eslint-parser",
+import eslintPluginToml from 'eslint-plugin-toml';
+import babelParser from '@babel/eslint-parser';
+
+export default [
+  {
+    files: ['**/*.js'],
+    languageOptions: {
+      parser: babelParser,
     },
-  ],
-  // ...
-};
+  },
+  ...eslintPluginToml.configs.standard,
+];
 ```
 
 ### Running ESLint from the command line
