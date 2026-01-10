@@ -6,7 +6,10 @@ import plugin from "../../src/index.js";
 import { setPlugin } from "../fixtures/integrations/eslint-plugin/plugin-store.cjs";
 import semver from "semver";
 
+// ESM compatibility
+// eslint-disable-next-line @typescript-eslint/naming-convention -- ESM compat
 const __filename = fileURLToPath(import.meta.url);
+// eslint-disable-next-line @typescript-eslint/naming-convention -- ESM compat
 const __dirname = path.dirname(__filename);
 
 // -----------------------------------------------------------------------------

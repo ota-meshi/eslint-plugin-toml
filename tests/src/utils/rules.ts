@@ -6,7 +6,10 @@ import fs from "fs";
 
 import { rules as allRules } from "../../../src/utils/rules.js";
 
+// ESM compatibility
+// eslint-disable-next-line @typescript-eslint/naming-convention -- ESM compat
 const __filename = fileURLToPath(import.meta.url);
+// eslint-disable-next-line @typescript-eslint/naming-convention -- ESM compat
 const __dirname = path.dirname(__filename);
 
 /**
@@ -34,9 +37,8 @@ async function getDirRules() {
     const ruleName = `vue-custom-block/${filename.replace(/\.ts$/u, "")}`;
     const ruleId = `toml/${ruleName}`;
 
-    const rule = (
-      await import(path.join(vueCustomBlockRulesLibRoot, filename))
-    ).default;
+    const rule = (await import(path.join(vueCustomBlockRulesLibRoot, filename)))
+      .default;
     rules[ruleId] = rule;
   }
   return rules;
