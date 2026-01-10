@@ -15,87 +15,73 @@ import {
 /**
  * The TOML language implementation for ESLint.
  */
-export class TOMLLanguage
-  implements
-    Language<{
-      LanguageOptions: TOMLLanguageOptions;
-      RootNode: AST.TOMLProgram;
-    }>
-{
+export class TOMLLanguage implements Language<{
+  LanguageOptions: TOMLLanguageOptions;
+  RootNode: AST.TOMLProgram;
+}> {
   /**
    * The type of file to read.
    */
-  fileType = "text" as const;
+  public fileType = "text" as const;
 
   /**
    * The line number at which the parser starts counting.
    */
-  lineStart = 1 as const;
+  public lineStart = 1 as const;
 
   /**
    * The column number at which the parser starts counting.
    */
-  columnStart = 0 as const;
+  public columnStart = 0 as const;
 
   /**
    * The name of the key that holds the type of the node.
    */
-  nodeTypeKey = "type" as const;
+  public nodeTypeKey = "type" as const;
 
   /**
    * The visitor keys.
    */
-  visitorKeys: Record<string, string[]>;
+  public visitorKeys: Record<string, string[]>;
 
   /**
    * Creates a new instance.
    */
-  constructor() {
+  public constructor() {
     this.visitorKeys = { ...VisitorKeys };
   }
 
   /**
    * Validates the language options.
    */
-  // eslint-disable-next-line class-methods-use-this -- Required to complete interface.
-  validateLanguageOptions(
-    _languageOptions: TOMLLanguageOptions,
-  ): void {
+  public validateLanguageOptions(_languageOptions: TOMLLanguageOptions): void {
     // Currently no validation needed
   }
 
   /**
    * Parses the given file into an AST.
    */
-  // eslint-disable-next-line class-methods-use-this -- Required to complete interface.
-  parse(
+  public parse(
     file: File,
-    context?: { languageOptions?: TOMLLanguageOptions },
+    _context?: { languageOptions?: TOMLLanguageOptions },
   ): OkParseResult<AST.TOMLProgram> | TOMLParseResult {
     // Note: BOM already removed
     const text = file.body as string;
 
-    try {
-      const result = parseForESLint(text, {
-        filePath: file.path,
-      });
+    const result = parseForESLint(text, {
+      filePath: file.path,
+    });
 
-      return {
-        ok: true,
-        ast: result.ast,
-      };
-    } catch (error) {
-      // If there's a parsing error, we need to handle it
-      // For now, we'll let it throw - ESLint will handle it
-      throw error;
-    }
+    return {
+      ok: true,
+      ast: result.ast,
+    };
   }
 
   /**
    * Creates a new SourceCode object for the given file and parse result.
    */
-  // eslint-disable-next-line class-methods-use-this -- Required to complete interface.
-  createSourceCode(
+  public createSourceCode(
     file: File,
     parseResult: OkParseResult<AST.TOMLProgram> | TOMLParseResult,
   ): TOMLSourceCode {

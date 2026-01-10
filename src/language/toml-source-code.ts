@@ -22,10 +22,9 @@ export type TOMLSyntaxElement = AST.TOMLNode | AST.Token | AST.Comment;
 
 /**
  * Language options for TOML
+ * Currently no options are defined.
  */
-export interface TOMLLanguageOptions {
-  // Reserved for future options
-}
+export type TOMLLanguageOptions = Record<string, never>;
 
 /**
  * Parse result
@@ -51,19 +50,19 @@ class TOMLTraversalStep extends VisitNodeStep {
   /**
    * The target of the step.
    */
-  target: AST.TOMLNode;
+  public target: AST.TOMLNode;
 
   /**
    * Creates a new instance.
    */
-  constructor({
+  public constructor({
     target,
     phase,
     args,
   }: {
     target: AST.TOMLNode;
     phase: 1 | 2;
-    args: Array<unknown>;
+    args: unknown[];
   }) {
     super({ target, phase, args });
 
@@ -74,12 +73,12 @@ class TOMLTraversalStep extends VisitNodeStep {
 /**
  * Processes tokens to extract comments and their starting tokens.
  */
-function processTokens(tokens: Array<AST.Token | AST.Comment>): {
-  comments: Array<AST.Comment>;
+function processTokens(tokens: (AST.Token | AST.Comment)[]): {
+  comments: AST.Comment[];
   starts: Map<number, number>;
   ends: Map<number, number>;
 } {
-  const comments: Array<AST.Comment> = [];
+  const comments: AST.Comment[] = [];
   const starts = new Map<number, number>();
   const ends = new Map<number, number>();
 
@@ -87,7 +86,7 @@ function processTokens(tokens: Array<AST.Token | AST.Comment>): {
     const token = tokens[i];
 
     if (token.type === "Block") {
-      comments.push(token as AST.Comment);
+      comments.push(token);
     }
 
     starts.set(token.range[0], i);
@@ -113,64 +112,58 @@ export class TOMLSourceCode extends TextSourceCodeBase<{
   /**
    * Cached traversal steps.
    */
-  #steps: Array<TOMLTraversalStep> | undefined;
+  #steps: TOMLTraversalStep[] | undefined;
 
   /**
    * The tokens and comments in the source code.
    */
-  #tokensAndComments: Array<AST.Token | AST.Comment>;
+  readonly #tokensAndComments: (AST.Token | AST.Comment)[];
 
   /**
    * The comment tokens in the source code.
    */
-  #comments: Array<AST.Comment>;
+  readonly #comments: AST.Comment[];
 
   /**
    * A map of token starting positions to their indices.
    */
-  #tokenStartsMap: Map<number, number>;
-
-  /**
-   * A map of token ending positions to their indices.
-   */
-  #tokenEndsMap: Map<number, number>;
+  readonly #tokenStartsMap: Map<number, number>;
 
   /**
    * Parser services for backward compatibility.
    * This allows existing rules to check for TOML files.
    */
-  parserServices = {
+  public parserServices = {
     isTOML: true as const,
   };
 
   /**
    * Creates a new instance.
    */
-  constructor({ text, ast }: { text: string; ast: AST.TOMLProgram }) {
+  public constructor({ text, ast }: { text: string; ast: AST.TOMLProgram }) {
     super({ text, ast });
 
     // Get all tokens and comments
     this.#tokensAndComments = [...(ast.tokens || []), ...(ast.comments || [])];
     this.#tokensAndComments.sort((a, b) => a.range[0] - b.range[0]);
 
-    const { comments, starts, ends } = processTokens(this.#tokensAndComments);
+    const { comments, starts } = processTokens(this.#tokensAndComments);
 
     this.#comments = comments;
     this.#tokenStartsMap = starts;
-    this.#tokenEndsMap = ends;
   }
 
   /**
    * Returns an array of all tokens in the source code.
    */
-  getTokens(): Array<AST.Token | AST.Comment> {
+  public getTokens(): (AST.Token | AST.Comment)[] {
     return this.#tokensAndComments;
   }
 
   /**
    * Returns an array of all comment tokens in the source code.
    */
-  getComments(): Array<AST.Comment> {
+  public getComments(): AST.Comment[] {
     return this.#comments;
   }
 
@@ -178,19 +171,19 @@ export class TOMLSourceCode extends TextSourceCodeBase<{
    * Returns an array of all comment tokens in the source code.
    * Alias for getComments() for backward compatibility with old ESLint API.
    */
-  getAllComments(): Array<AST.Comment> {
+  public getAllComments(): AST.Comment[] {
     return this.#comments;
   }
 
   /**
    * Gets all comments for the given node.
    */
-  getCommentsForNode(node: AST.TOMLNode): {
-    leading: Array<AST.Comment>;
-    trailing: Array<AST.Comment>;
+  public getCommentsForNode(node: AST.TOMLNode): {
+    leading: AST.Comment[];
+    trailing: AST.Comment[];
   } {
-    const leading: Array<AST.Comment> = [];
-    const trailing: Array<AST.Comment> = [];
+    const leading: AST.Comment[] = [];
+    const trailing: AST.Comment[] = [];
 
     for (const comment of this.#comments) {
       if (comment.range[1] <= node.range[0]) {
@@ -206,7 +199,7 @@ export class TOMLSourceCode extends TextSourceCodeBase<{
   /**
    * Gets the token that starts at the given index.
    */
-  getTokenByRangeStart(offset: number): AST.Token | AST.Comment | null {
+  public getTokenByRangeStart(offset: number): AST.Token | AST.Comment | null {
     const index = this.#tokenStartsMap.get(offset);
     return index !== undefined ? this.#tokensAndComments[index] : null;
   }
@@ -214,21 +207,23 @@ export class TOMLSourceCode extends TextSourceCodeBase<{
   /**
    * Traverses the syntax tree.
    */
-  traverse(): Iterable<TOMLTraversalStep> {
+  public traverse(): Iterable<TOMLTraversalStep> {
     // Return cached steps if available
     if (this.#steps) {
       return this.#steps;
     }
 
-    const steps: Array<TOMLTraversalStep> = [];
+    const steps: TOMLTraversalStep[] = [];
 
     /**
      * Recursively traverse the AST
+     * @param node - The node to traverse
+     * @param parent - The parent node
      */
-    const traverse = (
+    function traverseNode(
       node: AST.TOMLNode,
       parent: AST.TOMLNode | null,
-    ): void => {
+    ): void {
       // Enter the node
       steps.push(
         new TOMLTraversalStep({
@@ -248,11 +243,11 @@ export class TOMLSourceCode extends TextSourceCodeBase<{
         if (Array.isArray(value)) {
           for (const child of value) {
             if (child && typeof child === "object" && "type" in child) {
-              traverse(child as AST.TOMLNode, node);
+              traverseNode(child as AST.TOMLNode, node);
             }
           }
         } else if (value && typeof value === "object" && "type" in value) {
-          traverse(value as AST.TOMLNode, node);
+          traverseNode(value as AST.TOMLNode, node);
         }
       }
 
@@ -264,10 +259,10 @@ export class TOMLSourceCode extends TextSourceCodeBase<{
           args: [node, parent],
         }),
       );
-    };
+    }
 
     // Start traversal from root
-    traverse(this.ast, null);
+    traverseNode(this.ast, null);
 
     // Cache the steps
     this.#steps = steps;
@@ -278,14 +273,14 @@ export class TOMLSourceCode extends TextSourceCodeBase<{
   /**
    * Applies language-specific options.
    */
-  static applyLanguageOptions(): TOMLLanguageOptions {
+  public static applyLanguageOptions(): TOMLLanguageOptions {
     return {};
   }
 
   /**
    * Parses a directive from a comment.
    */
-  static getDirectiveFromComment(comment: AST.Comment): {
+  public static getDirectiveFromComment(comment: AST.Comment): {
     label: string;
     value: string;
     justification: string;
@@ -312,15 +307,15 @@ export class TOMLSourceCode extends TextSourceCodeBase<{
   /**
    * Parses inline config from a comment.
    */
-  static parseInlineConfig(comment: AST.Comment):
+  public static parseInlineConfig(comment: AST.Comment):
     | {
         config: {
           rules?: Record<string, unknown>;
         };
-        ruleConfigList?: Array<{
+        ruleConfigList?: {
           key: string;
           value: unknown;
-        }>;
+        }[];
       }
     | {
         error: FileProblem;
