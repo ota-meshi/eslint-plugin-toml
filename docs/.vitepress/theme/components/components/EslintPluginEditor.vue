@@ -134,7 +134,7 @@ export default {
       if (!this.tomlESLintParser || !this.vueESLintParser) {
         return null;
       }
-      const linter = new Linter();
+      const linter = new Linter({ cwd: "/" });
       return linter;
     },
   },
