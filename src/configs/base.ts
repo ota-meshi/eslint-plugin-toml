@@ -1,9 +1,9 @@
-export = {
+export default {
   plugins: ["toml"],
   overrides: [
     {
       files: ["*.toml"],
-      parser: require.resolve("toml-eslint-parser"),
+      parser: "toml-eslint-parser",
       rules: {
         // ESLint core rules known to cause problems with TOML.
         "no-irregular-whitespace": "off",

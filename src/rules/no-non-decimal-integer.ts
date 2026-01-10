@@ -1,7 +1,7 @@
 import type { AST } from "toml-eslint-parser";
 import type { Fix, RuleFixer } from "../types";
-import { createRule } from "../utils";
-import { getSourceCode } from "../utils/compat";
+import { createRule } from "../utils/index.ts";
+import { getSourceCode } from "../utils/compat.ts";
 
 /**
  * Convert the given string to decimal string

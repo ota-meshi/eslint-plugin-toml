@@ -35,8 +35,8 @@ const logger = console;
     ruleFile,
     `
 import type { AST } from "toml-eslint-parser"
-import { createRule } from "../utils"
-import { getSourceCode } from "../utils/compat";
+import { createRule } from "../utils/index.ts"
+import { getSourceCode } from "../utils/compat.ts";
 
 export default createRule("${ruleId}", {
     meta: {
@@ -65,9 +65,9 @@ export default createRule("${ruleId}", {
   );
   fs.writeFileSync(
     testFile,
-    `import { RuleTester } from "../test-lib/eslint-compat"
+    `import { RuleTester } from "../test-lib/eslint-compat.ts"
 import rule from "../../../src/rules/${ruleId}"
-import { loadTestCases } from "../../utils/utils"
+import { loadTestCases } from "../../utils/utils.ts"
 import * as tomlParser from "toml-eslint-parser";
 
 const tester = new RuleTester({

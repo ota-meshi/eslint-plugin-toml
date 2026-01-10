@@ -1,11 +1,11 @@
 import type { AST } from "toml-eslint-parser";
-import { createRule } from "../utils";
-import { getSourceCode } from "../utils/compat";
+import { createRule } from "../utils/index.ts";
+import { getSourceCode } from "../utils/compat.ts";
 import {
   isClosingBraceToken,
   isClosingBracketToken,
   isTokenOnSameLine,
-} from "../utils/ast-utils";
+} from "../utils/ast-utils.ts";
 import type { TOMLToken } from "../types";
 interface Schema1 {
   arraysInObjects?: boolean;

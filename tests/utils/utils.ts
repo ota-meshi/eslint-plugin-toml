@@ -1,13 +1,19 @@
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
 import assert from "assert";
 import type { RuleTester } from "eslint";
 import { Linter } from "eslint";
 import * as tomlESLintParser from "toml-eslint-parser";
 import * as vueESLintParser from "vue-eslint-parser";
-// eslint-disable-next-line @typescript-eslint/no-require-imports -- tests
-import plugin = require("../../src/index");
-import { applyFixes } from "./apply-fixer";
+import plugin from "../../src/index.ts";
+import { applyFixes } from "./apply-fixer.ts";
+
+// ESM compatibility
+// eslint-disable-next-line @typescript-eslint/naming-convention -- ESM compat
+const __filename = fileURLToPath(import.meta.url);
+// eslint-disable-next-line @typescript-eslint/naming-convention -- ESM compat
+const __dirname = path.dirname(__filename);
 
 /**
  * Prevents leading spaces in a multiline template literal from appearing in the resulting string

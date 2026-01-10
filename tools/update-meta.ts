@@ -1,10 +1,12 @@
 import fs from "fs";
 import path from "path";
 import { ESLint } from "eslint";
-import { name, version } from "../package.json";
-import { getNewVersion } from "./lib/changesets-util";
+import pkg from "../package.json" with { type: "json" };
+import { getNewVersion } from "./lib/changesets-util.ts";
+const { name, version } = pkg;
 
-const META_PATH = path.join(__dirname, "../src/meta.ts");
+const dirname = import.meta.dirname;
+const META_PATH = path.join(dirname, "../src/meta.ts");
 
 void main();
 

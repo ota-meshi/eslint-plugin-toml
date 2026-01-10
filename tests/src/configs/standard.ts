@@ -1,6 +1,6 @@
 import assert from "assert";
-import plugin from "../../../src/index";
-import { LegacyESLint, ESLint } from "../test-lib/eslint-compat";
+import plugin from "../../../src/index.ts";
+import { LegacyESLint, ESLint } from "../test-lib/eslint-compat.ts";
 
 const code = `foo =   42`;
 describe("`standard` config", () => {

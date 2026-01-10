@@ -1,7 +1,7 @@
 import path from "path";
 import fs from "fs";
 import os from "os";
-import renderRulesTableContent from "./render-rules";
+import renderRulesTableContent from "./render-rules.ts";
 const isWin = os.platform().startsWith("win");
 
 let insertText = `\n${renderRulesTableContent(
@@ -15,7 +15,8 @@ if (isWin) {
     .replace(/\n/gu, "\r\n");
 }
 
-const readmeFilePath = path.resolve(__dirname, "../README.md");
+const dirname = import.meta.dirname;
+const readmeFilePath = path.resolve(dirname, "../README.md");
 const newReadme = fs
   .readFileSync(readmeFilePath, "utf8")
   .replace(
@@ -24,7 +25,7 @@ const newReadme = fs
   );
 fs.writeFileSync(readmeFilePath, newReadme, "utf8");
 
-const docsReadmeFilePath = path.resolve(__dirname, "../docs/index.md");
+const docsReadmeFilePath = path.resolve(dirname, "../docs/index.md");
 
 fs.writeFileSync(
   docsReadmeFilePath,
@@ -49,7 +50,7 @@ fs.writeFileSync(
 );
 
 const docsUserGuideFilePath = path.resolve(
-  __dirname,
+  dirname,
   "../docs/user-guide/index.md",
 );
 const docsUserGuide = fs.readFileSync(docsUserGuideFilePath, "utf8");

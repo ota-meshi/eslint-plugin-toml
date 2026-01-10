@@ -1,9 +1,9 @@
 import assert from "assert";
-import plugin from "../../src";
-import { version } from "../../package.json";
+import plugin from "../../src/index.ts";
+import pkg from "../../package.json" with { type: "json" };
 const expectedMeta = {
   name: "eslint-plugin-toml",
-  version,
+  version: pkg.version,
 };
 
 describe("Test for meta object", () => {

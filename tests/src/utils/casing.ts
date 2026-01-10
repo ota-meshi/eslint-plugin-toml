@@ -1,4 +1,4 @@
-import * as casing from "../../../src/utils/casing";
+import * as casing from "../../../src/utils/casing.ts";
 import assert from "assert";
 
 describe("getConverter()", () => {

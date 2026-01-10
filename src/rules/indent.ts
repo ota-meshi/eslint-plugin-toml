@@ -1,9 +1,9 @@
 import type { AST } from "toml-eslint-parser";
 import { getStaticTOMLValue } from "toml-eslint-parser";
 import type { TOMLToken } from "../types";
-import { createRule } from "../utils";
-import { isCommentToken, isEqualSign } from "../utils/ast-utils";
-import { getSourceCode } from "../utils/compat";
+import { createRule } from "../utils/index.ts";
+import { isCommentToken, isEqualSign } from "../utils/ast-utils.ts";
+import { getSourceCode } from "../utils/compat.ts";
 const ITERATION_OPTS = Object.freeze({
   includeComments: true,
 } as const);

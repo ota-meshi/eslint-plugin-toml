@@ -1,9 +1,16 @@
 import path from "path";
+import { fileURLToPath } from "url";
 import assert from "assert";
 import { getLegacyESLint, getESLint } from "eslint-compat-utils/eslint";
-import plugin from "../../src/index";
+import plugin from "../../src/index.ts";
 import { setPlugin } from "../fixtures/integrations/eslint-plugin/plugin-store.cjs";
 import semver from "semver";
+
+// ESM compatibility
+// eslint-disable-next-line @typescript-eslint/naming-convention -- ESM compat
+const __filename = fileURLToPath(import.meta.url);
+// eslint-disable-next-line @typescript-eslint/naming-convention -- ESM compat
+const __dirname = path.dirname(__filename);
 
 // -----------------------------------------------------------------------------
 // Tests

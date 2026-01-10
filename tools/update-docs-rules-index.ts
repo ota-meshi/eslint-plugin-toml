@@ -1,9 +1,10 @@
 import path from "path";
 import fs from "fs";
-import renderRulesTableContent from "./render-rules";
+import renderRulesTableContent from "./render-rules.ts";
 
 // -----------------------------------------------------------------------------
-const readmeFilePath = path.resolve(__dirname, "../docs/rules/index.md");
+const dirname = import.meta.dirname;
+const readmeFilePath = path.resolve(dirname, "../docs/rules/index.md");
 fs.writeFileSync(
   readmeFilePath,
   `---

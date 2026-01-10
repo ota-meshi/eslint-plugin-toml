@@ -1,7 +1,7 @@
 import type { AST } from "toml-eslint-parser";
-import { createRule } from "../utils";
-import { getSourceCode } from "../utils/compat";
-import { isTokenOnSameLine } from "../utils/ast-utils";
+import { createRule } from "../utils/index.ts";
+import { getSourceCode } from "../utils/compat.ts";
+import { isTokenOnSameLine } from "../utils/ast-utils.ts";
 interface Schema1 {
   singleValue?: boolean;
   objectsInArrays?: boolean;

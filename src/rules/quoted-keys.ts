@@ -1,5 +1,5 @@
-import { createRule } from "../utils";
-import { getSourceCode } from "../utils/compat";
+import { createRule } from "../utils/index.ts";
+import { getSourceCode } from "../utils/compat.ts";
 
 export default createRule("quoted-keys", {
   meta: {
