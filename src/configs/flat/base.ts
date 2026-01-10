@@ -1,6 +1,6 @@
 import type { ESLint, Linter } from "eslint";
 import * as parser from "toml-eslint-parser";
-import plugin from "../../index.js";
+import { plugin } from "../../plugin-proxy";
 
 export default [
   {
