@@ -220,6 +220,7 @@ export class TOMLSourceCode extends TextSourceCodeBase<{
               justification,
             }),
           );
+          break;
         }
         // no default
       }
