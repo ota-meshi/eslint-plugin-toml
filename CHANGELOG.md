@@ -1,5 +1,21 @@
 # eslint-plugin-toml
 
+## 1.0.0
+
+### Major Changes
+
+- [#294](https://github.com/ota-meshi/eslint-plugin-toml/pull/294) [`84295b2`](https://github.com/ota-meshi/eslint-plugin-toml/commit/84295b2c20044a04739dd63c219ec6272076e821) Thanks [@copilot-swe-agent](https://github.com/apps/copilot-swe-agent)! - Drop support for legacy config. The plugin now exports flat configs as the main configuration format. The previous `flat/*` namespace is kept for backward compatibility.
+
+- [#291](https://github.com/ota-meshi/eslint-plugin-toml/pull/291) [`e0eb3b9`](https://github.com/ota-meshi/eslint-plugin-toml/commit/e0eb3b97c962d2704ab61bddc16de5a41cc3ac24) Thanks [@copilot-swe-agent](https://github.com/apps/copilot-swe-agent)! - Drop support for older ESLint versions. The new supported version is `>=9.38.0`.
+
+- [#287](https://github.com/ota-meshi/eslint-plugin-toml/pull/287) [`d328bb7`](https://github.com/ota-meshi/eslint-plugin-toml/commit/d328bb7635348554f20fc4fc3fc494c1449e10a4) Thanks [@copilot-swe-agent](https://github.com/apps/copilot-swe-agent)! - Drop support for older Node.js versions. The new supported version is `^20.19.0 || ^22.13.0 || >=24`.
+
+- [#292](https://github.com/ota-meshi/eslint-plugin-toml/pull/292) [`d8c42e2`](https://github.com/ota-meshi/eslint-plugin-toml/commit/d8c42e210c4a3af81a9ec8a3f82b55c58edf3e13) Thanks [@copilot-swe-agent](https://github.com/apps/copilot-swe-agent)! - Changed to ESM-only package.
+
+- [#295](https://github.com/ota-meshi/eslint-plugin-toml/pull/295) [`0a59c7d`](https://github.com/ota-meshi/eslint-plugin-toml/commit/0a59c7d2713109469bfb3bc365b123c4d052dcff) Thanks [@copilot-swe-agent](https://github.com/apps/copilot-swe-agent)! - Add ESLint language plugin support. The package now exports a `languages` object containing a TOML language implementation, enabling it to work as an ESLint language plugin. The language plugin provides:
+
+- [#296](https://github.com/ota-meshi/eslint-plugin-toml/pull/296) [`83f5a06`](https://github.com/ota-meshi/eslint-plugin-toml/commit/83f5a06e25bec7da3720a883729be237042935a6) Thanks [@ota-meshi](https://github.com/ota-meshi)! - Update dependency toml-eslint-parser to v1
+
 ## 0.13.1
 
 ### Patch Changes
