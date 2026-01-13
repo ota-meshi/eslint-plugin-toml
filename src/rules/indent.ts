@@ -3,7 +3,7 @@ import { getStaticTOMLValue } from "toml-eslint-parser";
 import type { TOMLToken } from "../types";
 import { createRule } from "../utils/index.ts";
 import { isCommentToken, isEqualSign } from "../utils/ast-utils.ts";
-import { getSourceCode } from "../utils/compat.ts";
+
 const ITERATION_OPTS = Object.freeze({
   includeComments: true,
 } as const);
@@ -82,7 +82,7 @@ export default createRule("indent", {
     type: "layout",
   },
   create(context) {
-    const sourceCode = getSourceCode(context);
+    const sourceCode = context.sourceCode;
     if (!sourceCode.parserServices?.isTOML) {
       return {};
     }

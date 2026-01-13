@@ -51,7 +51,7 @@ npm install --save-dev eslint eslint-plugin-toml
 
 ### Configuration
 
-Use `eslint.config.js` file to configure rules. See also: <https://eslint.org/docs/latest/use/configure/configuration-files-new>.
+Use `eslint.config.js` file to configure rules. See also: <https://eslint.org/docs/latest/use/configure/configuration-files>.
 
 Example **eslint.config.js**:
 
@@ -84,37 +84,30 @@ For backward compatibility, you can also use the `flat/*` namespace:
 
 See [the rule list](https://ota-meshi.github.io/eslint-plugin-toml/rules/) to get the `rules` that this plugin provides.
 
-#### Parser Configuration
+#### Languages
 
-If you have specified a parser, you need to configure a parser for `.toml`.
+This plugin provides the following language identifiers for use in ESLint configurations:
 
-For example, if you are using the `"@babel/eslint-parser"`, configure it as follows:
+- `toml/toml` ... TOML files
+
+For example, to apply settings specifically to TOML files, you can use the `language` field in your ESLint configuration:
 
 ```js
 import eslintPluginToml from 'eslint-plugin-toml';
-import babelParser from '@babel/eslint-parser';
-
 export default [
   {
-    files: ['**/*.js'],
-    languageOptions: {
-      parser: babelParser,
+    files: ["*.toml", "**/*.toml"],
+    plugins: {
+      toml: eslintPluginToml,
     },
-  },
-  ...eslintPluginToml.configs.standard,
-];
+    language: "toml/toml",
+  }
+]
 ```
 
-### Running ESLint from the command line
+The configuration above is included in the shareable configs provided by this plugin, so using `configs` is generally recommended.
 
-If you want to run `eslint` from the command line, make sure you include the `.toml` extension using [the `--ext` option](https://eslint.org/docs/user-guide/configuring#specifying-file-extensions-to-lint) or a glob pattern, because ESLint targets only `.js` files by default.
-
-Examples:
-
-```bash
-eslint --ext .js,.toml src
-eslint "src/**/*.{js,toml}"
-```
+See also <https://eslint.org/docs/latest/use/configure/plugins#specify-a-language>
 
 ## :computer: Editor Integrations
 

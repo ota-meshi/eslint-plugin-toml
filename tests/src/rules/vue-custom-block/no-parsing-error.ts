@@ -1,8 +1,8 @@
-import { RuleTester } from "../../test-lib/eslint-compat.ts";
 import rule from "../../../../src/rules/vue-custom-block/no-parsing-error.ts";
 import { loadTestCases } from "../../../utils/utils.ts";
 import * as vueParser from "vue-eslint-parser";
 import semver from "semver";
+import { RuleTester } from "eslint";
 
 if (semver.satisfies(process.version, ">=18")) {
   const tester = new RuleTester({

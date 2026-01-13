@@ -1,9 +1,8 @@
 /* eslint @typescript-eslint/no-explicit-any: off -- util */
-import type { RuleModule, PartialRuleModule } from "../types.ts";
+import type { RuleModule, PartialRuleModule, RuleContext } from "../types.ts";
 import type { Rule } from "eslint";
 import * as tomlESLintParser from "toml-eslint-parser";
 import path from "path";
-import { getFilename, getSourceCode } from "./compat.ts";
 
 /**
  * Define the rule.
@@ -24,14 +23,15 @@ export function createRule(
         ruleName,
       },
     },
-    create(context: Rule.RuleContext): any {
-      const sourceCode = getSourceCode(context);
+    create(context: RuleContext): any {
+      const sourceCode = context.sourceCode;
+      const parserServices: Record<string, unknown> =
+        sourceCode.parserServices || {};
       if (
-        typeof sourceCode.parserServices?.defineCustomBlocksVisitor ===
-          "function" &&
-        path.extname(getFilename(context)) === ".vue"
+        typeof parserServices.defineCustomBlocksVisitor === "function" &&
+        path.extname(context.filename) === ".vue"
       ) {
-        return sourceCode.parserServices?.defineCustomBlocksVisitor(
+        return parserServices.defineCustomBlocksVisitor(
           context,
           tomlESLintParser,
           {

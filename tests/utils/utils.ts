@@ -8,6 +8,7 @@ import * as tomlESLintParser from "toml-eslint-parser";
 import * as vueESLintParser from "vue-eslint-parser";
 import plugin from "../../src/index.ts";
 import { applyFixes } from "./apply-fixer.ts";
+import type { RuleModule } from "../../src/types.ts";
 
 // ESM compatibility
 // eslint-disable-next-line @typescript-eslint/naming-convention -- ESM compat
@@ -89,7 +90,7 @@ export function loadTestCases(
     getConfig(ruleName, inputFile),
   );
 
-  const fixable = plugin.rules[ruleName].meta.fixable != null;
+  const fixable = (plugin.rules[ruleName] as RuleModule).meta.fixable != null;
 
   const invalid = listupInput(invalidFixtureRoot).map((inputFile) => {
     const config = getConfig(ruleName, inputFile);
@@ -235,7 +236,7 @@ function writeFixtures(
   if (force || !fs.existsSync(outputFile)) {
     const output = applyFixes(config.code, result).output;
 
-    if (plugin.rules[ruleName].meta.fixable != null) {
+    if ((plugin.rules[ruleName] as RuleModule).meta.fixable != null) {
       fs.writeFileSync(outputFile, output, "utf8");
     }
   }

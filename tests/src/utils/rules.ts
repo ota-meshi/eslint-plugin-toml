@@ -79,7 +79,7 @@ describe("Check if the strict of all rules is correct", () => {
         }
         for (const messageId of Object.keys(rule.meta.messages)) {
           it(messageId, () => {
-            const message = rule.meta.messages[messageId];
+            const message = rule.meta.messages?.[messageId] || "";
             assert.ok(
               message.endsWith(".") || message.endsWith("}}"),
               "Doesn't end with a dot.",

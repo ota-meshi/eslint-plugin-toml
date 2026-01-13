@@ -1,7 +1,8 @@
 import type { AST } from "toml-eslint-parser";
-import type { Fix, RuleFixer } from "../types";
+import type { RuleFixer } from "../types";
 import { createRule } from "../utils/index.ts";
-import { getSourceCode } from "../utils/compat.ts";
+
+import type { RuleTextEdit } from "@eslint/core";
 
 /**
  * Convert the given string to decimal string
@@ -56,7 +57,7 @@ export default createRule("no-non-decimal-integer", {
     type: "suggestion",
   },
   create(context) {
-    const sourceCode = getSourceCode(context);
+    const sourceCode = context.sourceCode;
     if (!sourceCode.parserServices?.isTOML) {
       return {};
     }
@@ -71,7 +72,7 @@ export default createRule("no-non-decimal-integer", {
       node: AST.TOMLNumberValue,
       text: string,
       mark: "x" | "o" | "b",
-    ): ((fixer: RuleFixer) => Fix) | undefined {
+    ): ((fixer: RuleFixer) => RuleTextEdit) | undefined {
       if (allowHexadecimal || allowOctal || allowBinary) {
         return undefined;
       }

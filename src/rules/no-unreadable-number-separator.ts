@@ -1,6 +1,5 @@
 import type { AST } from "toml-eslint-parser";
 import { createRule } from "../utils/index.ts";
-import { getSourceCode } from "../utils/compat.ts";
 
 export default createRule("no-unreadable-number-separator", {
   meta: {
@@ -18,7 +17,7 @@ export default createRule("no-unreadable-number-separator", {
     type: "suggestion",
   },
   create(context) {
-    const sourceCode = getSourceCode(context);
+    const sourceCode = context.sourceCode;
     if (!sourceCode.parserServices?.isTOML) {
       return {};
     }

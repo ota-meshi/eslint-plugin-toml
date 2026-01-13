@@ -1,5 +1,4 @@
 import type { ESLint, Linter } from "eslint";
-import * as parser from "toml-eslint-parser";
 import plugin from "../../index.ts";
 
 export default [
@@ -12,9 +11,7 @@ export default [
   },
   {
     files: ["*.toml", "**/*.toml"],
-    languageOptions: {
-      parser,
-    },
+    language: "toml/toml",
     rules: {
       // ESLint core rules known to cause problems with TOML.
       "no-irregular-whitespace": "off",
