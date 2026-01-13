@@ -31,9 +31,8 @@
     "tests/src/**/*",
     "tests/utils/**/*",
     "tools/**/*",
-    "docs/.vitepress/**/*",
     "tsdown.config.ts"
-    // "typings/**/*"
+    // "docs/.vitepress/**/*.mts",
   ],
-  "exclude": ["lib/**/*"]
+  "exclude": ["lib/**/*", "docs/.vitepress/cache/**/*"]
 }

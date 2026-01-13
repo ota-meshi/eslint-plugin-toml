@@ -1,6 +1,6 @@
 import type { AST } from "toml-eslint-parser";
 import { createRule } from "../utils/index.ts";
-import { getSourceCode } from "../utils/compat.ts";
+
 import { isCommentToken, isTokenOnSameLine } from "../utils/ast-utils.ts";
 type Schema0 =
   | ("always" | "never" | "consistent")
@@ -49,7 +49,7 @@ export default createRule("array-bracket-newline", {
     },
   },
   create(context) {
-    const sourceCode = getSourceCode(context);
+    const sourceCode = context.sourceCode;
     if (!sourceCode.parserServices?.isTOML) {
       return {};
     }

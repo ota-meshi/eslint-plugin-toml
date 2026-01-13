@@ -1,6 +1,6 @@
 import type { AST } from "toml-eslint-parser";
 import { createRule } from "../utils/index.ts";
-import { getSourceCode } from "../utils/compat.ts";
+
 import {
   isClosingBraceToken,
   isClosingBracketToken,
@@ -46,7 +46,7 @@ export default createRule("inline-table-curly-spacing", {
     },
   },
   create(context) {
-    const sourceCode = getSourceCode(context);
+    const sourceCode = context.sourceCode;
     if (!sourceCode.parserServices?.isTOML) {
       return {};
     }
@@ -198,7 +198,7 @@ export default createRule("inline-table-curly-spacing", {
       last: TOMLToken,
     ) {
       if (isTokenOnSameLine(first, second)) {
-        const firstSpaced = sourceCode.isSpaceBetweenTokens(first, second);
+        const firstSpaced = sourceCode.isSpaceBetween(first, second);
 
         if (options.isOpeningCurlyBraceMustBeSpaced(second)) {
           if (!firstSpaced) reportRequiredBeginningSpace(node, first);
@@ -210,7 +210,7 @@ export default createRule("inline-table-curly-spacing", {
       }
 
       if (isTokenOnSameLine(penultimate, last)) {
-        const lastSpaced = sourceCode.isSpaceBetweenTokens(penultimate, last);
+        const lastSpaced = sourceCode.isSpaceBetween(penultimate, last);
 
         if (options.isClosingCurlyBraceMustBeSpaced(penultimate)) {
           if (!lastSpaced) reportRequiredEndingSpace(node, last);

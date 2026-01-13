@@ -1,9 +1,7 @@
-import { getLinter } from "eslint-compat-utils/linter";
+import { Linter } from "eslint";
 import plugin from "../../src/index.ts";
 import assert from "assert";
 const rules = plugin.rules;
-// eslint-disable-next-line @typescript-eslint/naming-convention -- class name
-const Linter = getLinter();
 
 describe("Don't crash even if without toml-eslint-parser.", () => {
   const code = "{a:[1,2,3,4]}";

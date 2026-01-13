@@ -1,6 +1,6 @@
 import type { AST } from "toml-eslint-parser";
 import { createRule } from "../utils/index.ts";
-import { getSourceCode } from "../utils/compat.ts";
+
 import { isTokenOnSameLine } from "../utils/ast-utils.ts";
 interface Schema1 {
   singleValue?: boolean;
@@ -46,7 +46,7 @@ export default createRule("array-bracket-spacing", {
     },
   },
   create(context) {
-    const sourceCode = getSourceCode(context);
+    const sourceCode = context.sourceCode;
     if (!sourceCode.parserServices?.isTOML) {
       return {};
     }
@@ -213,20 +213,20 @@ export default createRule("array-bracket-spacing", {
 
       if (isTokenOnSameLine(first, second)) {
         if (options.isOpeningBracketMustBeSpaced(node)) {
-          if (!sourceCode.isSpaceBetweenTokens(first, second))
+          if (!sourceCode.isSpaceBetween(first, second))
             reportRequiredBeginningSpace(node, first);
         } else {
-          if (sourceCode.isSpaceBetweenTokens(first, second))
+          if (sourceCode.isSpaceBetween(first, second))
             reportNoBeginningSpace(node, first);
         }
       }
 
       if (first !== penultimate && isTokenOnSameLine(penultimate, last)) {
         if (options.isClosingBracketMustBeSpaced(node)) {
-          if (!sourceCode.isSpaceBetweenTokens(penultimate, last))
+          if (!sourceCode.isSpaceBetween(penultimate, last))
             reportRequiredEndingSpace(node, last);
         } else {
-          if (sourceCode.isSpaceBetweenTokens(penultimate, last))
+          if (sourceCode.isSpaceBetween(penultimate, last))
             reportNoEndingSpace(node, last);
         }
       }

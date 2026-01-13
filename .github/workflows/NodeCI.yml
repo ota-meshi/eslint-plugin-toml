@@ -16,6 +16,8 @@ jobs:
         run: npm install
       - name: Lint
         run: npm run lint
+      - name: TSC
+        run: npm run lint:ts
   test:
     runs-on: ubuntu-latest
     strategy:

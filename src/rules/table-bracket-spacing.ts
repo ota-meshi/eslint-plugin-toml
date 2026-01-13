@@ -1,6 +1,6 @@
 import type { AST } from "toml-eslint-parser";
 import { createRule } from "../utils/index.ts";
-import { getSourceCode } from "../utils/compat.ts";
+
 
 export default createRule("table-bracket-spacing", {
   meta: {
@@ -25,7 +25,7 @@ export default createRule("table-bracket-spacing", {
     type: "layout",
   },
   create(context) {
-    const sourceCode = getSourceCode(context);
+    const sourceCode = context.sourceCode;
     if (!sourceCode.parserServices?.isTOML) {
       return {};
     }

@@ -1,11 +1,12 @@
-import { RuleTester } from "../test-lib/eslint-compat.ts";
+import { RuleTester } from "eslint";
 import rule from "../../../src/rules/no-mixed-type-in-array.ts";
 import { loadTestCases } from "../../utils/utils.ts";
-import * as tomlParser from "toml-eslint-parser";
+import plugin from "../../../src/index.ts";
 
 const tester = new RuleTester({
+  plugins: { toml: plugin },
+  language: "toml/toml",
   languageOptions: {
-    parser: tomlParser,
     parserOptions: {
       tomlVersion: "next",
     },

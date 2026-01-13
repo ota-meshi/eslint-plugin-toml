@@ -1,7 +1,7 @@
 import type { AST } from "toml-eslint-parser";
 import { getStaticTOMLValue } from "toml-eslint-parser";
 import { createRule } from "../utils/index.ts";
-import { getSourceCode } from "../utils/compat.ts";
+
 
 type KeyData = {
   key: string | number;
@@ -47,7 +47,7 @@ export default createRule("tables-order", {
     type: "suggestion",
   },
   create(context) {
-    const sourceCode = getSourceCode(context);
+    const sourceCode = context.sourceCode;
     if (!sourceCode.parserServices?.isTOML) {
       return {};
     }

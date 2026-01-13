@@ -1,23 +1,39 @@
 /**
  * @fileoverview The TOML language implementation for ESLint.
  */
-
 import type { Language, File, OkParseResult } from "@eslint/core";
 import { parseForESLint } from "toml-eslint-parser";
 import { VisitorKeys } from "toml-eslint-parser";
 import type { AST } from "toml-eslint-parser";
-import {
-  TOMLSourceCode,
-  type TOMLLanguageOptions,
-  type TOMLParseResult,
-} from "./toml-source-code.ts";
+import { TOMLSourceCode } from "./toml-source-code.ts";
+import type { TOMLVersionOption } from "toml-eslint-parser/lib/parser-options";
+
+/**
+ * Parse result
+ */
+interface TOMLParseResult {
+  ok: true;
+  ast: AST.TOMLProgram;
+}
+
+/**
+ * Language options for TOML
+ * Currently no options are defined.
+ */
+export type TOMLLanguageOptions = {
+  parserOptions?: {
+    tomlVersion?: TOMLVersionOption;
+  };
+};
 
 /**
  * The TOML language implementation for ESLint.
  */
 export class TOMLLanguage implements Language<{
-  LanguageOptions: TOMLLanguageOptions;
+  LangOptions: TOMLLanguageOptions;
+  Code: TOMLSourceCode;
   RootNode: AST.TOMLProgram;
+  Node: AST.TOMLNode;
 }> {
   /**
    * The type of file to read.
@@ -40,22 +56,21 @@ export class TOMLLanguage implements Language<{
   public nodeTypeKey = "type" as const;
 
   /**
-   * The visitor keys.
-   */
-  public visitorKeys: Record<string, string[]>;
-
-  /**
-   * Creates a new instance.
-   */
-  public constructor() {
-    this.visitorKeys = { ...VisitorKeys };
-  }
-
-  /**
    * Validates the language options.
    */
   public validateLanguageOptions(_languageOptions: TOMLLanguageOptions): void {
     // Currently no validation needed
+  }
+
+  public normalizeLanguageOptions(
+    languageOptions: TOMLLanguageOptions,
+  ): TOMLLanguageOptions {
+    return {
+      ...languageOptions,
+      parserOptions: {
+        ...languageOptions.parserOptions,
+      },
+    };
   }
 
   /**
@@ -63,13 +78,14 @@ export class TOMLLanguage implements Language<{
    */
   public parse(
     file: File,
-    _context?: { languageOptions?: TOMLLanguageOptions },
+    context: { languageOptions?: TOMLLanguageOptions },
   ): OkParseResult<AST.TOMLProgram> | TOMLParseResult {
     // Note: BOM already removed
     const text = file.body as string;
 
     const result = parseForESLint(text, {
       filePath: file.path,
+      tomlVersion: context.languageOptions?.parserOptions?.tomlVersion,
     });
 
     return {
@@ -88,6 +104,9 @@ export class TOMLLanguage implements Language<{
     return new TOMLSourceCode({
       text: file.body as string,
       ast: parseResult.ast,
-    });
+      hasBOM: file.bom,
+      parserServices: { isTOML: true },
+      visitorKeys: VisitorKeys,
+    }) as unknown as TOMLSourceCode;
   }
 }

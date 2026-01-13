@@ -36,7 +36,6 @@ const logger = console;
     `
 import type { AST } from "toml-eslint-parser"
 import { createRule } from "../utils/index.ts"
-import { getSourceCode } from "../utils/compat.ts";
 
 export default createRule("${ruleId}", {
     meta: {
@@ -51,7 +50,7 @@ export default createRule("${ruleId}", {
         type: "",
     },
     create(context) {
-      const sourceCode = getSourceCode(context)
+      const sourceCode = context.sourceCode
         if (!sourceCode.parserServices?.isTOML) {
             return {}
         }
@@ -66,18 +65,19 @@ export default createRule("${ruleId}", {
   fs.writeFileSync(
     testFile,
     `import { RuleTester } from "../test-lib/eslint-compat.ts"
-import rule from "../../../src/rules/${ruleId}"
+import rule from "../../../src/rules/${ruleId}.ts"
 import { loadTestCases } from "../../utils/utils.ts"
-import * as tomlParser from "toml-eslint-parser";
+import plugin from "../../../src/index.ts";
 
 const tester = new RuleTester({
+  plugins: { toml: plugin },
+  language: "toml/toml",
   languageOptions: {
-    parser: tomlParser,
     parserOptions: {
       tomlVersion: "next",
     },
   },
-})
+});
 
 tester.run("${ruleId}", rule as any, loadTestCases("${ruleId}"))
 `,

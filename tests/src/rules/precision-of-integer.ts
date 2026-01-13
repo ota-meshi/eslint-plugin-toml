@@ -1,13 +1,14 @@
-import { RuleTester } from "../test-lib/eslint-compat.ts";
+import { RuleTester } from "eslint";
 import rule from "../../../src/rules/precision-of-integer.ts";
 import { loadTestCases } from "../../utils/utils.ts";
 import assert from "assert";
-import * as tomlParser from "toml-eslint-parser";
 import { maxBitToMaxValues } from "../../../src/utils/bit.ts";
+import plugin from "../../../src/index.ts";
 
 const tester = new RuleTester({
+  plugins: { toml: plugin },
+  language: "toml/toml",
   languageOptions: {
-    parser: tomlParser,
     parserOptions: {
       tomlVersion: "next",
     },

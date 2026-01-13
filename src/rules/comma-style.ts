@@ -1,6 +1,6 @@
 import type { AST } from "toml-eslint-parser";
 import { createRule } from "../utils/index.ts";
-import { getSourceCode } from "../utils/compat.ts";
+
 import type { RuleFixer, RuleListener, TOMLToken } from "../types";
 import {
   LINEBREAK_MATCHER,
@@ -45,7 +45,7 @@ export default createRule("comma-style", {
     },
   },
   create(context) {
-    const sourceCode = getSourceCode(context);
+    const sourceCode = context.sourceCode;
     if (!sourceCode.parserServices?.isTOML) {
       return {};
     }
@@ -109,10 +109,10 @@ export default createRule("comma-style", {
       const text =
         sourceCode.text.slice(previousItemToken.range[1], commaToken.range[0]) +
         sourceCode.text.slice(commaToken.range[1], currentItemToken.range[0]);
-      const range = [
+      const range: AST.Range = [
         previousItemToken.range[1],
         currentItemToken.range[0],
-      ] as const;
+      ];
 
       return function (fixer: RuleFixer) {
         return fixer.replaceTextRange(range, getReplacedText(styleType, text));

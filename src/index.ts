@@ -6,20 +6,17 @@ import base from "./configs/flat/base.ts";
 import recommended from "./configs/flat/recommended.ts";
 import standard from "./configs/flat/standard.ts";
 import * as meta from "./meta.ts";
-import {
-  TOMLLanguage,
-  TOMLSourceCode,
-  type TOMLLanguageOptions,
-} from "./language/index.ts";
+import type { TOMLSourceCode, TOMLLanguageOptions } from "./language/index.ts";
+import { TOMLLanguage } from "./language/index.ts";
 
 const configs = {
-  base: base as Linter.Config,
-  recommended: recommended as Linter.Config,
-  standard: standard as Linter.Config,
+  base: base as Linter.Config[],
+  recommended: recommended as Linter.Config[],
+  standard: standard as Linter.Config[],
   // Backward compatibility aliases
-  "flat/base": base as Linter.Config,
-  "flat/recommended": recommended as Linter.Config,
-  "flat/standard": standard as Linter.Config,
+  "flat/base": base as Linter.Config[],
+  "flat/recommended": recommended as Linter.Config[],
+  "flat/standard": standard as Linter.Config[],
 };
 
 const rules = ruleList.reduce(
@@ -34,13 +31,6 @@ const languages = {
   toml: new TOMLLanguage(),
 };
 
-export {
-  meta,
-  configs,
-  rules,
-  languages,
-  TOMLLanguage,
-  TOMLSourceCode,
-  type TOMLLanguageOptions,
-};
+export type { TOMLLanguageOptions, TOMLSourceCode };
+export { meta, configs, rules, languages };
 export default { meta, configs, rules, languages };

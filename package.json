@@ -22,6 +22,7 @@
     "build:ts": "tsdown",
     "clean": "rimraf .nyc_output dist coverage lib",
     "lint": "eslint . --ignore-pattern playground",
+    "lint:ts": "tsc --noEmit",
     "eslint-fix": "eslint . --ignore-pattern playground --fix",
     "pretest:base": "",
     "test:base": "mocha --import=tsx \"tests/src/**/*.ts\" --reporter dot --timeout 60000",
@@ -65,7 +66,6 @@
     "@eslint/core": "^1.0.1",
     "@eslint/plugin-kit": "^0.5.1",
     "debug": "^4.1.1",
-    "eslint-compat-utils": "^0.6.0",
     "toml-eslint-parser": "^0.12.0"
   },
   "devDependencies": {
