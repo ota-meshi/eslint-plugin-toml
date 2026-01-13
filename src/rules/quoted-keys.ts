@@ -1,6 +1,5 @@
 import { createRule } from "../utils/index.ts";
 
-
 export default createRule("quoted-keys", {
   meta: {
     docs: {

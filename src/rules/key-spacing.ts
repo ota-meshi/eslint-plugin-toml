@@ -3,7 +3,6 @@ import type { RuleContext, RuleListener } from "../types";
 import { createRule } from "../utils/index.ts";
 import { isEqualSign } from "../utils/ast-utils.ts";
 
-
 //------------------------------------------------------------------------------
 // Helpers
 //------------------------------------------------------------------------------

@@ -1,7 +1,6 @@
 import type { AST } from "toml-eslint-parser";
 import { createRule } from "../utils/index.ts";
 
-
 export default createRule("space-eq-sign", {
   meta: {
     docs: {

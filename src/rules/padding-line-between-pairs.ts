@@ -3,7 +3,6 @@ import { getStaticTOMLValue } from "toml-eslint-parser";
 import type { TOMLToken } from "../types";
 import { createRule } from "../utils/index.ts";
 
-
 export default createRule("padding-line-between-pairs", {
   meta: {
     docs: {

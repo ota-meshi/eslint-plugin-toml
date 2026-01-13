@@ -1,6 +1,5 @@
 import { createRule } from "../utils/index.ts";
 
-
 export default createRule("no-space-dots", {
   meta: {
     docs: {

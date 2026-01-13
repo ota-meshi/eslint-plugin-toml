@@ -1,7 +1,6 @@
 import type { AST } from "toml-eslint-parser";
 import { createRule } from "../utils/index.ts";
 
-
 export default createRule("precision-of-fractional-seconds", {
   meta: {
     docs: {

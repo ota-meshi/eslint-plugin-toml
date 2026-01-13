@@ -2,7 +2,6 @@ import type { AST } from "toml-eslint-parser";
 import { getStaticTOMLValue } from "toml-eslint-parser";
 import { createRule } from "../utils/index.ts";
 
-
 type KeyData = {
   key: string;
   node: AST.TOMLKeyValue;
