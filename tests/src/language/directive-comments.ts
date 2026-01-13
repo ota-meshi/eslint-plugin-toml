@@ -3,6 +3,20 @@ import { Linter } from "eslint";
 import plugin from "../../../src/index.ts";
 
 /**
+ * Creates a config array for testing with the specified rules.
+ */
+function createConfig(rules: Linter.RulesRecord): Linter.Config[] {
+  return [
+    {
+      files: ["**/*.toml"],
+      plugins: { toml: plugin },
+      language: "toml/toml",
+      rules,
+    },
+  ];
+}
+
+/**
  * Test suite for ESLint directive comments in TOML files.
  *
  * Tests that eslint-disable, eslint-disable-line, eslint-disable-next-line,
@@ -14,20 +28,6 @@ describe("Directive Comments", () => {
   beforeEach(() => {
     linter = new Linter();
   });
-
-  /**
-   * Creates a config array for testing with the specified rules.
-   */
-  function createConfig(rules: Linter.RulesRecord): Linter.Config[] {
-    return [
-      {
-        files: ["**/*.toml"],
-        plugins: { toml: plugin },
-        language: "toml/toml",
-        rules,
-      },
-    ];
-  }
 
   describe("eslint-disable", () => {
     it("should disable all rules for the rest of the file", () => {
@@ -338,20 +338,6 @@ describe("Inline Configuration Comments", () => {
   beforeEach(() => {
     linter = new Linter();
   });
-
-  /**
-   * Creates a config array for testing with the specified rules.
-   */
-  function createConfig(rules: Linter.RulesRecord): Linter.Config[] {
-    return [
-      {
-        files: ["**/*.toml"],
-        plugins: { toml: plugin },
-        language: "toml/toml",
-        rules,
-      },
-    ];
-  }
 
   describe("eslint inline config", () => {
     it("should configure rules via eslint comment", () => {
