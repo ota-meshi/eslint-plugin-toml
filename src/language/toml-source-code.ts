@@ -141,7 +141,6 @@ export class TOMLSourceCode extends TextSourceCodeBase<{
       if (!child) return node;
       node = child;
     }
-    return null;
 
     /**
      * Finds a node that contains the given index.

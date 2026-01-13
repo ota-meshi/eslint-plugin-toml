@@ -64,9 +64,9 @@ export default createRule("${ruleId}", {
   );
   fs.writeFileSync(
     testFile,
-    `import { RuleTester } from "../test-lib/eslint-compat.ts"
-import rule from "../../../src/rules/${ruleId}.ts"
-import { loadTestCases } from "../../utils/utils.ts"
+    `import { RuleTester } from "eslint";
+import rule from "../../../src/rules/${ruleId}.ts";
+import { loadTestCases } from "../../utils/utils.ts";
 import plugin from "../../../src/index.ts";
 
 const tester = new RuleTester({

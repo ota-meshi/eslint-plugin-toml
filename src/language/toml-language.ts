@@ -107,6 +107,6 @@ export class TOMLLanguage implements Language<{
       hasBOM: file.bom,
       parserServices: { isTOML: true },
       visitorKeys: VisitorKeys,
-    }) as unknown as TOMLSourceCode;
+    });
   }
 }
