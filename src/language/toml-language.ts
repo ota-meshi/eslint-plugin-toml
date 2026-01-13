@@ -6,7 +6,7 @@ import { parseForESLint } from "toml-eslint-parser";
 import { VisitorKeys } from "toml-eslint-parser";
 import type { AST } from "toml-eslint-parser";
 import { TOMLSourceCode } from "./toml-source-code.ts";
-import type { TOMLVersionOption } from "toml-eslint-parser/lib/parser-options";
+import type { TOMLVersionOption } from "toml-eslint-parser";
 
 /**
  * Parse result
