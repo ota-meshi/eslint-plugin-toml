@@ -3,12 +3,18 @@
  */
 
 import { traverseNodes, type AST } from "toml-eslint-parser";
-import type { TraversalStep } from "@eslint/plugin-kit";
+import type {
+  TraversalStep,
+  IDirective as Directive,
+} from "@eslint/plugin-kit";
 import {
   TextSourceCodeBase,
   CallMethodStep,
   VisitNodeStep,
+  ConfigCommentParser,
+  Directive as DirectiveImpl,
 } from "@eslint/plugin-kit";
+import type { DirectiveType, FileProblem, RulesConfig } from "@eslint/core";
 import type {
   CursorWithCountOptions,
   CursorWithSkipOptions,
@@ -16,6 +22,19 @@ import type {
 } from "./token-store.ts";
 import { TokenStore } from "./token-store.ts";
 import type { Scope } from "eslint";
+
+//-----------------------------------------------------------------------------
+// Helpers
+//-----------------------------------------------------------------------------
+
+const commentParser = new ConfigCommentParser();
+
+/**
+ * Pattern to match ESLint inline configuration comments in TOML.
+ * Matches: eslint, eslint-disable, eslint-enable, eslint-disable-line, eslint-disable-next-line
+ */
+const INLINE_CONFIG =
+  /^\s*eslint(?:-enable|-disable(?:(?:-next)?-line)?)?(?:\s|$)/u;
 
 //-----------------------------------------------------------------------------
 // Types
@@ -46,6 +65,8 @@ export class TOMLSourceCode extends TextSourceCodeBase<{
   #steps: TraversalStep[] | null = null;
 
   #cacheTokensAndComments: (AST.Token | AST.Comment)[] | null = null;
+
+  #inlineConfigComments: AST.Comment[] | null = null;
 
   /**
    * Creates a new instance.
@@ -131,6 +152,127 @@ export class TOMLSourceCode extends TextSourceCodeBase<{
 
   public getAllComments(): AST.Comment[] {
     return this.ast.comments;
+  }
+
+  /**
+   * Returns an array of all inline configuration nodes found in the source code.
+   * This includes eslint-disable, eslint-enable, eslint-disable-line,
+   * eslint-disable-next-line, and eslint (for inline config) comments.
+   */
+  public getInlineConfigNodes(): AST.Comment[] {
+    if (!this.#inlineConfigComments) {
+      this.#inlineConfigComments = this.ast.comments.filter((comment) =>
+        INLINE_CONFIG.test(comment.value),
+      );
+    }
+
+    return this.#inlineConfigComments;
+  }
+
+  /**
+   * Returns directives that enable or disable rules along with any problems
+   * encountered while parsing the directives.
+   */
+  public getDisableDirectives(): {
+    directives: Directive[];
+    problems: FileProblem[];
+  } {
+    const problems: FileProblem[] = [];
+    const directives: Directive[] = [];
+
+    this.getInlineConfigNodes().forEach((comment) => {
+      const directive = commentParser.parseDirective(comment.value);
+
+      if (!directive) {
+        return;
+      }
+
+      const { label, value, justification } = directive;
+
+      // `eslint-disable-line` directives are not allowed to span multiple lines
+      // as it would be confusing to which lines they apply
+      if (
+        label === "eslint-disable-line" &&
+        comment.loc.start.line !== comment.loc.end.line
+      ) {
+        const message = `${label} comment should not span multiple lines.`;
+
+        problems.push({
+          ruleId: null,
+          message,
+          loc: comment.loc,
+        });
+        return;
+      }
+
+      switch (label) {
+        case "eslint-disable":
+        case "eslint-enable":
+        case "eslint-disable-next-line":
+        case "eslint-disable-line": {
+          const directiveType = label.slice("eslint-".length);
+
+          directives.push(
+            new DirectiveImpl({
+              type: directiveType as DirectiveType,
+              node: comment,
+              value,
+              justification,
+            }),
+          );
+          break;
+        }
+        // no default
+      }
+    });
+
+    return { problems, directives };
+  }
+
+  /**
+   * Returns inline rule configurations along with any problems
+   * encountered while parsing the configurations.
+   */
+  public applyInlineConfig(): {
+    configs: { config: { rules: RulesConfig }; loc: AST.SourceLocation }[];
+    problems: FileProblem[];
+  } {
+    const problems: FileProblem[] = [];
+    const configs: {
+      config: { rules: RulesConfig };
+      loc: AST.SourceLocation;
+    }[] = [];
+
+    this.getInlineConfigNodes().forEach((comment) => {
+      const directive = commentParser.parseDirective(comment.value);
+
+      if (!directive) {
+        return;
+      }
+
+      const { label, value } = directive;
+
+      if (label === "eslint") {
+        const parseResult = commentParser.parseJSONLikeConfig(value);
+
+        if (parseResult.ok) {
+          configs.push({
+            config: {
+              rules: parseResult.config,
+            },
+            loc: comment.loc,
+          });
+        } else {
+          problems.push({
+            ruleId: null,
+            message: parseResult.error.message,
+            loc: comment.loc,
+          });
+        }
+      }
+    });
+
+    return { configs, problems };
   }
 
   public getNodeByRangeIndex(index: number): AST.TOMLNode | null {
