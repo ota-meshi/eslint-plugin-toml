@@ -1,10 +1,10 @@
 import assert from "assert";
-import { parseForESLint } from "toml-eslint-parser";
+import { parseTOML } from "toml-eslint-parser";
 import { TokenStore } from "../../../src/language/token-store.ts";
 import type { AST } from "toml-eslint-parser";
 
 function parse(code: string): AST.TOMLProgram {
-  return parseForESLint(code).ast;
+  return parseTOML(code);
 }
 
 describe("TokenStore", () => {
