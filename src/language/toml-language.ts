@@ -2,7 +2,7 @@
  * @fileoverview The TOML language implementation for ESLint.
  */
 import type { Language, File, OkParseResult } from "@eslint/core";
-import { parseForESLint } from "toml-eslint-parser";
+import { parseTOML } from "toml-eslint-parser";
 import { VisitorKeys } from "toml-eslint-parser";
 import type { AST } from "toml-eslint-parser";
 import { TOMLSourceCode } from "./toml-source-code.ts";
@@ -83,14 +83,14 @@ export class TOMLLanguage implements Language<{
     // Note: BOM already removed
     const text = file.body as string;
 
-    const result = parseForESLint(text, {
+    const ast = parseTOML(text, {
       filePath: file.path,
       tomlVersion: context.languageOptions?.parserOptions?.tomlVersion,
     });
 
     return {
       ok: true,
-      ast: result.ast,
+      ast,
     };
   }
 
