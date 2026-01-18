@@ -60,6 +60,29 @@ key = "value"`);
       assert.strictEqual(token.value, "key");
     });
 
+    it("should exclude comments by default", () => {
+      const ast = parse(`arr = [1, # comment
+2]`);
+      const store = new TokenStore({ ast });
+      const keyValue = ast.body[0].body[0];
+      assert.strictEqual(keyValue.type, "TOMLKeyValue");
+      const arr = keyValue.value;
+
+      // Get all tokens including comments
+      const tokens = store.getTokens(arr, { includeComments: true });
+      const hasComment = tokens.some((t) => t.type === "Block");
+      assert.ok(
+        hasComment,
+        "Test setup: there should be a comment in the node",
+      );
+
+      // getFirstToken should skip comments by default
+      const firstToken = store.getFirstToken(arr);
+      assert.ok(firstToken);
+      assert.notStrictEqual(firstToken.type, "Block");
+      assert.strictEqual(firstToken.value, "[");
+    });
+
     it("should filter tokens with filter option", () => {
       const ast = parse(`key = "value"`);
       const store = new TokenStore({ ast });
@@ -99,6 +122,49 @@ key = "value"`);
       assert.ok(token);
       assert.strictEqual(token.type, "Punctuator");
       assert.strictEqual(token.value, "=");
+    });
+
+    it("should exclude comments by default", () => {
+      const ast = parse(`arr = [1 # comment
+]`);
+      const store = new TokenStore({ ast });
+      const keyValue = ast.body[0].body[0];
+      assert.strictEqual(keyValue.type, "TOMLKeyValue");
+      const arr = keyValue.value;
+
+      // Get all tokens including comments
+      const tokens = store.getTokens(arr, { includeComments: true });
+      const hasComment = tokens.some((t) => t.type === "Block");
+      assert.ok(
+        hasComment,
+        "Test setup: there should be a comment in the node",
+      );
+
+      // getLastToken should skip comments by default
+      const lastToken = store.getLastToken(arr);
+      assert.ok(lastToken);
+      assert.notStrictEqual(lastToken.type, "Block");
+      assert.strictEqual(lastToken.value, "]");
+    });
+
+    it("should include comments when option is set", () => {
+      const ast = parse(`arr = [1 # comment
+]`);
+      const store = new TokenStore({ ast });
+      const keyValue = ast.body[0].body[0];
+      assert.strictEqual(keyValue.type, "TOMLKeyValue");
+      const arr = keyValue.value;
+
+      // The comment is between "1" and "]" so lastToken with includeComments
+      // should still be "]" since comment is not the last
+      // Instead, let's test that we can retrieve the comment with skip
+      const lastTokenWithComments = store.getLastToken(arr, {
+        includeComments: true,
+        skip: 1,
+      });
+
+      assert.ok(lastTokenWithComments);
+      assert.strictEqual(lastTokenWithComments.type, "Block");
     });
   });
 
@@ -143,6 +209,21 @@ key = "value"`);
       assert.ok(token);
       assert.strictEqual(token.type, "Block");
     });
+
+    it("should exclude comments by default", () => {
+      const ast = parse(`key1 = "value1" # comment
+key2 = "value2"`);
+      const store = new TokenStore({ ast });
+      const keyValue2 = ast.body[0].body[1];
+      assert.strictEqual(keyValue2.type, "TOMLKeyValue");
+      const key2 = keyValue2.key;
+
+      // getTokenBefore should skip comments by default
+      const token = store.getTokenBefore(key2);
+      assert.ok(token);
+      assert.notStrictEqual(token.type, "Block");
+      assert.strictEqual(token.type, "BasicString");
+    });
   });
 
   describe("getTokenAfter", () => {
@@ -182,6 +263,21 @@ key = "value"`);
       // TOML only has line comments, which are stored as "Block" type in the AST
       assert.ok(token);
       assert.strictEqual(token.type, "Block");
+    });
+
+    it("should exclude comments by default", () => {
+      const ast = parse(`key1 = "value1" # comment
+key2 = "value2"`);
+      const store = new TokenStore({ ast });
+      const keyValue1 = ast.body[0].body[0];
+      assert.strictEqual(keyValue1.type, "TOMLKeyValue");
+
+      // getTokenAfter should skip comments by default
+      const token = store.getTokenAfter(keyValue1);
+      assert.ok(token);
+      assert.notStrictEqual(token.type, "Block");
+      assert.strictEqual(token.type, "Bare");
+      assert.strictEqual(token.value, "key2");
     });
   });
 
@@ -313,6 +409,57 @@ key = "value"`);
         const token = store.getFirstTokenBetween(key, eq);
         assert.strictEqual(token, null);
       }
+    });
+
+    it("should exclude comments by default", () => {
+      const ast = parse(`arr = [1, # comment
+2, 3]`);
+      const store = new TokenStore({ ast });
+      const keyValue = ast.body[0].body[0];
+      assert.strictEqual(keyValue.type, "TOMLKeyValue");
+      const arr = keyValue.value;
+      assert.strictEqual(arr.type, "TOMLArray");
+      const firstElement = arr.elements[0];
+      const secondElement = arr.elements[1];
+
+      // getFirstTokenBetween should skip comments by default
+      const token = store.getFirstTokenBetween(firstElement, secondElement);
+      assert.ok(token);
+      assert.notStrictEqual(token.type, "Block");
+      assert.strictEqual(token.type, "Punctuator");
+      assert.strictEqual(token.value, ",");
+    });
+
+    it("should include comments when option is set", () => {
+      const ast = parse(`arr = [1, # comment
+2, 3]`);
+      const store = new TokenStore({ ast });
+      const keyValue = ast.body[0].body[0];
+      assert.strictEqual(keyValue.type, "TOMLKeyValue");
+      const arr = keyValue.value;
+      assert.strictEqual(arr.type, "TOMLArray");
+      const firstElement = arr.elements[0];
+      const secondElement = arr.elements[1];
+
+      // with includeComments, it should return the "," first
+      const token = store.getFirstTokenBetween(firstElement, secondElement, {
+        includeComments: true,
+      });
+      assert.ok(token);
+      assert.strictEqual(token.type, "Punctuator");
+      assert.strictEqual(token.value, ",");
+
+      // skip 1 should get the comment
+      const commentToken = store.getFirstTokenBetween(
+        firstElement,
+        secondElement,
+        {
+          includeComments: true,
+          skip: 1,
+        },
+      );
+      assert.ok(commentToken);
+      assert.strictEqual(commentToken.type, "Block");
     });
   });
 
