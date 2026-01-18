@@ -1,5 +1,11 @@
 # eslint-plugin-toml
 
+## 1.0.1
+
+### Patch Changes
+
+- [#302](https://github.com/ota-meshi/eslint-plugin-toml/pull/302) [`c2ab796`](https://github.com/ota-meshi/eslint-plugin-toml/commit/c2ab7960fd3a0b2be2568fca5c01eb8dd477dfab) Thanks [@ota-meshi](https://github.com/ota-meshi)! - Fixed a bug that `getFirstToken`, `getLastToken`, `getFirstTokenBetween`, `getTokenBefore`, and `getTokenAfter` in `SourceCode` always contained comments.
+
 ## 1.0.0
 
 ### Major Changes
