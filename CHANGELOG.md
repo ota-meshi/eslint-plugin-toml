@@ -1,5 +1,11 @@
 # eslint-plugin-toml
 
+## 1.0.3
+
+### Patch Changes
+
+- [#307](https://github.com/ota-meshi/eslint-plugin-toml/pull/307) [`4c85d56`](https://github.com/ota-meshi/eslint-plugin-toml/commit/4c85d56647e36de31d090e19b17c2ca14a3da994) Thanks [@ota-meshi](https://github.com/ota-meshi)! - fix: add fake scopeManager for SourceCode API compatibility
+
 ## 1.0.2
 
 ### Patch Changes
