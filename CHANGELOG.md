@@ -1,5 +1,11 @@
 # eslint-plugin-toml
 
+## 1.0.2
+
+### Patch Changes
+
+- [#305](https://github.com/ota-meshi/eslint-plugin-toml/pull/305) [`35db26e`](https://github.com/ota-meshi/eslint-plugin-toml/commit/35db26e68ccc3b6d5b5a7880af3a68a5b23268c3) Thanks [@ota-meshi](https://github.com/ota-meshi)! - fix: update exports in package.json to include types and default import
+
 ## 1.0.1
 
 ### Patch Changes
