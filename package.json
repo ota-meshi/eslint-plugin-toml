@@ -5,8 +5,9 @@
   "type": "module",
   "exports": {
     ".": {
+      "types": "./lib/index.d.mts",
       "import": "./lib/index.mjs",
-      "types": "./lib/index.d.mts"
+      "default": "./lib/index.mjs"
     },
     "./package.json": "./package.json"
   },
