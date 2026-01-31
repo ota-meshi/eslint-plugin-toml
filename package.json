@@ -65,7 +65,7 @@
   },
   "dependencies": {
     "@eslint/core": "^1.0.1",
-    "@eslint/plugin-kit": "^0.5.1",
+    "@eslint/plugin-kit": "^0.6.0",
     "debug": "^4.1.1",
     "toml-eslint-parser": "^1.0.1"
   },
