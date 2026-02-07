@@ -450,6 +450,9 @@ export class TOMLSourceCode extends TextSourceCodeBase<{
         return null;
       },
       getDeclaredVariables: () => [],
+      addGlobals: () => {
+        // noop
+      },
     };
   }
 

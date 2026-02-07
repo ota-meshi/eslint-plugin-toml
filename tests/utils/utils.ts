@@ -190,7 +190,7 @@ function writeFixtures(
   inputFile: string,
   { force }: { force?: boolean } = {},
 ) {
-  const linter = getLinter(ruleName);
+  const linter = new Linter();
   const errorFile = inputFile.replace(/input\.(?:toml|vue)$/u, "errors.json");
   const outputFile = inputFile.replace(
     /input\.(?:toml|vue)$/u,
@@ -202,15 +202,21 @@ function writeFixtures(
   const result = linter.verify(
     config.code,
     {
+      plugins: {
+        toml: plugin,
+      },
       rules: {
         [ruleName]: ["error", ...(config.options || [])],
       },
-      ...({
-        languageOptions: {
-          parser: isToml(inputFile) ? tomlESLintParser : vueESLintParser,
-          parserOptions: { tomlVersion: "next" },
-        },
-      } as any),
+      languageOptions: {
+        parser: isToml(inputFile) ? tomlESLintParser : vueESLintParser,
+        parserOptions: { tomlVersion: "next" },
+      },
+      ...(isToml(inputFile)
+        ? {
+            language: "toml/toml",
+          }
+        : {}),
       settings: {
         toml: { indent: 8 },
       },
@@ -255,16 +261,6 @@ function writeFixtures(
 //         throw e
 //     }
 // }
-
-function getLinter(ruleName: string) {
-  const linter = new Linter();
-  linter.defineParser("toml-eslint-parser", tomlESLintParser);
-  linter.defineParser("vue-eslint-parser", vueESLintParser as any);
-  // @ts-expect-error for test
-  linter.defineRule(ruleName, plugin.rules[ruleName]);
-
-  return linter;
-}
 
 function getConfig(ruleName: string, inputFile: string) {
   const filename = inputFile.slice(inputFile.indexOf(ruleName));

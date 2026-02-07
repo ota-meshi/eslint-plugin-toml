@@ -65,7 +65,11 @@ export class TOMLLanguage implements Language<{
   public normalizeLanguageOptions(
     languageOptions: TOMLLanguageOptions,
   ): TOMLLanguageOptions {
+    const fakeProperties: Record<string, unknown> = {
+      ecmaVersion: "latest",
+    };
     return {
+      ...fakeProperties,
       ...languageOptions,
       parserOptions: {
         ...languageOptions.parserOptions,
