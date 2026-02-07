@@ -3,6 +3,8 @@ import fs from "fs";
 import renderRulesTableContent from "./render-rules.ts";
 
 // -----------------------------------------------------------------------------
+
+// eslint-disable-next-line n/no-unsupported-features/node-builtins -- It's only used in script
 const dirname = import.meta.dirname;
 const readmeFilePath = path.resolve(dirname, "../docs/rules/index.md");
 fs.writeFileSync(

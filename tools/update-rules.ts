@@ -32,6 +32,7 @@ export const rules = [
 ] as RuleModule[]
 `;
 
+// eslint-disable-next-line n/no-unsupported-features/node-builtins -- It's only used in script
 const dirname = import.meta.dirname;
 const filePath = path.resolve(dirname, "../src/utils/rules.ts");
 
