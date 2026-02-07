@@ -1,5 +1,11 @@
 # eslint-plugin-toml
 
+## 1.0.4
+
+### Patch Changes
+
+- [#318](https://github.com/ota-meshi/eslint-plugin-toml/pull/318) [`ac42da3`](https://github.com/ota-meshi/eslint-plugin-toml/commit/ac42da3a39c66f644de4603bf526626ff583eb80) Thanks [@ota-meshi](https://github.com/ota-meshi)! - fix: some bug with eslint v10
+
 ## 1.0.3
 
 ### Patch Changes
