@@ -40,6 +40,7 @@ export default [
 ] satisfies Linter.Config[]
 `;
 
+  // eslint-disable-next-line n/no-unsupported-features/node-builtins -- It's only used in script
   const dirname = import.meta.dirname;
   const filePath = path.resolve(dirname, FLAT_RULESET_NAME[rec]);
 

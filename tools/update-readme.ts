@@ -15,6 +15,7 @@ if (isWin) {
     .replace(/\n/gu, "\r\n");
 }
 
+// eslint-disable-next-line n/no-unsupported-features/node-builtins -- It's only used in script
 const dirname = import.meta.dirname;
 const readmeFilePath = path.resolve(dirname, "../README.md");
 const newReadme = fs

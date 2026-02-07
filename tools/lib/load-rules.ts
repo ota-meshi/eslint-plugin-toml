@@ -2,6 +2,7 @@ import path from "path";
 import fs from "fs";
 import type { RuleModule } from "../../src/types.ts";
 
+// eslint-disable-next-line n/no-unsupported-features/node-builtins -- It's only used in script
 const dirname = import.meta.dirname;
 
 /**

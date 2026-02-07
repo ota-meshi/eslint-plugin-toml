@@ -22,6 +22,7 @@ function yamlValue(val: unknown) {
   return val;
 }
 
+// eslint-disable-next-line n/no-unsupported-features/node-builtins -- It's only used in script
 const dirname = import.meta.dirname;
 const ROOT = path.resolve(dirname, "../docs/rules");
 
