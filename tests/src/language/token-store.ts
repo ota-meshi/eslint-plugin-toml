@@ -1,17 +1,24 @@
 import assert from "assert";
 import { parseTOML } from "toml-eslint-parser";
-import { TokenStore } from "../../../src/language/token-store.ts";
+import { TokenStore } from "@ota-meshi/ast-token-store";
 import type { AST } from "toml-eslint-parser";
 
 function parse(code: string): AST.TOMLProgram {
   return parseTOML(code);
 }
 
+function createStore(ast: AST.TOMLProgram) {
+  return new TokenStore<AST.TOMLNode, AST.Token, AST.Comment>({
+    tokens: [...ast.tokens, ...ast.comments],
+    isComment: (token): token is AST.Comment => token.type === "Block",
+  });
+}
+
 describe("TokenStore", () => {
   describe("getFirstToken", () => {
     it("should return the first token of a node", () => {
       const ast = parse(`key = "value"`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
 
@@ -24,7 +31,7 @@ describe("TokenStore", () => {
 
     it("should return the first token with skip option", () => {
       const ast = parse(`key = "value"`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
 
@@ -37,7 +44,7 @@ describe("TokenStore", () => {
 
     it("should return null when skip exceeds available tokens", () => {
       const ast = parse(`key = "value"`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
 
@@ -49,7 +56,7 @@ describe("TokenStore", () => {
     it("should include comments when option is set", () => {
       const ast = parse(`# comment
 key = "value"`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
 
@@ -63,7 +70,7 @@ key = "value"`);
     it("should exclude comments by default", () => {
       const ast = parse(`arr = [1, # comment
 2]`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
       const arr = keyValue.value;
@@ -85,7 +92,7 @@ key = "value"`);
 
     it("should filter tokens with filter option", () => {
       const ast = parse(`key = "value"`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
 
@@ -101,7 +108,7 @@ key = "value"`);
   describe("getLastToken", () => {
     it("should return the last token of a node", () => {
       const ast = parse(`key = "value"`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
 
@@ -113,7 +120,7 @@ key = "value"`);
 
     it("should return the last token with skip option", () => {
       const ast = parse(`key = "value"`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
 
@@ -127,7 +134,7 @@ key = "value"`);
     it("should exclude comments by default", () => {
       const ast = parse(`arr = [1 # comment
 ]`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
       const arr = keyValue.value;
@@ -150,7 +157,7 @@ key = "value"`);
     it("should include comments when option is set", () => {
       const ast = parse(`arr = [1 # comment
 ]`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
       const arr = keyValue.value;
@@ -171,7 +178,7 @@ key = "value"`);
   describe("getTokenBefore", () => {
     it("should return the token before a node", () => {
       const ast = parse(`key = "value"`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
       const value = keyValue.value;
@@ -185,7 +192,7 @@ key = "value"`);
 
     it("should return null when there is no token before", () => {
       const ast = parse(`key = "value"`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
       const key = keyValue.key;
@@ -198,7 +205,7 @@ key = "value"`);
     it("should include comments when option is set", () => {
       const ast = parse(`# comment
 key = "value"`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
       const key = keyValue.key;
@@ -213,7 +220,7 @@ key = "value"`);
     it("should exclude comments by default", () => {
       const ast = parse(`key1 = "value1" # comment
 key2 = "value2"`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue2 = ast.body[0].body[1];
       assert.strictEqual(keyValue2.type, "TOMLKeyValue");
       const key2 = keyValue2.key;
@@ -229,7 +236,7 @@ key2 = "value2"`);
   describe("getTokenAfter", () => {
     it("should return the token after a node", () => {
       const ast = parse(`key = "value"`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
       const key = keyValue.key;
@@ -243,7 +250,7 @@ key2 = "value2"`);
 
     it("should return null when there is no token after", () => {
       const ast = parse(`key = "value"`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
 
@@ -254,7 +261,7 @@ key2 = "value2"`);
 
     it("should include comments when option is set", () => {
       const ast = parse(`key = "value" # comment`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
 
@@ -268,7 +275,7 @@ key2 = "value2"`);
     it("should exclude comments by default", () => {
       const ast = parse(`key1 = "value1" # comment
 key2 = "value2"`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue1 = ast.body[0].body[0];
       assert.strictEqual(keyValue1.type, "TOMLKeyValue");
 
@@ -284,7 +291,7 @@ key2 = "value2"`);
   describe("getTokensBefore", () => {
     it("should return tokens before a node", () => {
       const ast = parse(`key = "value"`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
       const value = keyValue.value;
@@ -298,7 +305,7 @@ key2 = "value2"`);
 
     it("should return all tokens before when count is 0", () => {
       const ast = parse(`key = "value"`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
       const value = keyValue.value;
@@ -312,7 +319,7 @@ key2 = "value2"`);
   describe("getTokens", () => {
     it("should return all tokens within a node", () => {
       const ast = parse(`key = "value"`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
 
@@ -326,7 +333,7 @@ key2 = "value2"`);
 
     it("should limit tokens with count option", () => {
       const ast = parse(`key = "value"`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
 
@@ -337,7 +344,7 @@ key2 = "value2"`);
 
     it("should filter tokens with filter option", () => {
       const ast = parse(`key = "value"`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
 
@@ -353,7 +360,7 @@ key2 = "value2"`);
   describe("getTokensBetween", () => {
     it("should return tokens between two nodes", () => {
       const ast = parse(`key = "value"`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
       const key = keyValue.key;
@@ -367,7 +374,7 @@ key2 = "value2"`);
 
     it("should return empty array when no tokens between", () => {
       const ast = parse(`[table]`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const table = ast.body[0];
       const leftBracket = store.getFirstToken(table);
       const rightBracket = store.getLastToken(table);
@@ -385,7 +392,7 @@ key2 = "value2"`);
   describe("getFirstTokenBetween", () => {
     it("should return the first token between two nodes", () => {
       const ast = parse(`key = "value"`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
       const key = keyValue.key;
@@ -399,7 +406,7 @@ key2 = "value2"`);
 
     it("should return null when no tokens between", () => {
       const ast = parse(`a=1`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
       const key = keyValue.key;
@@ -414,7 +421,7 @@ key2 = "value2"`);
     it("should exclude comments by default", () => {
       const ast = parse(`arr = [1, # comment
 2, 3]`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
       const arr = keyValue.value;
@@ -433,7 +440,7 @@ key2 = "value2"`);
     it("should include comments when option is set", () => {
       const ast = parse(`arr = [1, # comment
 2, 3]`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
       const arr = keyValue.value;
@@ -467,7 +474,7 @@ key2 = "value2"`);
     it("should return comments directly before a node", () => {
       const ast = parse(`# comment
 key = "value"`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
       const key = keyValue.key;
@@ -482,7 +489,7 @@ key = "value"`);
       const ast = parse(`# comment1
 # comment2
 key = "value"`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
       const key = keyValue.key;
@@ -496,7 +503,7 @@ key = "value"`);
 
     it("should return empty array when no comments before", () => {
       const ast = parse(`key = "value"`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
 
@@ -509,7 +516,7 @@ key = "value"`);
       const ast = parse(`key1 = "value1"
 # comment
 key2 = "value2"`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue2 = ast.body[0].body[1];
       assert.strictEqual(keyValue2.type, "TOMLKeyValue");
       const key2 = keyValue2.key;
@@ -524,7 +531,7 @@ key2 = "value2"`);
   describe("getCommentsAfter", () => {
     it("should return comments directly after a node", () => {
       const ast = parse(`key = "value" # comment`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
 
@@ -536,7 +543,7 @@ key2 = "value2"`);
 
     it("should return empty array when no comments after", () => {
       const ast = parse(`key = "value"`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
 
@@ -548,7 +555,7 @@ key2 = "value2"`);
     it("should stop at non-comment token", () => {
       const ast = parse(`key1 = "value1" # comment
 key2 = "value2"`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue1 = ast.body[0].body[0];
       assert.strictEqual(keyValue1.type, "TOMLKeyValue");
 
@@ -562,7 +569,7 @@ key2 = "value2"`);
   describe("options as number", () => {
     it("should treat number option as skip for getFirstToken", () => {
       const ast = parse(`key = "value"`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
 
@@ -574,7 +581,7 @@ key2 = "value2"`);
 
     it("should treat number option as count for getTokens", () => {
       const ast = parse(`key = "value"`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
 
@@ -587,7 +594,7 @@ key2 = "value2"`);
   describe("options as filter function", () => {
     it("should use function as filter for getFirstToken", () => {
       const ast = parse(`key = "value"`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
 
@@ -604,7 +611,7 @@ key2 = "value2"`);
   describe("complex TOML structures", () => {
     it("should handle array tokens", () => {
       const ast = parse(`arr = [1, 2, 3]`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
       const arr = keyValue.value;
@@ -619,7 +626,7 @@ key2 = "value2"`);
 
     it("should handle inline table tokens", () => {
       const ast = parse(`inline = { a = 1, b = 2 }`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const keyValue = ast.body[0].body[0];
       assert.strictEqual(keyValue.type, "TOMLKeyValue");
       const inlineTable = keyValue.value;
@@ -635,7 +642,7 @@ key2 = "value2"`);
     it("should handle table header tokens", () => {
       const ast = parse(`[table]
 key = "value"`);
-      const store = new TokenStore({ ast });
+      const store = createStore(ast);
       const table = ast.body[0];
 
       const firstToken = store.getFirstToken(table);
