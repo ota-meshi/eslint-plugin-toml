@@ -1,5 +1,11 @@
 # eslint-plugin-toml
 
+## 1.1.1
+
+### Patch Changes
+
+- [#322](https://github.com/ota-meshi/eslint-plugin-toml/pull/322) [`e9986c5`](https://github.com/ota-meshi/eslint-plugin-toml/commit/e9986c59058622b97b37c75477e8d9ba5239f003) Thanks [@ota-meshi](https://github.com/ota-meshi)! - fix: update `@ota-meshi/ast-token-store` to 0.2.1
+
 ## 1.1.0
 
 ### Minor Changes
