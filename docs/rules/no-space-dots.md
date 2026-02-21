@@ -10,7 +10,7 @@ since: "v0.1.0"
 
 > disallow spacing around infix operators
 
-- :gear: This rule is included in `"config.standard"`.
+- :gear: This rule is included in `"configs.standard"`.
 - :wrench: The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
 ## :book: Rule Details

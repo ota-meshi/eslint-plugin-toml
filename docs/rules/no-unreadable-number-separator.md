@@ -10,7 +10,7 @@ since: "v0.1.0"
 
 > disallow number separators that to not enhance readability.
 
-- :gear: This rule is included in `"config.recommended"` and `"config.standard"`.
+- :gear: This rule is included in `"configs.recommended"` and `"configs.standard"`.
 
 ## :book: Rule Details
 
