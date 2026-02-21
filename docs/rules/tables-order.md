@@ -10,7 +10,7 @@ since: "v0.1.0"
 
 > disallow defining tables out-of-order
 
-- :gear: This rule is included in `"plugin:toml/standard"`.
+- :gear: This rule is included in `"config.standard"`.
 - :wrench: The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
 ## :book: Rule Details

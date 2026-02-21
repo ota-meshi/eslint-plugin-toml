@@ -97,7 +97,7 @@ class DocFile {
       if (categories && categories.length) {
         const presets = [];
         for (const cat of categories.sort()) {
-          presets.push(`\`"plugin:toml/${cat}"\``);
+          presets.push(`\`"config.${cat}"\``);
         }
         notes.push(
           `- :gear: This rule is included in ${formatItems(presets)}.`,

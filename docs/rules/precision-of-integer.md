@@ -10,7 +10,7 @@ since: "v0.1.0"
 
 > disallow precision of integer greater than the specified value.
 
-- :gear: This rule is included in `"plugin:toml/recommended"` and `"plugin:toml/standard"`.
+- :gear: This rule is included in `"config.recommended"` and `"config.standard"`.
 
 ## :book: Rule Details
 
