@@ -15,6 +15,7 @@ export default [
       "toml/indent": "error",
       "toml/inline-table-curly-newline": "error",
       "toml/inline-table-curly-spacing": "error",
+      "toml/inline-table-key-value-newline": "error",
       "toml/key-spacing": "error",
       "toml/keys-order": "error",
       "toml/no-space-dots": "error",
