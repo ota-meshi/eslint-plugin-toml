@@ -3,13 +3,13 @@ pageClass: "rule-details"
 sidebarDepth: 0
 title: "toml/inline-table-curly-newline"
 description: "enforce linebreaks after opening and before closing braces"
+since: "v1.3.0"
 ---
 
 # toml/inline-table-curly-newline
 
 > enforce linebreaks after opening and before closing braces
 
-- :exclamation: <badge text="This rule has not been released yet." vertical="middle" type="error"> **_This rule has not been released yet._** </badge>
 - :gear: This rule is included in `"configs.standard"`.
 - :wrench: The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
@@ -69,6 +69,10 @@ toml/inline-table-curly-newline:
 
 [toml/inline-table-curly-spacing]: ./inline-table-curly-spacing.md
 [object-curly-newline]: https://eslint.org/docs/rules/object-curly-newline
+
+## :rocket: Version
+
+This rule was introduced in eslint-plugin-toml v1.3.0
 
 ## :mag: Implementation
 

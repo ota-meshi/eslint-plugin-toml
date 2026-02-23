@@ -1,5 +1,13 @@
 # eslint-plugin-toml
 
+## 1.3.0
+
+### Minor Changes
+
+- [#334](https://github.com/ota-meshi/eslint-plugin-toml/pull/334) [`b3b62da`](https://github.com/ota-meshi/eslint-plugin-toml/commit/b3b62daca5c787563de5d24bacce206de532699b) Thanks [@ota-meshi](https://github.com/ota-meshi)! - feat: add `toml/inline-table-curly-newline` rule
+
+- [#336](https://github.com/ota-meshi/eslint-plugin-toml/pull/336) [`606ec7b`](https://github.com/ota-meshi/eslint-plugin-toml/commit/606ec7b987410c555d3387a9acbc7afd60718695) Thanks [@ota-meshi](https://github.com/ota-meshi)! - feat: add `toml/inline-table-key-value-newline` rule
+
 ## 1.2.1
 
 ### Patch Changes
