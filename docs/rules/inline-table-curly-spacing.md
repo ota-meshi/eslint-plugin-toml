@@ -41,17 +41,41 @@ toml/inline-table-curly-spacing:
   - always # or "never"
   - arraysInObjects: false
     objectsInObjects: false
+    emptyObjects: ignore
 ```
 
-Same as [object-curly-spacing] rule option. See [here](https://eslint.org/docs/rules/object-curly-spacing#options) for details.
+This rule has two options, a string option and an object option.
+
+- First option:
+
+  - `"never"` (default) disallows spacing inside of braces
+  - `"always"` requires spacing inside of braces (except `{}`)
+
+- Second option:
+
+  - `"arraysInObjects"` control spacing inside of braces of inline tables beginning and/or ending with an array element.
+    - `true` requires spacing inside of braces of inline tables beginning and/or ending with an array element (applies when the first option is set to `never`)
+    - `false` disallows spacing inside of braces of inline tables beginning and/or ending with an array element (applies when the first option is set to `always`)
+  - `"objectsInObjects"` control spacing inside of braces of inline tables beginning and/or ending with an inline table element.
+    - `true` requires spacing inside of braces of inline tables beginning and/or ending with an inline table element (applies when the first option is set to `never`)
+    - `false` disallows spacing inside of braces of inline tables beginning and/or ending with an inline table element (applies when the first option is set to `always`)
+  - `"emptyObjects"` control spacing within empty inline tables.
+    - `"ignore"`(default) do not check spacing in empty inline tables.
+    - `"always"` require a space in empty inline tables.
+    - `"never"` disallow spaces in empty inline tables.
+
+These options are almost identical to those of the [@stylistic/object-curly-spacing] rule.
+See [here](https://eslint.style/rules/object-curly-spacing#options) for details.
 
 ## :couple: Related rules
 
+- [@stylistic/object-curly-spacing]
 - [object-curly-spacing]
 - [toml/array-bracket-spacing]
 
 [object-curly-spacing]: https://eslint.org/docs/rules/object-curly-spacing
 [toml/array-bracket-spacing]: ./array-bracket-spacing.md
+[@stylistic/object-curly-spacing]: https://eslint.style/rules/object-curly-spacing#options
 
 ## :rocket: Version
 
