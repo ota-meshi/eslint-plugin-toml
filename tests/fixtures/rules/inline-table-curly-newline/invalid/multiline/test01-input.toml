@@ -1,0 +1,3 @@
+# {"options":[{"multiline":true}]}
+bad = { a = 1,
+  b = 2 }

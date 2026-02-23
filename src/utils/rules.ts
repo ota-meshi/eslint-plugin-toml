@@ -7,6 +7,7 @@ import arrayBracketSpacing from "../rules/array-bracket-spacing.ts";
 import arrayElementNewline from "../rules/array-element-newline.ts";
 import commaStyle from "../rules/comma-style.ts";
 import indent from "../rules/indent.ts";
+import inlineTableCurlyNewline from "../rules/inline-table-curly-newline.ts";
 import inlineTableCurlySpacing from "../rules/inline-table-curly-spacing.ts";
 import keySpacing from "../rules/key-spacing.ts";
 import keysOrder from "../rules/keys-order.ts";
@@ -31,6 +32,7 @@ export const rules = [
   arrayElementNewline,
   commaStyle,
   indent,
+  inlineTableCurlyNewline,
   inlineTableCurlySpacing,
   keySpacing,
   keysOrder,

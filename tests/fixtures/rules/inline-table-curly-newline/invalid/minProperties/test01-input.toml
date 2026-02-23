@@ -1,0 +1,2 @@
+# {"options":[{"minProperties":2}]}
+bad = { a = 1, b = 2 }

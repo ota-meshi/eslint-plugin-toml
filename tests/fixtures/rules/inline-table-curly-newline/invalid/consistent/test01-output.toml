@@ -1,0 +1,2 @@
+# inline-table-curly-newline/invalid/consistent/test01-input.toml
+bad = {a = 1 }

@@ -1,0 +1,4 @@
+# {}
+foo = { # a comment
+  a = 1
+}

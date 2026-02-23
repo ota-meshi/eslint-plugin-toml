@@ -1,0 +1,5 @@
+# inline-table-curly-newline/invalid/multiline/test01-input.toml
+bad = {
+ a = 1,
+  b = 2 
+}
