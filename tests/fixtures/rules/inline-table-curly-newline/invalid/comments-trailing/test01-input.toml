@@ -1,0 +1,4 @@
+# {"options":["never"]}
+bad = {
+  a = 1 # trailing
+}

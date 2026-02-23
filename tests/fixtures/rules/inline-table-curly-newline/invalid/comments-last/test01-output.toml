@@ -1,0 +1,4 @@
+# inline-table-curly-newline/invalid/comments-last/test01-input.toml
+foo = {a = 1
+  # a comment
+}

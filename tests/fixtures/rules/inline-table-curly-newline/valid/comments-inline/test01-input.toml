@@ -1,0 +1,5 @@
+# {"options":["always"]}
+foo = {
+  a = 1, # inline comment
+  b = 2
+}

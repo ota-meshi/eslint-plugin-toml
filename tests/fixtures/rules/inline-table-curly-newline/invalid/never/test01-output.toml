@@ -1,0 +1,4 @@
+# inline-table-curly-newline/invalid/never/test01-input.toml
+bad1 = {
+  a = 1
+}

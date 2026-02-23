@@ -35,6 +35,7 @@ The rules with the following star :star: are included in the `configs.recommende
 | [toml/array-bracket-spacing](./array-bracket-spacing.md) | enforce consistent spacing inside array brackets | :wrench: |  | :star: |
 | [toml/array-element-newline](./array-element-newline.md) | enforce line breaks between array elements | :wrench: |  | :star: |
 | [toml/comma-style](./comma-style.md) | enforce consistent comma style in array | :wrench: |  | :star: |
+| [toml/inline-table-curly-newline](./inline-table-curly-newline.md) | enforce linebreaks after opening and before closing braces | :wrench: |  | :star: |
 | [toml/inline-table-curly-spacing](./inline-table-curly-spacing.md) | enforce consistent spacing inside braces | :wrench: |  | :star: |
 | [toml/key-spacing](./key-spacing.md) | enforce consistent spacing between keys and values in key/value pairs | :wrench: |  | :star: |
 | [toml/spaced-comment](./spaced-comment.md) | enforce consistent spacing after the `#` in a comment | :wrench: |  | :star: |
