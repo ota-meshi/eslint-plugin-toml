@@ -9,6 +9,7 @@ import commaStyle from "../rules/comma-style.ts";
 import indent from "../rules/indent.ts";
 import inlineTableCurlyNewline from "../rules/inline-table-curly-newline.ts";
 import inlineTableCurlySpacing from "../rules/inline-table-curly-spacing.ts";
+import inlineTableKeyValueNewline from "../rules/inline-table-key-value-newline.ts";
 import keySpacing from "../rules/key-spacing.ts";
 import keysOrder from "../rules/keys-order.ts";
 import noMixedTypeInArray from "../rules/no-mixed-type-in-array.ts";
@@ -34,6 +35,7 @@ export const rules = [
   indent,
   inlineTableCurlyNewline,
   inlineTableCurlySpacing,
+  inlineTableKeyValueNewline,
   keySpacing,
   keysOrder,
   noMixedTypeInArray,

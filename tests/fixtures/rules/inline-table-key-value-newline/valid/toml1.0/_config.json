@@ -1,0 +1,8 @@
+{
+  "options": [],
+  "languageOptions": {
+    "parserOptions": {
+      "tomlVersion": "1.0"
+    }
+  }
+}

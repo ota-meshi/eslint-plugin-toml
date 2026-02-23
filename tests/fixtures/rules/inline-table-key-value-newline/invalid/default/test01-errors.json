@@ -1,0 +1,7 @@
+[
+  {
+    "message": "Inline table key-value pairs must go on a new line.",
+    "line": 2,
+    "column": 16
+  }
+]

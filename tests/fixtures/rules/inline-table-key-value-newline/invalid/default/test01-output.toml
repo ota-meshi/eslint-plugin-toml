@@ -1,0 +1,3 @@
+# inline-table-key-value-newline/invalid/default/test01-input.toml
+bad = { a = 1,
+b = 2 }

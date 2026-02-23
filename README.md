@@ -169,6 +169,7 @@ The rules with the following star :star: are included in the configs.
 | [toml/comma-style](https://ota-meshi.github.io/eslint-plugin-toml/rules/comma-style.html) | enforce consistent comma style in array | :wrench: |  | :star: |
 | [toml/inline-table-curly-newline](https://ota-meshi.github.io/eslint-plugin-toml/rules/inline-table-curly-newline.html) | enforce linebreaks after opening and before closing braces | :wrench: |  | :star: |
 | [toml/inline-table-curly-spacing](https://ota-meshi.github.io/eslint-plugin-toml/rules/inline-table-curly-spacing.html) | enforce consistent spacing inside braces | :wrench: |  | :star: |
+| [toml/inline-table-key-value-newline](https://ota-meshi.github.io/eslint-plugin-toml/rules/inline-table-key-value-newline.html) | enforce placing inline table key-value pairs on separate lines | :wrench: |  | :star: |
 | [toml/key-spacing](https://ota-meshi.github.io/eslint-plugin-toml/rules/key-spacing.html) | enforce consistent spacing between keys and values in key/value pairs | :wrench: |  | :star: |
 | [toml/spaced-comment](https://ota-meshi.github.io/eslint-plugin-toml/rules/spaced-comment.html) | enforce consistent spacing after the `#` in a comment | :wrench: |  | :star: |
 | [toml/table-bracket-spacing](https://ota-meshi.github.io/eslint-plugin-toml/rules/table-bracket-spacing.html) | enforce consistent spacing inside table brackets | :wrench: |  | :star: |
