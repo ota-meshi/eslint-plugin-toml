@@ -129,8 +129,9 @@ export default createRule("inline-table-curly-spacing", {
       requireSpaceAfter: "A space is required after '{{token}}'.",
       unexpectedSpaceBefore: "There should be no space before '{{token}}'.",
       unexpectedSpaceAfter: "There should be no space after '{{token}}'.",
-      requiredSpaceInEmptyObject: "A space is required in empty object.",
-      unexpectedSpaceInEmptyObject: "There should be no space in empty object.",
+      requiredSpaceInEmptyObject: "A space is required in empty inline table.",
+      unexpectedSpaceInEmptyObject:
+        "There should be no space in empty inline table.",
     },
   },
   create(context) {
