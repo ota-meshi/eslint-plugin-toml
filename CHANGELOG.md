@@ -1,5 +1,11 @@
 # eslint-plugin-toml
 
+## 1.2.0
+
+### Minor Changes
+
+- [#330](https://github.com/ota-meshi/eslint-plugin-toml/pull/330) [`58ef461`](https://github.com/ota-meshi/eslint-plugin-toml/commit/58ef461d6e0aa34f8c514ca2d15e7124fc2de80d) Thanks [@ota-meshi](https://github.com/ota-meshi)! - feat(inline-table-curly-spacing): add `emptyObjects` option to control spacing in empty inline tables
+
 ## 1.1.2
 
 ### Patch Changes
