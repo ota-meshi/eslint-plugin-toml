@@ -3,13 +3,13 @@ pageClass: "rule-details"
 sidebarDepth: 0
 title: "toml/inline-table-key-value-newline"
 description: "enforce placing inline table key-value pairs on separate lines"
+since: "v1.3.0"
 ---
 
 # toml/inline-table-key-value-newline
 
 > enforce placing inline table key-value pairs on separate lines
 
-- :exclamation: <badge text="This rule has not been released yet." vertical="middle" type="error"> **_This rule has not been released yet._** </badge>
 - :gear: This rule is included in `"configs.standard"`.
 - :wrench: The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
@@ -75,6 +75,10 @@ c = 2 }
 
 [toml/inline-table-curly-newline]: ./inline-table-curly-newline.md
 [object-property-newline]: https://eslint.org/docs/rules/object-property-newline
+
+## :rocket: Version
+
+This rule was introduced in eslint-plugin-toml v1.3.0
 
 ## :mag: Implementation
 
