@@ -1,5 +1,11 @@
 # eslint-plugin-toml
 
+## 1.2.1
+
+### Patch Changes
+
+- [#332](https://github.com/ota-meshi/eslint-plugin-toml/pull/332) [`668d0e6`](https://github.com/ota-meshi/eslint-plugin-toml/commit/668d0e6a20f6dd4e63a26a0f9a122a29d0bd2a7a) Thanks [@ota-meshi](https://github.com/ota-meshi)! - fix(inline-table-curly-spacing): update messages for empty inline tables
+
 ## 1.2.0
 
 ### Minor Changes
