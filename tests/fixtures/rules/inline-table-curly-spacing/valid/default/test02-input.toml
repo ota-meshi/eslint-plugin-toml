@@ -1,0 +1,7 @@
+# {}
+# empty objects in default (ignored)
+a = {}
+b = { }
+# comment between braces
+c = { # inside comment
+}

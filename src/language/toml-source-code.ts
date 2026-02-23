@@ -821,6 +821,13 @@ export class TOMLSourceCode extends TextSourceCodeBase<{
     return this.tokenStore.getCommentsAfter(nodeOrToken);
   }
 
+  public commentsExistBetween(
+    first: TOMLSyntaxElement,
+    second: TOMLSyntaxElement,
+  ): boolean {
+    return this.tokenStore.commentsExistBetween(first, second);
+  }
+
   public isSpaceBetween(
     first: AST.Token | AST.Comment,
     second: AST.Token | AST.Comment,

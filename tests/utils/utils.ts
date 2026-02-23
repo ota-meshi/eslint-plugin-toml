@@ -202,11 +202,12 @@ function writeFixtures(
   const result = linter.verify(
     config.code,
     {
+      files: ["**/*", "*", "**/*.*", "*.*"],
       plugins: {
         toml: plugin,
       },
       rules: {
-        [ruleName]: ["error", ...(config.options || [])],
+        [`toml/${ruleName}`]: ["error", ...(config.options || [])],
       },
       languageOptions: {
         parser: isToml(inputFile) ? tomlESLintParser : vueESLintParser,

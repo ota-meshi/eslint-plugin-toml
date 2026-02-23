@@ -1,0 +1,4 @@
+# inline-table-curly-spacing/invalid/empty-objects/never/test01-input.toml
+# {"options":["always",{"emptyObjects":"never"}]}
+# this should be fixed to {}
+a = {}
