@@ -1,0 +1,4 @@
+# inline-table-key-value-newline/invalid/allow-same-line/test01-input.toml
+bad = { a = 1,
+b = 2,
+c = 3 }

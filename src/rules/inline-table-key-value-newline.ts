@@ -13,8 +13,9 @@ type Schema1 = {
  */
 function parseOptions(options: Schema1 | undefined): Required<Schema1> {
   return {
-    allowAllPropertiesOnSameLine:
-      options?.allowAllPropertiesOnSameLine ?? false,
+    // By default, allow all properties on the same line (e.g. `{ a = 1, b = 2 }` is valid).
+    // This differs from the ESLint core object-property-newline rule, but matches historical practice with TOML 1.0.
+    allowAllPropertiesOnSameLine: options?.allowAllPropertiesOnSameLine ?? true,
   };
 }
 

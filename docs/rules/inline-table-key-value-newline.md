@@ -15,7 +15,10 @@ description: "enforce placing inline table key-value pairs on separate lines"
 
 ## :book: Rule Details
 
-This rule reports ???.
+This rule enforces placing each key-value pair of TOML inline tables on a separate line.
+It is analogous to ESLint's `object-property-newline` but for TOML inline tables (multiline inline table syntax is available in TOML v1.1+).
+
+Note: The rule is skipped when the parser's TOML version is v1.0 because multiline inline tables are not available in that version.
 
 <eslint-code-block fix>
 
@@ -24,38 +27,54 @@ This rule reports ???.
 ```toml
 # eslint toml/inline-table-key-value-newline: 'error'
 
-# ✓ GOOD
-"good" = "foo"
+# ✓ GOOD (multiline)
+val1 = {
+  a = 1,
+  b = 2
+}
 
-# ✗ BAD
-"bad" = "bar"
+# ✗ BAD (key-value pairs not on separate lines)
+val2 = { a = 1, b = 2 }
+
 ```
 
 </eslint-code-block>
 
 ## :wrench: Options
 
-Nothing.
-
 ```yaml
 toml/inline-table-key-value-newline:
   - error
-  - opt
+  - allowAllPropertiesOnSameLine: false # or true
 ```
 
-Same as [inline-table-key-value-newline] rule option. See [here](https://eslint.org/docs/rules/inline-table-key-value-newline#options) for details.
+- `allowAllPropertiesOnSameLine` ... when `true` (default), all properties may be on the same single line (e.g. `{ a = 1, b = 2 }`). When `false`, each property must be on its own line.
 
--
+<eslint-code-block fix>
 
-## :books: Further reading
+<!-- eslint-skip -->
 
--
+```toml
+# eslint toml/inline-table-key-value-newline: ["error", { allowAllPropertiesOnSameLine: true }]
+
+# ✓ GOOD (single line when allowed)
+val2 = { a = 1, b = 2 }
+
+# ✗ BAD
+val3 = { a = 1, b = 2,
+c = 2 }
+
+```
+
+</eslint-code-block>
 
 ## :couple: Related rules
 
-- [inline-table-key-value-newline]
+- [toml/inline-table-curly-newline]
+- [object-property-newline]
 
-[inline-table-key-value-newline]: https://eslint.org/docs/rules/inline-table-key-value-newline
+[toml/inline-table-curly-newline]: ./inline-table-curly-newline.md
+[object-property-newline]: https://eslint.org/docs/rules/object-property-newline
 
 ## :mag: Implementation
 

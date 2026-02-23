@@ -1,12 +1,7 @@
 [
   {
-    "message": "Inline table key-value pairs must go on a new line.",
+    "message": "Inline table key-value pairs must go on a new line if they aren't all on the same line.",
     "line": 2,
     "column": 16
-  },
-  {
-    "message": "Inline table key-value pairs must go on a new line.",
-    "line": 2,
-    "column": 23
   }
 ]
