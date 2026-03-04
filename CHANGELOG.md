@@ -1,5 +1,11 @@
 # eslint-plugin-toml
 
+## 1.3.1
+
+### Patch Changes
+
+- [#340](https://github.com/ota-meshi/eslint-plugin-toml/pull/340) [`a192799`](https://github.com/ota-meshi/eslint-plugin-toml/commit/a192799b444a9a0649b9a8d86ca59deecdfc3ea6) Thanks [@ota-meshi](https://github.com/ota-meshi)! - fix(toml-language): crash when parsing error
+
 ## 1.3.0
 
 ### Minor Changes
