@@ -1,20 +1,12 @@
 /**
  * @fileoverview The TOML language implementation for ESLint.
  */
-import type { Language, File, OkParseResult } from "@eslint/core";
+import type { Language, File, OkParseResult, ParseResult } from "@eslint/core";
 import { parseTOML } from "toml-eslint-parser";
 import { VisitorKeys } from "toml-eslint-parser";
 import type { AST } from "toml-eslint-parser";
 import { TOMLSourceCode } from "./toml-source-code.ts";
 import type { TOMLVersionOption } from "toml-eslint-parser";
-
-/**
- * Parse result
- */
-interface TOMLParseResult {
-  ok: true;
-  ast: AST.TOMLProgram;
-}
 
 /**
  * Language options for TOML
@@ -83,19 +75,37 @@ export class TOMLLanguage implements Language<{
   public parse(
     file: File,
     context: { languageOptions?: TOMLLanguageOptions },
-  ): OkParseResult<AST.TOMLProgram> | TOMLParseResult {
+  ): ParseResult<AST.TOMLProgram> {
     // Note: BOM already removed
     const text = file.body as string;
 
-    const ast = parseTOML(text, {
-      filePath: file.path,
-      tomlVersion: context.languageOptions?.parserOptions?.tomlVersion,
-    });
+    try {
+      const ast = parseTOML(text, {
+        filePath: file.path,
+        tomlVersion: context.languageOptions?.parserOptions?.tomlVersion,
+      });
 
-    return {
-      ok: true,
-      ast,
-    };
+      return {
+        ok: true,
+        ast,
+      };
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : String(error);
+      const parseError = error as {
+        lineNumber?: number;
+        column?: number;
+      };
+      return {
+        ok: false,
+        errors: [
+          {
+            message,
+            line: parseError.lineNumber ?? 1,
+            column: parseError.column ?? 1,
+          },
+        ],
+      };
+    }
   }
 
   /**
@@ -103,7 +113,7 @@ export class TOMLLanguage implements Language<{
    */
   public createSourceCode(
     file: File,
-    parseResult: OkParseResult<AST.TOMLProgram> | TOMLParseResult,
+    parseResult: OkParseResult<AST.TOMLProgram>,
   ): TOMLSourceCode {
     return new TOMLSourceCode({
       text: file.body as string,
