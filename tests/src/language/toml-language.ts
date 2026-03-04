@@ -45,6 +45,11 @@ describe("TOML Language", () => {
           column: 12,
           ruleId: null,
           severity: 2,
+          ...(Linter.version.startsWith("9.")
+            ? {
+                nodeType: null,
+              }
+            : {}),
         },
       ]);
     });
