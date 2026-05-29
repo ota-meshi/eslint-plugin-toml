@@ -1,5 +1,11 @@
 # eslint-plugin-toml
 
+## 1.4.0
+
+### Minor Changes
+
+- [#355](https://github.com/ota-meshi/eslint-plugin-toml/pull/355) [`db9ab6e`](https://github.com/ota-meshi/eslint-plugin-toml/commit/db9ab6ef810bf5954b37b6e573f461371e0c80b0) Thanks [@ota-meshi](https://github.com/ota-meshi)! - feat: add `namespace` to plugin `meta`
+
 ## 1.3.1
 
 ### Patch Changes
