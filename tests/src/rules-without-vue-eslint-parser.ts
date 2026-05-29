@@ -1,6 +1,6 @@
 import { Linter } from "eslint";
 import plugin from "../../src/index.ts";
-import assert from "assert";
+import assert from "node:assert";
 const rules = plugin.rules;
 
 describe("Don't crash even if without toml-eslint-parser.", () => {

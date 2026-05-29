@@ -2,7 +2,7 @@
 import type { RuleModule, PartialRuleModule, RuleContext } from "../types.ts";
 import type { Rule } from "eslint";
 import * as tomlESLintParser from "toml-eslint-parser";
-import path from "path";
+import path from "node:path";
 
 /**
  * Define the rule.

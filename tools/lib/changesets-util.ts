@@ -1,5 +1,5 @@
 import getReleasePlan from "@changesets/get-release-plan";
-import path from "path";
+import path from "node:path";
 
 // eslint-disable-next-line n/no-unsupported-features/node-builtins -- It's only used in script
 const dirname = import.meta.dirname;

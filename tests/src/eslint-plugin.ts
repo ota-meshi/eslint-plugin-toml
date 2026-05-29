@@ -1,6 +1,6 @@
-import path from "path";
-import { fileURLToPath } from "url";
-import assert from "assert";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import assert from "node:assert";
 import plugin from "../../src/index.ts";
 import { setPlugin } from "../fixtures/integrations/eslint-plugin/plugin-store.cjs";
 import semver from "semver";

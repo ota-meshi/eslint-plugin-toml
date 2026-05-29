@@ -1,4 +1,4 @@
-import assert from "assert";
+import assert from "node:assert";
 import { parseForESLint } from "toml-eslint-parser";
 import { TOMLSourceCode } from "../../../src/language/toml-source-code.ts";
 

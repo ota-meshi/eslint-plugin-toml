@@ -1,5 +1,5 @@
-import path from "path";
-import fs from "fs";
+import path from "node:path";
+import fs from "node:fs";
 import { rules } from "../src/utils/rules.ts";
 import type { RuleModule } from "../src/types.ts";
 import { getNewVersion } from "./lib/changesets-util.ts";

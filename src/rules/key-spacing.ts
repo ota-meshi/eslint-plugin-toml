@@ -1,5 +1,5 @@
 import type { AST } from "toml-eslint-parser";
-import type { RuleContext, RuleListener } from "../types";
+import type { RuleContext, RuleListener } from "../types.ts";
 import { createRule } from "../utils/index.ts";
 import { isEqualSign } from "../utils/ast-utils.ts";
 

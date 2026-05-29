@@ -1,7 +1,7 @@
 import { RuleTester } from "eslint";
 import rule from "../../../src/rules/precision-of-integer.ts";
 import { loadTestCases } from "../../utils/utils.ts";
-import assert from "assert";
+import assert from "node:assert";
 import { maxBitToMaxValues } from "../../../src/utils/bit.ts";
 import plugin from "../../../src/index.ts";
 

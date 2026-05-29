@@ -1,4 +1,4 @@
-import assert from "assert";
+import assert from "node:assert";
 import { Linter } from "eslint";
 import plugin from "../../../src/index.ts";
 

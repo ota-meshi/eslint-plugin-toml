@@ -1,7 +1,7 @@
 import type { AST } from "toml-eslint-parser";
 import { createRule } from "../utils/index.ts";
 
-import type { RuleFixer, RuleListener, TOMLToken } from "../types";
+import type { RuleFixer, RuleListener, TOMLToken } from "../types.ts";
 import {
   LINEBREAK_MATCHER,
   isCommaToken,
