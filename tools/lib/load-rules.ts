@@ -1,5 +1,5 @@
-import path from "path";
-import fs from "fs";
+import path from "node:path";
+import fs from "node:fs";
 import type { RuleModule } from "../../src/types.ts";
 
 // eslint-disable-next-line n/no-unsupported-features/node-builtins -- It's only used in script

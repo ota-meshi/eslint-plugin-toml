@@ -1,5 +1,5 @@
 import type { AST } from "toml-eslint-parser";
-import type { RuleFixer } from "../types";
+import type { RuleFixer } from "../types.ts";
 import { createRule } from "../utils/index.ts";
 
 import type { RuleTextEdit } from "@eslint/core";

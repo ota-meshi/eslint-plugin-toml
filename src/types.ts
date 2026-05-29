@@ -2,8 +2,8 @@
 import type { JSONSchema4 } from "json-schema";
 import type { AST } from "toml-eslint-parser";
 import type * as core from "@eslint/core";
-import type { TOMLLanguageOptions } from "./language/toml-language";
-import type { TOMLSourceCode } from "./language";
+import type { TOMLLanguageOptions } from "./language/toml-language.ts";
+import type { TOMLSourceCode } from "./language/index.ts";
 
 export interface RuleListener {
   TOMLTopLevelTable?: (node: AST.TOMLTopLevelTable) => void;

@@ -7,7 +7,7 @@ import {
   isTokenOnSameLine,
 } from "../utils/ast-utils.ts";
 import { isCommentToken } from "../utils/ast-utils.ts";
-import type { TOMLToken } from "../types";
+import type { TOMLToken } from "../types.ts";
 import type { TOMLSourceCode } from "../language/toml-source-code.ts";
 interface Schema1 {
   arraysInObjects?: boolean;

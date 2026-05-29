@@ -1,4 +1,4 @@
-import assert from "assert";
+import assert from "node:assert";
 import { parseTOML } from "toml-eslint-parser";
 import { TokenStore } from "@ota-meshi/ast-token-store";
 import type { AST } from "toml-eslint-parser";

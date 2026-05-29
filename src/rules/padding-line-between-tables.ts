@@ -1,5 +1,5 @@
 import type { AST } from "toml-eslint-parser";
-import type { TOMLToken } from "../types";
+import type { TOMLToken } from "../types.ts";
 import { createRule } from "../utils/index.ts";
 
 export default createRule("padding-line-between-tables", {

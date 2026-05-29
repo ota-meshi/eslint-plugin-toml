@@ -1,5 +1,6 @@
 import tseslint from "typescript-eslint";
 import myPlugin from "@ota-meshi/eslint-plugin";
+import n from "eslint-plugin-n";
 
 export default [
   {
@@ -82,6 +83,19 @@ export default [
     files: ["**/*.{mjs,ts,mts}", "*.md/*.js", "**/*.md/*.js"],
     languageOptions: {
       sourceType: "module",
+    },
+  },
+  {
+    plugins: { n },
+    files: ["**/*.{js,ts,mjc,mts,cjs,cts,vue}"],
+    rules: {
+      "n/prefer-node-protocol": "error",
+      "n/file-extension-in-import": ["error", "always"],
+    },
+    settings: {
+      n: {
+        typescriptExtensionMap: [],
+      },
     },
   },
   {
