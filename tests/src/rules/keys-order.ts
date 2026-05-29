@@ -13,4 +13,4 @@ const tester = new RuleTester({
   },
 });
 
-tester.run("keys-order", rule as any, loadTestCases("keys-order"));
+tester.run("keys-order", rule, loadTestCases("keys-order"));

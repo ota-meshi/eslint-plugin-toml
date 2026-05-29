@@ -15,6 +15,6 @@ const tester = new RuleTester({
 
 tester.run(
   "padding-line-between-pairs",
-  rule as any,
+  rule,
   loadTestCases("padding-line-between-pairs"),
 );

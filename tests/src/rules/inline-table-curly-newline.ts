@@ -15,6 +15,6 @@ const tester = new RuleTester({
 
 tester.run(
   "inline-table-curly-newline",
-  rule as any,
+  rule,
   loadTestCases("inline-table-curly-newline"),
 );

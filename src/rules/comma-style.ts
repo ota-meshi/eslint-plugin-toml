@@ -252,9 +252,7 @@ export default createRule("comma-style", {
 
             previousItemToken = tokenAfterItem
               ? sourceCode.getTokenBefore(tokenAfterItem)!
-              : (sourceCode.ast.tokens[
-                  sourceCode.ast.tokens.length - 1
-                ] as ReturnType<typeof sourceCode.getLastToken>)!;
+              : sourceCode.ast.tokens[sourceCode.ast.tokens.length - 1];
           } else {
             previousItemToken = currentItemToken;
           }
