@@ -13,4 +13,4 @@ const tester = new RuleTester({
   },
 });
 
-tester.run("spaced-comment", rule as any, loadTestCases("spaced-comment"));
+tester.run("spaced-comment", rule, loadTestCases("spaced-comment"));

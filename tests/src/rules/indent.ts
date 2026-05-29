@@ -13,4 +13,4 @@ const tester = new RuleTester({
   },
 });
 
-tester.run("indent", rule as any, loadTestCases("indent"));
+tester.run("indent", rule, loadTestCases("indent"));

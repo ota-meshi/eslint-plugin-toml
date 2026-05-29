@@ -13,4 +13,4 @@ const tester = new RuleTester({
   },
 });
 
-tester.run("quoted-keys", rule as any, loadTestCases("quoted-keys"));
+tester.run("quoted-keys", rule, loadTestCases("quoted-keys"));

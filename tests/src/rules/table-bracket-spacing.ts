@@ -15,6 +15,6 @@ const tester = new RuleTester({
 
 tester.run(
   "table-bracket-spacing",
-  rule as any,
+  rule,
   loadTestCases("table-bracket-spacing"),
 );

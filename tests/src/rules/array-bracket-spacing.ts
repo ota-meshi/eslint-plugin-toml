@@ -15,6 +15,6 @@ const tester = new RuleTester({
 
 tester.run(
   "array-bracket-spacing",
-  rule as any,
+  rule,
   loadTestCases("array-bracket-spacing"),
 );

@@ -15,6 +15,6 @@ const tester = new RuleTester({
 
 tester.run(
   "no-unreadable-number-separator",
-  rule as any,
+  rule,
   loadTestCases("no-unreadable-number-separator"),
 );

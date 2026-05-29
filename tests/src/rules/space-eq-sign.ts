@@ -13,4 +13,4 @@ const tester = new RuleTester({
   },
 });
 
-tester.run("space-eq-sign", rule as any, loadTestCases("space-eq-sign"));
+tester.run("space-eq-sign", rule, loadTestCases("space-eq-sign"));

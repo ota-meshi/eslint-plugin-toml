@@ -13,4 +13,4 @@ const tester = new RuleTester({
   },
 });
 
-tester.run("no-space-dots", rule as any, loadTestCases("no-space-dots"));
+tester.run("no-space-dots", rule, loadTestCases("no-space-dots"));

@@ -13,4 +13,4 @@ const tester = new RuleTester({
   },
 });
 
-tester.run("comma-style", rule as any, loadTestCases("comma-style"));
+tester.run("comma-style", rule, loadTestCases("comma-style"));
