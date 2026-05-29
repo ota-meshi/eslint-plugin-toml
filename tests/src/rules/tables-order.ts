@@ -13,4 +13,4 @@ const tester = new RuleTester({
   },
 });
 
-tester.run("tables-order", rule as any, loadTestCases("tables-order"));
+tester.run("tables-order", rule, loadTestCases("tables-order"));

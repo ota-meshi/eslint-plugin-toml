@@ -44,7 +44,7 @@ export function createRule(
           },
         );
       }
-      return rule.create(context as any, {
+      return rule.create(context, {
         customBlock: false,
       });
     },

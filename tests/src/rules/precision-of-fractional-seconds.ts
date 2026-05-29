@@ -15,6 +15,6 @@ const tester = new RuleTester({
 
 tester.run(
   "precision-of-fractional-seconds",
-  rule as any,
+  rule,
   loadTestCases("precision-of-fractional-seconds"),
 );

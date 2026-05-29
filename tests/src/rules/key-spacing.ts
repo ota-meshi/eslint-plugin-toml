@@ -13,4 +13,4 @@ const tester = new RuleTester({
   },
 });
 
-tester.run("key-spacing", rule as any, loadTestCases("key-spacing"));
+tester.run("key-spacing", rule, loadTestCases("key-spacing"));
