@@ -75,9 +75,11 @@ This plugin provides configs:
 - `*.configs.base` ... Configuration to enable correct TOML parsing.
 - `*.configs.recommended` ... Above, plus rules to prevent errors or unintended behavior.
 - `*.configs.standard` ... Above, plus rules to enforce the common stylistic conventions.
+- `*.configs.all` ... Configuration to enable correct TOML parsing and all non-deprecated rules. This config is not recommended for production use because it may change with every minor release. Use at your own risk.
 
 For backward compatibility, you can also use the `flat/*` namespace:
 
+- `*.configs['flat/all']`
 - `*.configs['flat/base']`
 - `*.configs['flat/recommended']`
 - `*.configs['flat/standard']`

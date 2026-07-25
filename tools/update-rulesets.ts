@@ -6,11 +6,12 @@ import { rules } from "./lib/load-rules.ts";
 const isWin = os.platform().startsWith("win");
 
 const FLAT_RULESET_NAME = {
+  all: "../src/configs/flat/all.ts",
   recommended: "../src/configs/flat/recommended.ts",
   standard: "../src/configs/flat/standard.ts",
 };
 
-for (const rec of ["recommended", "standard"] as const) {
+for (const rec of ["all", "recommended", "standard"] as const) {
   let content = `/*
  * IMPORTANT!
  * This file has been automatically generated,
@@ -26,9 +27,8 @@ export default [
       ${rules
         .filter(
           (rule) =>
-            rule.meta.docs.categories &&
             !rule.meta.deprecated &&
-            rule.meta.docs.categories.includes(rec),
+            (rec === "all" || rule.meta.docs.categories?.includes(rec)),
         )
         .map((rule) => {
           const conf = rule.meta.docs.default || "error";

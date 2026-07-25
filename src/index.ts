@@ -2,6 +2,7 @@ import type { Linter } from "eslint";
 import type { RuleDefinition } from "@eslint/core";
 import type { RuleModule } from "./types.ts";
 import { rules as ruleList } from "./utils/rules.ts";
+import all from "./configs/flat/all.ts";
 import base from "./configs/flat/base.ts";
 import recommended from "./configs/flat/recommended.ts";
 import standard from "./configs/flat/standard.ts";
@@ -10,10 +11,12 @@ import type { TOMLSourceCode, TOMLLanguageOptions } from "./language/index.ts";
 import { TOMLLanguage } from "./language/index.ts";
 
 const configs = {
+  all: all as Linter.Config[],
   base: base as Linter.Config[],
   recommended: recommended as Linter.Config[],
   standard: standard as Linter.Config[],
   // Backward compatibility aliases
+  "flat/all": all as Linter.Config[],
   "flat/base": base as Linter.Config[],
   "flat/recommended": recommended as Linter.Config[],
   "flat/standard": standard as Linter.Config[],

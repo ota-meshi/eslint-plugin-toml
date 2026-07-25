@@ -48,7 +48,7 @@ val3 = {
 ```yaml
 toml/inline-table-curly-newline:
   - error
-  - always # or "never" 
+  - always # or "never"
   # or an object
   # - multiline: false
   #   minProperties: 2
