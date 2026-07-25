@@ -1,4 +1,4 @@
-import pako from "pako";
+import { inflate } from "pako";
 
 /**
  * Deserialize a given serialized string then update this object.
@@ -21,16 +21,10 @@ export function deserializeState(serializedString) {
       let error;
       for (const fn of [
         () => {
-          const uint8Arr = pako.inflate(
+          const uint8Arr = inflate(
             Uint8Array.from(decodedText, (c) => c.charCodeAt(0)),
           );
           const jsonText = new TextDecoder().decode(uint8Arr);
-          return JSON.parse(jsonText);
-        },
-        () => {
-          const jsonText = pako.inflate(decodedText, {
-            to: "string",
-          });
           return JSON.parse(jsonText);
         },
         () => JSON.parse(decodedText),
