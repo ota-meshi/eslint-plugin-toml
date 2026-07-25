@@ -11,7 +11,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v7
       - name: Setup node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: lts/*
       # npm 10's Arborist crashes on tsdown's nested optional peer dependencies.
