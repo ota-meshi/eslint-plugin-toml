@@ -1,5 +1,11 @@
 # eslint-plugin-toml
 
+## 1.5.0
+
+### Minor Changes
+
+- [#362](https://github.com/ota-meshi/eslint-plugin-toml/pull/362) [`e478a76`](https://github.com/ota-meshi/eslint-plugin-toml/commit/e478a760f723f15abdd839943dae94083f6bbcfd) Thanks [@ColumbusLabs](https://github.com/ColumbusLabs)! - Add an `all` configuration that enables every non-deprecated rule.
+
 ## 1.4.0
 
 ### Minor Changes
