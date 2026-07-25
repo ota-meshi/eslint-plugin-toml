@@ -12,6 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v6
+      # npm 10's Arborist crashes on tsdown's nested optional peer dependencies.
+      # npm 11.10.1+ includes the upstream fix: https://github.com/npm/cli/pull/8981
+      - name: Use npm 11.18.0
+        run: npm install --global npm@11.18.0
       - name: Install Packages
         run: npm install
       - name: Lint
@@ -30,6 +34,10 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node-version }}
+      # npm 10's Arborist crashes on tsdown's nested optional peer dependencies.
+      # npm 11.10.1+ includes the upstream fix: https://github.com/npm/cli/pull/8981
+      - name: Use npm 11.18.0
+        run: npm install --global npm@11.18.0
       - name: Set ESLint Version
         run: npm install eslint@${{ matrix.eslint }}
       - name: Install Packages
