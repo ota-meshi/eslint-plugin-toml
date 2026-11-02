@@ -76,7 +76,7 @@
     "@changesets/get-release-plan": "^5.0.0",
     "@eslint-community/eslint-plugin-eslint-comments": "^4.3.0",
     "@eslint/json": "^2.0.0",
-    "@ota-meshi/eslint-plugin": "^0.20.0",
+    "@ota-meshi/eslint-plugin": "^0.21.0",
     "@ota-meshi/site-kit-eslint-editor-vue": "^0.2.1",
     "@stylistic/eslint-plugin": "^5.7.1",
     "@types/debug": "^4.1.12",
