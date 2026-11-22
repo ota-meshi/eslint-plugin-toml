@@ -307,7 +307,8 @@ export default createRule("indent", {
         for (const token of sourceCode.getTokens(node, ITERATION_OPTS)) {
           if (
             tokensOnSameLine.length === 0 ||
-            tokensOnSameLine[0].loc.start.line === token.loc.start.line
+            tokensOnSameLine[tokensOnSameLine.length - 1].loc.end.line ===
+              token.loc.start.line
           ) {
             // This is on the same line (or the first token).
             tokensOnSameLine.push(token);
