@@ -1,0 +1,12 @@
+# indent/invalid/default/multiline-string01-input.toml
+a = [
+  """x
+y""",
+  "z",
+]
+b = {
+  c = """x
+y""", d = [
+    1,
+  ],
+}
