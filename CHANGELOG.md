@@ -1,5 +1,11 @@
 # eslint-plugin-toml
 
+## 1.5.1
+
+### Patch Changes
+
+- [#386](https://github.com/ota-meshi/eslint-plugin-toml/pull/386) [`1b7d368`](https://github.com/ota-meshi/eslint-plugin-toml/commit/1b7d3684c22294c0c794c2c913a64f590fdea139) Thanks [@anubhavlal07](https://github.com/anubhavlal07)! - fix(indent): ignore tokens following a multi-line string on its closing line
+
 ## 1.5.0
 
 ### Minor Changes
